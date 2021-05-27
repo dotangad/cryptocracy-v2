@@ -28,6 +28,7 @@ const ChatInputContainer = styled.form`
   display: flex;
   border-bottom: 5px solid white;
   height: 50px;
+  overflow: hidden;
 `;
 
 const ChatInput = styled.input`
@@ -35,7 +36,6 @@ const ChatInput = styled.input`
   height: 100%;
   background: #282828;
   padding: 15px 0;
-  font-family: "Lufga", system-ui;
   text-indent: 15px;
 
   &:focus {
@@ -46,7 +46,7 @@ const ChatInput = styled.input`
 
 const ChatButton = styled.button`
   width: 50px;
-  height: 50px;
+  height: 48px;
   border: none;
   background: white;
   display: flex;
@@ -60,7 +60,7 @@ const ChatMessageContainer = styled.div`
 `;
 
 const ChatMessage = styled.div`
-  width: 60%;
+  width: 80%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -68,6 +68,8 @@ const ChatMessage = styled.div`
   background: #282828;
   font-size: 0.9rem;
   line-height: 1rem;
+  height: auto;
+  overflow: hidden;
 `;
 
 const PriestChatMessageContainer = styled(ChatMessageContainer)`

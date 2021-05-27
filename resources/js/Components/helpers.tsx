@@ -80,7 +80,7 @@ export const FooterLogo: React.FC = () => {
 };
 
 export const FooterContent: React.FC = ({ children }) => {
-  return <div className="fContent"></div>;
+  return <div className="fContent">{children}</div>;
 };
 
 const CopyrightContainer = styled.div`
@@ -93,7 +93,7 @@ const CopyrightContainer = styled.div`
   @media screen and (max-width: 1300px) {
     justify-content: center;
     font-size: 0.9rem !important;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
   }
 `;
 
