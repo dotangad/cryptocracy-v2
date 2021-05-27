@@ -5,6 +5,7 @@
      <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/fonts/style.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <title>Cryptocracy 2021</title>
   </head>

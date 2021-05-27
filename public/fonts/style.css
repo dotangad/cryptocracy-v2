@@ -1,0 +1,127 @@
+@font-face {
+  font-family: "Bruta Pro";
+  font-weight: 600;
+  src: url("bruta-pro/BrutaProExtended-SemiBold.woff2") format("woff2"),
+    url("bruta-pro/BrutaProExtended-SemiBold.woff") format("woff"),
+    url("bruta-pro/BrutaProExtended-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bruta Pro";
+  font-weight: 700;
+  src: url("bruta-pro/BrutaProExtended-Bold.woff2") format("woff2"),
+    url("bruta-pro/BrutaProExtended-Bold.woff") format("woff"),
+    url("bruta-pro/BrutaProExtended-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 100;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 100;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-ThinItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 200;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 200;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-ExtraLightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 300;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 300;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 400;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 400;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-RegularItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 500;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 500;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-MediumItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 600;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 600;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-SemiBoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 700;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 700;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 800;
+  font-style: normal;
+  src: url("lufga_fonts/Lufga-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lufga";
+  font-weight: 800;
+  font-style: italic;
+  src: url("lufga_fonts/Lufga-BlackItalic.otf") format("opentype");
+}

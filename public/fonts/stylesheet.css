@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "Bruta Pro Extended Expanded";
+  src: url("bruta-pro/BrutaProExtended-BoldItalic.eot");
+  src: local("Bruta Pro Extended Bold Italic"), local("BrutaProExtended-BoldItalic"),
+    url("BrutaProExtended-BoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-BoldItalic.woff2") format("woff2"),
+    url("BrutaProExtended-BoldItalic.woff") format("woff"),
+    url("BrutaProExtended-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-BlackItalic.eot");
+  src: local("Bruta Pro Extended Black Italic"), local("BrutaProExtended-BlackItalic"),
+    url("BrutaProExtended-BlackItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-BlackItalic.woff2") format("woff2"),
+    url("BrutaProExtended-BlackItalic.woff") format("woff"),
+    url("BrutaProExtended-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-Thin.eot");
+  src: local("Bruta Pro Extended Thin"), local("BrutaProExtended-Thin"),
+    url("BrutaProExtended-Thin.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-Thin.woff2") format("woff2"),
+    url("BrutaProExtended-Thin.woff") format("woff"),
+    url("BrutaProExtended-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Expanded";
+  src: url("BrutaProExtended-Bold.eot");
+  src: local("Bruta Pro Extended Bold"), local("BrutaProExtended-Bold"),
+    url("BrutaProExtended-Bold.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-Bold.woff2") format("woff2"),
+    url("BrutaProExtended-Bold.woff") format("woff"),
+    url("BrutaProExtended-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-ThinItalic.eot");
+  src: local("Bruta Pro Extended Thin Italic"), local("BrutaProExtended-ThinItalic"),
+    url("BrutaProExtended-ThinItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-ThinItalic.woff2") format("woff2"),
+    url("BrutaProExtended-ThinItalic.woff") format("woff"),
+    url("BrutaProExtended-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-Black.eot");
+  src: local("Bruta Pro Extended Black"), local("BrutaProExtended-Black"),
+    url("BrutaProExtended-Black.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-Black.woff2") format("woff2"),
+    url("BrutaProExtended-Black.woff") format("woff"),
+    url("BrutaProExtended-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Extra";
+  src: url("BrutaProExtended-ExtraLight.eot");
+  src: local("Bruta Pro Extended Extra Light"), local("BrutaProExtended-ExtraLight"),
+    url("BrutaProExtended-ExtraLight.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-ExtraLight.woff2") format("woff2"),
+    url("BrutaProExtended-ExtraLight.woff") format("woff"),
+    url("BrutaProExtended-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Ex Light It";
+  src: url("BrutaProExtended-ExtraLightItalic.eot");
+  src: local("Bruta Pro Extended Extra Light Italic"),
+    local("BrutaProExtended-ExtraLightItalic"),
+    url("BrutaProExtended-ExtraLightItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-ExtraLightItalic.woff2") format("woff2"),
+    url("BrutaProExtended-ExtraLightItalic.woff") format("woff"),
+    url("BrutaProExtended-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Sm Bold It";
+  src: url("BrutaProExtended-SemiBoldItalic.eot");
+  src: local("Bruta Pro Extended Semi Bold Italic"),
+    local("BrutaProExtended-SemiBoldItalic"),
+    url("BrutaProExtended-SemiBoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-SemiBoldItalic.woff2") format("woff2"),
+    url("BrutaProExtended-SemiBoldItalic.woff") format("woff"),
+    url("BrutaProExtended-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-LightItalic.eot");
+  src: local("Bruta Pro Extended Light Italic"), local("BrutaProExtended-LightItalic"),
+    url("BrutaProExtended-LightItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-LightItalic.woff2") format("woff2"),
+    url("BrutaProExtended-LightItalic.woff") format("woff"),
+    url("BrutaProExtended-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-Light.eot");
+  src: local("Bruta Pro Extended Light"), local("BrutaProExtended-Light"),
+    url("BrutaProExtended-Light.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-Light.woff2") format("woff2"),
+    url("BrutaProExtended-Light.woff") format("woff"),
+    url("BrutaProExtended-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Ex Bold It";
+  src: url("BrutaProExtended-ExtraBoldItalic.eot");
+  src: local("Bruta Pro Extended Extra Bold Italic"),
+    local("BrutaProExtended-ExtraBoldItalic"),
+    url("BrutaProExtended-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-ExtraBoldItalic.woff2") format("woff2"),
+    url("BrutaProExtended-ExtraBoldItalic.woff") format("woff"),
+    url("BrutaProExtended-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Semi";
+  src: url("BrutaProExtended-SemiBold.eot");
+  src: local("Bruta Pro Extended Semi Bold"), local("BrutaProExtended-SemiBold"),
+    url("BrutaProExtended-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-SemiBold.woff2") format("woff2"),
+    url("BrutaProExtended-SemiBold.woff") format("woff"),
+    url("BrutaProExtended-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Extra";
+  src: url("BrutaProExtended-ExtraBold.eot");
+  src: local("Bruta Pro Extended Extra Bold"), local("BrutaProExtended-ExtraBold"),
+    url("BrutaProExtended-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-ExtraBold.woff2") format("woff2"),
+    url("BrutaProExtended-ExtraBold.woff") format("woff"),
+    url("BrutaProExtended-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended Expanded";
+  src: url("BrutaProExtended-RegularItalic.eot");
+  src: local("Bruta Pro Extended Regular Italic"), local("BrutaProExtended-RegularItalic"),
+    url("BrutaProExtended-RegularItalic.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-RegularItalic.woff2") format("woff2"),
+    url("BrutaProExtended-RegularItalic.woff") format("woff"),
+    url("BrutaProExtended-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bruta Pro Extended";
+  src: url("BrutaProExtended-Regular.eot");
+  src: local("Bruta Pro Extended Regular"), local("BrutaProExtended-Regular"),
+    url("BrutaProExtended-Regular.eot?#iefix") format("embedded-opentype"),
+    url("BrutaProExtended-Regular.woff2") format("woff2"),
+    url("BrutaProExtended-Regular.woff") format("woff"),
+    url("BrutaProExtended-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
