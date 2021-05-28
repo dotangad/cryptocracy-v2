@@ -14,21 +14,23 @@ export const PriestChatHeader: React.FC = () => {
 
 const PriestChatContainer = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 50px;
 `;
 
 const ChatInputContainer = styled.form`
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
   border-bottom: 5px solid white;
   height: 50px;
   overflow: hidden;
+`;
+
+const ChatHistory = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  overflow: auto;
 `;
 
 const ChatInput = styled.input`
@@ -94,27 +96,29 @@ export default () => {
 
   return (
     <PriestChatContainer className="Sidebar">
-      {chatHistory.map((m: any) =>
-        m[1] ? (
-          <UserChatMessageContainer>
-            <UserChatMessage>
-              <div>
-                <strong>You</strong>
-              </div>
-              <div>{m[0]}</div>
-            </UserChatMessage>
-          </UserChatMessageContainer>
-        ) : (
-          <PriestChatMessageContainer>
-            <PriestChatMessage>
-              <div>
-                <strong>Priest</strong>
-              </div>
-              <div>{m[0]}</div>
-            </PriestChatMessage>
-          </PriestChatMessageContainer>
-        )
-      )}
+      <ChatHistory>
+        {chatHistory.map((m: any) =>
+          m[1] ? (
+            <UserChatMessageContainer>
+              <UserChatMessage>
+                <div>
+                  <strong>You</strong>
+                </div>
+                <div>{m[0]}</div>
+              </UserChatMessage>
+            </UserChatMessageContainer>
+          ) : (
+            <PriestChatMessageContainer>
+              <PriestChatMessage>
+                <div>
+                  <strong>Priest</strong>
+                </div>
+                <div>{m[0]}</div>
+              </PriestChatMessage>
+            </PriestChatMessageContainer>
+          )
+        )}
+      </ChatHistory>
       <ChatInputContainer
         onSubmit={(e) => {
           e.preventDefault();

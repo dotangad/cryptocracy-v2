@@ -14,71 +14,56 @@ export default styled(Layer)`
   > div {
     color: white;
     border: 1.5px solid #282828;
+    overflow: auto;
   }
 
-  > .Navbar {
+  & > .Navbar {
     grid-area: Navbar;
-    overflow: auto;
   }
-  > .Content {
+  & > .Content {
     grid-area: Content;
-    overflow: auto;
   }
-  > .Sidebar {
+  & > .Sidebar {
     grid-area: Sidebar;
-    overflow: auto;
   }
-  > .SidebarTop {
+  & > .SidebarTop {
     grid-area: SidebarTop;
-    overflow: auto;
   }
-  > .Title {
+  & > .Title {
     grid-area: Title;
-    overflow: auto;
   }
-  > .fLogo {
+  & > .fLogo {
     grid-area: fLogo;
-    overflow: auto;
   }
-  > .Social {
+  & > .Social {
     grid-area: Social;
-    overflow: auto;
   }
-  > .fContent {
+  & > .fContent {
     grid-area: fContent;
-    overflow: auto;
   }
-  > .Copyright {
+  & > .Copyright {
     grid-area: Copyright;
-    overflow: auto;
   }
-  > .MobileHeader {
+  & > .MobileHeader {
     grid-area: MobileHeader;
-    overflow: auto;
   }
-  > .12 {
+  & > .12 {
     grid-area: 12;
-    overflow: auto;
   }
-  > .13 {
+  & > .13 {
     grid-area: 13;
-    overflow: auto;
   }
-  > .14 {
+  & > .14 {
     grid-area: 14;
-    overflow: auto;
   }
-  > .21 {
+  & > .21 {
     grid-area: 21;
-    overflow: auto;
   }
-  > .23 {
+  & > .23 {
     grid-area: 23;
-    overflow: auto;
   }
-  > .31 {
+  & > .31 {
     grid-area: 31;
-    overflow: auto;
   }
 
   @media screen and (max-width: 1300px) {
