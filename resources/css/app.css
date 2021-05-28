@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 html {
   min-height: 100%;
@@ -13,13 +13,12 @@ body,
 #app {
   height: 100%;
   width: 100%;
-  font-family: "Lufga", sans-serif;
-  background: #181818;
   overflow-x: hidden;
+  background: #181818;
+  color: #fff;
 }
 
 * {
-  /* DO NOT ADD STUFF HERE */
   box-sizing: border-box;
   font-family: "Lufga", monospace;
   margin: 0;
@@ -29,7 +28,6 @@ body,
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
-  border-radius: 100px;
 }
 
 /* Track */
@@ -45,4 +43,93 @@ body,
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: transparent;
+}
+
+.layers {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.layer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.layer.curves img {
+  width: 100vw;
+  height: 50vh;
+  opacity: 0.5;
+  object-fit: cover;
+  z-index: 1000;
+}
+
+.layer.grid {
+  z-index: 1001;
+  display: grid;
+  grid-template-columns: 75px 20vw calc(60vw - 75px) 20vw;
+  grid-template-rows: 75px 1fr 3fr 75px;
+  grid-template-areas:
+    "MobileHeader r1c2 r1c3 r1c4"
+    "r2c1 Title r2c3 SidebarTop"
+    "r3c1 Navbar Content Sidebar"
+    "fLogo Social fContent Copyright";
+}
+
+.layer.grid > div {
+  color: white;
+  border: 1.5px solid #282828;
+}
+
+.layer.grid > .Content {
+  overflow: auto;
+}
+
+.layer.grid > .Title {
+  grid-area: 2 / 4 / 3 / 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+}
+.layer.grid > .Title .line {
+  position: absolute;
+  top: 0;
+  left: calc(20vw - 2px);
+  width: 2px;
+  height: 100%;
+  z-index: 100001;
+  background: #282828;
+}
+
+@media screen and (max-width: 1300px) {
+  .layer.grid {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .layer.grid > div {
+    color: white;
+    border: none;
+    display: none !important;
+    height: auto;
+  }
+
+  .layer.grid > .MobileHeader,
+  .layer.grid > .Navbar,
+  .layer.grid > .Content,
+  .layer.grid > .Copyright,
+  .layer.grid > .Title {
+    display: block !important;
+  }
+
+  .layer.grid .Content {
+    height: fit-content;
+    width: 100vw;
+    overflow: visible;
+  }
 }

@@ -1,16 +1,23 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Discord, Facebook, Twitter, Instagram, Email } from "./Icons";
 
 const SocialLogosContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 10%;
+  height: 100%;
+  width: 100%;
 
-  > svg {
-    height: 30px;
+  > a svg {
+    height: 18px;
     width: auto;
+    margin-bottom: -5px;
+    transition: transform 0.3s ease;
+  }
+
+  > a:hover svg {
+    // transform: translateY(-5px);
   }
 `;
 
@@ -39,7 +46,7 @@ export default () => {
   ];
 
   return (
-    <SocialLogosContainer className="Social">
+    <SocialLogosContainer>
       {links.map(({ link, icon: Icon }, i) => (
         <a href={link} key={i}>
           <Icon />

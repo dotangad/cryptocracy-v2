@@ -8,6 +8,8 @@ const NavContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-end;
   padding: 20px;
+  width: 100%;
+  height: 100%;
 
   > a span {
     font-size: 1.5rem;
@@ -21,6 +23,7 @@ const NavContainer = styled.div`
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, background 0.3s ease;
+    text-decoration: none;
   }
 
   > a:hover {
@@ -37,6 +40,7 @@ const NavContainer = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    padding: 20px 0;
 
     > a {
       margin: 5px !important;
@@ -74,7 +78,7 @@ export default () => {
 
   const ActiveIndicator: React.FC = () => (
     <svg
-      className="w-6 h-6"
+      style={{ height: "25px", width: "25px" }}
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +92,7 @@ export default () => {
   );
 
   return (
-    <NavContainer className="Navbar">
+    <NavContainer>
       {links.map(({ href, label }, i) => (
         <InertiaLink
           key={i}

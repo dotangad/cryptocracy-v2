@@ -15,6 +15,8 @@ export const PriestChatHeader: React.FC = () => {
 const PriestChatContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;
 
 const ChatInputContainer = styled.form`
@@ -22,7 +24,6 @@ const ChatInputContainer = styled.form`
   display: flex;
   border-bottom: 5px solid white;
   height: 50px;
-  overflow: hidden;
 `;
 
 const ChatHistory = styled.div`
@@ -30,6 +31,7 @@ const ChatHistory = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   flex: 1;
+  height: 100%;
   overflow: auto;
 `;
 
@@ -39,6 +41,8 @@ const ChatInput = styled.input`
   background: #282828;
   padding: 15px 0;
   text-indent: 15px;
+  border: none;
+  color: #ffffff;
 
   &:focus {
     outline: none;
@@ -95,7 +99,7 @@ export default () => {
   const [chatHistory, setChatHistory] = useState<any>([]);
 
   return (
-    <PriestChatContainer className="Sidebar">
+    <PriestChatContainer>
       <ChatHistory>
         {chatHistory.map((m: any) =>
           m[1] ? (
