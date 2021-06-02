@@ -12,21 +12,22 @@ const NavContainer = styled.div`
   height: 100%;
 
   > a span {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
     font-family: "Bruta Pro";
+    transition: transform 0.3s ease, background 0.3s ease;
   }
 
   > a {
     color: white;
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, background 0.3s ease;
     text-decoration: none;
   }
 
-  > a:hover {
+  > a:hover span {
     transform: translateX(10px);
   }
 

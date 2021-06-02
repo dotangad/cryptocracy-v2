@@ -61,7 +61,7 @@ body,
 
 .layer.curves img {
   width: 100vw;
-  height: 50vh;
+  height: 30vh;
   opacity: 0.5;
   object-fit: cover;
   z-index: 1000;
@@ -70,7 +70,7 @@ body,
 .layer.grid {
   z-index: 1001;
   display: grid;
-  grid-template-columns: 75px 20vw calc(60vw - 75px) 20vw;
+  grid-template-columns: 75px 17vw calc(63vw - 75px) 20vw;
   grid-template-rows: 75px 1fr 3fr 75px;
   grid-template-areas:
     "MobileHeader r1c2 r1c3 r1c4"
@@ -86,6 +86,7 @@ body,
 
 .layer.grid > .Content {
   overflow: auto;
+  padding: 20px;
 }
 
 .layer.grid > .Title {
@@ -95,10 +96,11 @@ body,
   align-items: flex-end;
   position: relative;
 }
+
 .layer.grid > .Title .line {
   position: absolute;
   top: 0;
-  left: calc(20vw - 2px);
+  left: calc(17vw - 3px);
   width: 2px;
   height: 100%;
   z-index: 100001;
@@ -119,6 +121,14 @@ body,
     height: auto;
   }
 
+  .layer.curves img {
+    opacity: 0.15;
+  }
+
+  .layer.grid > .Title .line {
+    display: none;
+  }
+
   .layer.grid > .MobileHeader,
   .layer.grid > .Navbar,
   .layer.grid > .Content,
@@ -131,5 +141,6 @@ body,
     height: fit-content;
     width: 100vw;
     overflow: visible;
+    padding: 20px 0;
   }
 }

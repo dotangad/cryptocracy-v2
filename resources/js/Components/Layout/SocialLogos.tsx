@@ -1,6 +1,6 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import { Discord, Facebook, Twitter, Instagram, Email } from "./Icons";
+import styled from "styled-components";
+import { Discord, Facebook, Twitter, Instagram, Email } from "../Icons";
 
 const SocialLogosContainer = styled.div`
   display: flex;
@@ -10,14 +10,14 @@ const SocialLogosContainer = styled.div`
   width: 100%;
 
   > a svg {
-    height: 18px;
+    height: 20px;
     width: auto;
     margin-bottom: -5px;
     transition: transform 0.3s ease;
   }
 
   > a:hover svg {
-    // transform: translateY(-5px);
+    transform: translateY(-2px);
   }
 `;
 

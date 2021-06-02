@@ -15,9 +15,12 @@ const TitleSpan = styled.span`
   font-family: "Bruta Pro";
   position: relative;
   z-index: 100001;
+  padding-bottom: 10px;
+  padding-left: 10px;
 
   @media screen and (max-width: 1300px) {
     font-size: 2.5rem;
+    padding: 0;
   }
 `;
 
@@ -45,7 +48,8 @@ const CopyrightContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.8rem;
-  font-family: "Bruta Pro";
+  font-weight: bold;
+  color: #999;
   padding: 0 20px;
   height: 100%;
   width: 100%;

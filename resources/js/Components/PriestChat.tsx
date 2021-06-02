@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { SidebarTop } from "./helpers";
+import { SidebarTop } from "./Layout/helpers";
 import quotes from "../Data/quotes";
 
 export const PriestChatHeader: React.FC = () => {
