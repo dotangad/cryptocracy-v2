@@ -13,10 +13,10 @@ export const PriestChatHeader: React.FC = () => {
 };
 
 const PriestChatContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
 `;
 
 const ChatInputContainer = styled.form`
@@ -27,11 +27,8 @@ const ChatInputContainer = styled.form`
 `;
 
 const ChatHistory = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 1;
-  height: 100%;
+  height: calc(100% - 50px);
+  min-height: 0;
   overflow: auto;
 `;
 
@@ -97,6 +94,7 @@ const UserChatMessage = styled(ChatMessage)`
 export default () => {
   const msgInputRef = useRef<HTMLInputElement>(null);
   const [chatHistory, setChatHistory] = useState<any>([]);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   return (
     <PriestChatContainer>
@@ -122,6 +120,7 @@ export default () => {
             </PriestChatMessageContainer>
           )
         )}
+        <div ref={bottomRef} />
       </ChatHistory>
       <ChatInputContainer
         onSubmit={(e) => {
@@ -130,7 +129,11 @@ export default () => {
           (msgInputRef as any).current.value = "";
           const reply = quotes[Math.floor(Math.random() * 100) % quotes.length];
           setChatHistory((c: any) => [...c, [message, true]]);
-          setTimeout(() => setChatHistory((c: any) => [...c, [reply, false]]), 500);
+          bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => {
+            setChatHistory((c: any) => [...c, [reply, false]]);
+            bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
         }}
       >
         <ChatInput
