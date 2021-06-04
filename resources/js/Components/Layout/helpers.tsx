@@ -94,3 +94,11 @@ export const FooterLogo: React.FC = () => {
     </FooterLogoDiv>
   );
 };
+
+export const MobileOnly = styled.div`
+  display: none;
+
+  @media screen and (max-width: 1300px) {
+    display: block;
+  }
+`;

@@ -71,9 +71,9 @@ const NavContainer = styled.div`
 export default () => {
   const links = [
     { href: "/", label: "Home" },
-    { href: "/play", label: "Play" },
+    { href: "/register", label: "Register" },
     { href: "/about", label: "About" },
-    { href: "/sponsor", label: "Sponsor Us" },
+    // { href: "/sponsor", label: "Sponsor Us" },
     { href: "/leaderboard", label: "Leaderboard" }
   ];
 

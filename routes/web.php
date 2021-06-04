@@ -17,3 +17,20 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Index');
 });
+
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
+
+Route::get('/leaderboard', function () {
+    $faker = Faker\Factory::create();
+    $users = [];
+
+    for ($i = 0; $i < 100; $i++) {
+        $users[$i] = [
+            'username' => $faker->username()
+        ];
+    }
+
+    return Inertia::render('Leaderboard', ['users' => $users]);
+});

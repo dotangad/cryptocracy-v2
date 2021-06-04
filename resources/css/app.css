@@ -20,7 +20,7 @@ body,
 
 * {
   box-sizing: border-box;
-  font-family: "Lufga", monospace;
+  font-family: "Lufga";
   margin: 0;
   padding: 0;
 }
@@ -70,7 +70,7 @@ body,
 .layer.grid {
   z-index: 1001;
   display: grid;
-  grid-template-columns: 75px 17vw calc(63vw - 75px) 20vw;
+  grid-template-columns: 75px 20vw calc(63vw - 75px) 20vw;
   grid-template-rows: 75px 1fr 3fr 75px;
   grid-template-areas:
     "MobileHeader r1c2 r1c3 r1c4"
@@ -89,6 +89,10 @@ body,
   padding: 20px;
 }
 
+.Content > div {
+  min-height: 0;
+}
+
 .layer.grid > .Title {
   grid-area: 2 / 4 / 3 / 2;
   display: flex;
@@ -100,11 +104,23 @@ body,
 .layer.grid > .Title .line {
   position: absolute;
   top: 0;
-  left: calc(17vw - 3px);
+  left: calc(20vw - 3px);
   width: 2px;
   height: 100%;
   z-index: 100001;
   background: #282828;
+}
+
+a {
+  text-decoration-color: #282828;
+  text-decoration-thickness: 3px;
+  color: inherit;
+  font-weight: 500;
+  transition: text-decoration-color 0.3s ease;
+}
+
+a:hover {
+  text-decoration-color: #fff;
 }
 
 @media screen and (max-width: 1300px) {
