@@ -68,13 +68,19 @@ const NavContainer = styled.div`
   }
 `;
 
+interface ILink {
+  href: string;
+  label: string;
+  external?: boolean;
+}
+
 export default () => {
-  const links = [
+  const links: ILink[] = [
     { href: "/", label: "Home" },
-    // { href: "/register", label: "Register" },
-    { href: "/about", label: "About" }
-    // { href: "/sponsor", label: "Sponsor Us" },
-    // { href: "/leaderboard", label: "Leaderboard" }
+    { href: "/about", label: "About" },
+    { href: "/register", label: "Register" },
+    { href: "/leaderboard", label: "Leaderboard" }
+    // { href: "/sponsor", label: "Sponsor Us" }
   ];
 
   const ActiveIndicator: React.FC = () => (
@@ -94,16 +100,22 @@ export default () => {
 
   return (
     <NavContainer>
-      {links.map(({ href, label }, i) => (
-        <InertiaLink
-          key={i}
-          href={href}
-          className={window.location.pathname === href ? "active" : ""}
-        >
-          {window.location.pathname === href && <ActiveIndicator />}
-          <span>{label}</span>
-        </InertiaLink>
-      ))}
+      {links.map(({ href, label, external }, i) =>
+        external ? (
+          <a key={i} href={href} target="_blank">
+            <span>{label}</span>
+          </a>
+        ) : (
+          <InertiaLink
+            key={i}
+            href={href}
+            className={window.location.pathname === href ? "active" : ""}
+          >
+            {window.location.pathname === href && <ActiveIndicator />}
+            <span>{label}</span>
+          </InertiaLink>
+        )
+      )}
     </NavContainer>
   );
 };

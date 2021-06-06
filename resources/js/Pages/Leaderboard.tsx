@@ -56,6 +56,7 @@ const SearchInput = styled.input`
 
 interface ILeaderboardUser {
   username: string;
+  rank?: number;
 }
 
 interface IProps {
@@ -95,9 +96,9 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
               </tr>
             </thead>
             <tbody>
-              {displayUsers.map(({ username }, i) => (
+              {displayUsers.map(({ username, rank }, i) => (
                 <tr>
-                  <td>{i + 1}</td>
+                  <td>{rank}</td>
                   <td>{username}</td>
                 </tr>
               ))}

@@ -49,4 +49,4 @@ export default [
   "Every one in the world ought to do the things for which he is specially adapted. It is the part of wisdom to recognize what each one of us is best fitted for, and it is the part of education to perfect and utilize such predispositions. Because education can direct and aid nature but can never transform her.",
   "He who lives in harmony with himself lives in harmony with the world.",
   "The first requisite for success is the ability to apply your physical and mental energies to one problem incessantly without growing weary."
-]
+];
