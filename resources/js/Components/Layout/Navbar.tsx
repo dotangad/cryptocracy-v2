@@ -71,10 +71,10 @@ const NavContainer = styled.div`
 export default () => {
   const links = [
     { href: "/", label: "Home" },
-    { href: "/register", label: "Register" },
-    { href: "/about", label: "About" },
+    // { href: "/register", label: "Register" },
+    { href: "/about", label: "About" }
     // { href: "/sponsor", label: "Sponsor Us" },
-    { href: "/leaderboard", label: "Leaderboard" }
+    // { href: "/leaderboard", label: "Leaderboard" }
   ];
 
   const ActiveIndicator: React.FC = () => (

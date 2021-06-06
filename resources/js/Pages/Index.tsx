@@ -25,6 +25,10 @@ const Global = createGlobalStyle`
     font-size: 2rem;
     margin: 20px 0;
   }
+
+  .layer.grid > .Title .line {
+    left: calc(18vw - 2px);
+  }
 `;
 
 const Index: React.FC = () => {
@@ -36,7 +40,8 @@ const Index: React.FC = () => {
         SidebarHeader={<PriestChatHeader />}
         Sidebar={<PriestChat />}
         gridStyles={{
-          gridTemplateRows: "75px calc(45vh - 75px) calc(55vh - 75px) 75px"
+          gridTemplateRows: "75px calc(45vh - 75px) calc(55vh - 75px) 75px",
+          gridTemplateColumns: "75px calc(18vw + 1px) 1fr calc(18vw + 1px)"
         }}
         imgStyles={{ height: "50vh" }}
       >
@@ -51,17 +56,18 @@ const Index: React.FC = () => {
             <InertiaLink href="/about">See more details about the hunt</InertiaLink>.
           </p>
 
-          <p>
-            <InertiaLink href="/leaderboard/20">Click here</InertiaLink> to see the result
-            of Cryptocracy I, 2020.
-          </p>
+          {/* <p> */}
+          {/*   <InertiaLink href="/leaderboard/20">Click here</InertiaLink> to see the result */}
+          {/*   of Cryptocracy I, 2020. */}
+          {/* </p> */}
 
           <ButtonContainer style={{ marginTop: "20px" }}>
-            <PrimaryButton href="/register">
-              <span>Register</span>
-              <ChevronRight className="right animate" />
-            </PrimaryButton>
-            <SecondaryButton href="https://discord.com" style={{ marginLeft: "20px" }}>
+            {/* <PrimaryButton href="/register"> */}
+            {/*   <span>Register</span> */}
+            {/*   <ChevronRight className="right animate" /> */}
+            {/* </PrimaryButton> */}
+            {/* <SecondaryButton href="https://discord.com" style={{ marginLeft: "20px" }}> */}
+            <SecondaryButton href="https://discord.com">
               <Discord className="left" />
               <span>Join the Discord</span>
               <ChevronRight className="right animate" />
