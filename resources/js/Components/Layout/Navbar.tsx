@@ -45,6 +45,7 @@ const NavContainer = styled.div`
 
     > a {
       margin: 5px !important;
+      transform: translateX(-7px);
     }
 
     > a:hover span {
