@@ -58,9 +58,8 @@ const Index: React.FC = () => {
           </p>
 
           <p>
-            Cryptocracy is an international 48-hour cryptic hunt, conducted on 28th and
-            29th June.{" "}
-            <InertiaLink href="/about">See more details about the hunt</InertiaLink>.
+            Cryptocracy is an international 48-hour cryptic hunt, coming soon to a
+            computer near you.
           </p>
 
           {/* <p> */}
@@ -73,8 +72,15 @@ const Index: React.FC = () => {
             {/*   <span>Register</span> */}
             {/*   <ChevronRight className="right animate" /> */}
             {/* </PrimaryButton> */}
-            {/* <SecondaryButton href="https://discord.com" style={{ marginLeft: "20px" }}> */}
-            <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR">
+            <PrimaryButton href="/about">
+              <span>Learn More</span>
+              <ChevronRight className="right animate" />
+            </PrimaryButton>
+            <SecondaryButton
+              href="https://discord.gg/Rj2Q9xuKWR"
+              style={{ marginLeft: "20px" }}
+            >
+              {/* <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR"> */}
               <Discord className="left" />
               <span>Join the Discord</span>
               <ChevronRight className="right animate" />
