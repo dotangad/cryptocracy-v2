@@ -25,10 +25,6 @@ const Global = createGlobalStyle`
     margin: 20px 0;
   }
 
-  .layer.grid > .Title .line {
-    left: calc(18vw - 2px);
-  }
-
   @media screen and (max-width: 1300px) {
     .Content p {
       font-size: 1.6rem;
@@ -62,7 +58,7 @@ const Index: React.FC = () => {
         Sidebar={<PriestChat />}
         gridStyles={{
           gridTemplateRows: "75px calc(45vh - 75px) calc(55vh - 75px) 75px",
-          gridTemplateColumns: "75px calc(18vw + 1px) 1fr calc(18vw + 1px)"
+          gridTemplateColumns: "75px 20vw 1.8fr 1fr"
         }}
         imgStyles={{ height: "50vh" }}
       >

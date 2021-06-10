@@ -8,10 +8,6 @@ const Global = createGlobalStyle`
   .Sidebar {
     overflow: hidden;
   }
-
-  .layer.grid > .Title .line {
-    left: calc(18vw - 2px);
-  }
 `;
 
 const TeamDiv = styled.div`
@@ -130,7 +126,7 @@ const About: React.FC = () => {
         }
         Sidebar={<FAQs />}
         gridStyles={{
-          gridTemplateColumns: "75px calc(18vw + 1px) 1.5fr 1fr"
+          gridTemplateColumns: "75px 20vw 1.5fr 1fr"
         }}
       >
         <div>
