@@ -1,6 +1,5 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
-import { InertiaLink } from "@inertiajs/inertia-react";
+import styled, { createGlobalStyle } from "styled-components";
 import Layout from "../Components/Layout";
 import PriestChat, { PriestChatHeader } from "../Components/PriestChat";
 import { PrimaryButton, SecondaryButton, ButtonContainer } from "../Components/Button";
@@ -38,6 +37,21 @@ const Global = createGlobalStyle`
   }
 `;
 
+const IndexButtonContainer = styled(ButtonContainer)`
+  margin-top: 20px;
+  flex-wrap: wrap;
+
+  > a:nth-child(2) {
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 530px) {
+    > a {
+      margin: 10px 0 !important;
+    }
+  }
+`;
+
 const Index: React.FC = () => {
   return (
     <>
@@ -67,7 +81,7 @@ const Index: React.FC = () => {
           {/*   of Cryptocracy I, 2020. */}
           {/* </p> */}
 
-          <ButtonContainer style={{ marginTop: "20px" }}>
+          <IndexButtonContainer>
             {/* <PrimaryButton href="/register"> */}
             {/*   <span>Register</span> */}
             {/*   <ChevronRight className="right animate" /> */}
@@ -76,16 +90,12 @@ const Index: React.FC = () => {
               <span>Learn More</span>
               <ChevronRight className="right animate" />
             </PrimaryButton>
-            <SecondaryButton
-              href="https://discord.gg/Rj2Q9xuKWR"
-              style={{ marginLeft: "20px" }}
-            >
-              {/* <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR"> */}
+            <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR">
               <Discord className="left" />
               <span>Join the Discord</span>
               <ChevronRight className="right animate" />
             </SecondaryButton>
-          </ButtonContainer>
+          </IndexButtonContainer>
         </div>
       </Layout>
     </>
