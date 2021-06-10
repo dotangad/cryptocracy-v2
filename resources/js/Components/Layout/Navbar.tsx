@@ -12,7 +12,7 @@ const NavContainer = styled.div`
   height: 100%;
 
   > a span {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 600;
     font-family: "Bruta Pro";
     transition: transform 0.3s ease, background 0.3s ease;
@@ -20,7 +20,7 @@ const NavContainer = styled.div`
 
   > a {
     color: white;
-    margin: 20px 0;
+    margin: 15px 0;
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, background 0.3s ease;
