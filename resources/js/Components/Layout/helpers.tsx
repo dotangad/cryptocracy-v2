@@ -22,6 +22,10 @@ const TitleSpan = styled.span`
     font-size: 2.5rem;
     padding: 0;
   }
+
+  @media screen and (max-width: 400px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Title: React.FC = ({ children }) => {

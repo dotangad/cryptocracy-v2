@@ -104,7 +104,7 @@ body,
 .layer.grid > .Title .line {
   position: absolute;
   top: 0;
-  left: calc(20vw - 3px);
+  left: calc(20vw - 2px);
   width: 2px;
   height: 100%;
   z-index: 100001;
@@ -158,5 +158,53 @@ a:hover {
     width: 100vw;
     overflow: visible;
     padding: 20px 0;
+    padding-right: 40px;
   }
+}
+
+form {
+  width: 100%;
+}
+
+.input-group {
+  margin: 20px 0;
+}
+
+.input-group input,
+.input-group textarea {
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #282828;
+  border-bottom: 4px solid #555;
+  transition: border-color 0.3s ease;
+  color: #fff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group input:active,
+.input-group textarea:active {
+  outline: none;
+  border-color: #fff;
+}
+
+.input-group label {
+  color: #777;
+  font-weight: bold;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+.input-group .error {
+  margin-top: 7px;
+  display: block;
+  color: #ff0000;
+  font-size: 0.8rem;
 }

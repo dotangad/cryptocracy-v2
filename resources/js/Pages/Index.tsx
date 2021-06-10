@@ -29,6 +29,13 @@ const Global = createGlobalStyle`
   .layer.grid > .Title .line {
     left: calc(18vw - 2px);
   }
+
+  @media screen and (max-width: 1300px) {
+    .Content p {
+      font-size: 1.6rem;
+      margin: 20px 0;
+    }
+  }
 `;
 
 const Index: React.FC = () => {
@@ -67,7 +74,7 @@ const Index: React.FC = () => {
             {/*   <ChevronRight className="right animate" /> */}
             {/* </PrimaryButton> */}
             {/* <SecondaryButton href="https://discord.com" style={{ marginLeft: "20px" }}> */}
-            <SecondaryButton href="https://discord.com">
+            <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR">
               <Discord className="left" />
               <span>Join the Discord</span>
               <ChevronRight className="right animate" />

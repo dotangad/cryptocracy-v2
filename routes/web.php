@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\SponsorController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,36 +19,13 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-});
-
-Route::get('/about', function () {
-    return Inertia::render('About');
-});
-
-/* Route::get('/leaderboard', function () { */
-/*     $faker = Faker\Factory::create(); */
-/*     $users = []; */
-
-/*     for ($i = 0; $i < 100; $i++) { */
-/*         $users[$i] = [ */
-/*             'rank' => $i + 1, */
-/*             'username' => $faker->username() */
-/*         ]; */
-/*     } */
-
-/*     return Inertia::render('Leaderboard', ['users' => $users]); */
-/* }); */
-
-Route::get('/leaderboard', function () {
-    return Inertia::render('ComingSoon', ['title' => "Leaderboard"]);
-});
+Route::get('/', [IndexController::class, 'show'])->name('index');
+Route::get('/about', [IndexController::class, 'about_show'])->name('about');
+Route::get('/leaderboard', [LeaderboardController::class, 'show'])->name('leaderboard');
 
 Route::get('/register', function () {
     return Inertia::render('ComingSoon', ['title' => "Register"]);
 });
 
-Route::get('/sponsor', function () {
-    return Inertia::render('SponsorUs');
-});
+Route::get('/sponsor', [SponsorController::class, 'show']);
+Route::post('/sponsor', [SponsorController::class, 'create']);

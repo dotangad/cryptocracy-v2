@@ -107,7 +107,7 @@ const FAQs: React.FC = () => {
   );
 };
 
-const Index: React.FC = () => {
+const About: React.FC = () => {
   const members = [
     { name: "Angad Singh", role: "Systems" },
     { name: "Hitarth Khurana", role: "Gameplay" },
@@ -150,11 +150,11 @@ const Index: React.FC = () => {
 
           <Spacing>
             <h1>Who are we?</h1>
-            <p>We’re a dynamic of seven high schoolers from New Delhi, India.</p>
+            <p>We’re a team of seven high schoolers from New Delhi, India.</p>
 
             <TeamDiv>
-              {members.map(({ name, role }) => (
-                <div>
+              {members.map(({ name, role }, i) => (
+                <div key={i}>
                   <div>
                     <strong>{name}</strong>
                   </div>
@@ -169,4 +169,4 @@ const Index: React.FC = () => {
   );
 };
 
-export default Index;
+export default About;

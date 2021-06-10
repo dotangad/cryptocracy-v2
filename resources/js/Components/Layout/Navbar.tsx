@@ -45,15 +45,15 @@ const NavContainer = styled.div`
 
     > a {
       margin: 5px !important;
-      padding: 2px 5px;
     }
 
-    > a:hover {
+    > a:hover span {
       transform: none !important;
       background: #ffffff12;
     }
 
     > a span {
+      padding: 2px 5px;
       font-size: 0.9rem;
     }
 
@@ -79,8 +79,8 @@ export default () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/register", label: "Register" },
-    { href: "/leaderboard", label: "Leaderboard" }
-    // { href: "/sponsor", label: "Sponsor Us" }
+    { href: "/leaderboard", label: "Leaderboard" },
+    { href: "/sponsor", label: "Sponsor Us" }
   ];
 
   const ActiveIndicator: React.FC = () => (

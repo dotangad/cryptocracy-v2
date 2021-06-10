@@ -7,10 +7,11 @@ const Button = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  cursor: pointer;
 
   svg {
-    height: 25px;
+    height: 20px;
     width: auto;
     transition: transform 0.3s ease;
   }
@@ -44,6 +45,10 @@ export const PrimaryButton = styled(Button)`
   background: white;
   color: #333;
   border: none;
+
+  &:disabled {
+    background: #999;
+  }
 `;
 
 export const SecondaryButton = styled(Button)`

@@ -24,23 +24,23 @@ const SocialLogosContainer = styled.div`
 export default () => {
   const links = [
     {
-      link: "https://discord.com",
+      link: "https://discord.gg/Rj2Q9xuKWR",
       icon: Discord
     },
     {
-      link: "https://facebook.com",
+      link: "https://www.facebook.com/cryptocracyhunt/",
       icon: Facebook
     },
     {
-      link: "https://twitter.com",
+      link: "https://twitter.com/playcryptocracy",
       icon: Twitter
     },
     {
-      link: "https://instagram.com",
+      link: "https://www.instagram.com/playcryptocracy/",
       icon: Instagram
     },
     {
-      link: "mailto:cryptocracy@gmail.com",
+      link: "mailto:admin@cryptichunt.com",
       icon: Email
     }
   ];
