@@ -86,7 +86,7 @@ const Index: React.FC = () => {
               <span>Learn More</span>
               <ChevronRight className="right animate" />
             </PrimaryButton>
-            <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR">
+            <SecondaryButton href="https://discord.gg/Rj2Q9xuKWR" target="_blank">
               <Discord className="left" />
               <span>Join the Discord</span>
               <ChevronRight className="right animate" />

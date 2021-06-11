@@ -48,7 +48,7 @@ export default () => {
   return (
     <SocialLogosContainer>
       {links.map(({ link, icon: Icon }, i) => (
-        <a href={link} key={i}>
+        <a href={link} key={i} target="_blank">
           <Icon />
         </a>
       ))}
