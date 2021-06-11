@@ -19,4 +19,8 @@ mix
   .ts("resources/js/app.js", "public/js")
   .postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
 
-mix.disableSuccessNotifications();
+mix.disableNotifications();
+
+if (mix.inProduction()) {
+  mix.version();
+}
