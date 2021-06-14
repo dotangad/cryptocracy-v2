@@ -171,6 +171,7 @@ form {
 }
 
 .input-group input,
+.input-group select,
 .input-group textarea {
   display: block;
   max-width: 400px;
@@ -186,7 +187,9 @@ form {
 
 .input-group input:focus,
 .input-group textarea:focus,
+.input-group select:focus,
 .input-group input:active,
+.input-group select:active,
 .input-group textarea:active {
   outline: none;
   border-color: #fff;

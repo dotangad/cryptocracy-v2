@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SponsorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -19,13 +20,22 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', [IndexController::class, 'show'])->name('index');
-Route::get('/about', [IndexController::class, 'about_show'])->name('about');
-Route::get('/leaderboard', [LeaderboardController::class, 'show'])->name('leaderboard');
+Route::get('/', [IndexController::class, 'show'])
+    ->middleware(['guest'])
+    ->name('index');
+Route::get('/about', [IndexController::class, 'about_show'])
+    ->middleware(['guest'])
+    ->name('about');
+Route::get('/leaderboard', [LeaderboardController::class, 'show'])
+    ->name('leaderboard');
 
-Route::get('/register', function () {
-    return Inertia::render('ComingSoon', ['title' => "Register"]);
-});
+Route::get('/register', [RegisterController::class, 'show'])
+    ->middleware(['guest'])
+    ->name('register_show');
 
-Route::get('/sponsor', [SponsorController::class, 'show']);
-Route::post('/sponsor', [SponsorController::class, 'create']);
+Route::get('/sponsor', [SponsorController::class, 'show'])
+    ->middleware(['guest'])
+    ->name('sponsor_show');
+Route::post('/sponsor', [SponsorController::class, 'create'])
+    ->middleware(['guest'])
+    ->name('sponsor_create');
