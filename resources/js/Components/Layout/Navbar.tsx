@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { InertiaLink } from "@inertiajs/inertia-react";
+import { InertiaLink, usePage } from "@inertiajs/inertia-react";
+import { IPageProps } from "./helpers";
 
 const NavContainer = styled.div`
   display: flex;
@@ -76,13 +77,24 @@ interface ILink {
 }
 
 export default () => {
+  const { auth } = usePage<IPageProps>().props;
+
   const links: ILink[] = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/register", label: "Register" },
-    { href: "/leaderboard", label: "Leaderboard" },
-    { href: "/sponsor", label: "Sponsor Us" }
-  ];
+    { href: "/leaderboard", label: "Leaderboard" }
+  ].concat(
+    auth.user
+      ? [
+          { href: "/guide", label: "Guide" },
+          { href: "/play", label: "Play" }
+        ]
+      : [
+          { href: "/register", label: "Register" },
+          { href: "/login", label: "Login" },
+          { href: "/sponsor", label: "Sponsor Us" },
+          { href: "/about", label: "About" }
+        ]
+  );
 
   const ActiveIndicator: React.FC = () => (
     <svg

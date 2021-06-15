@@ -74,9 +74,10 @@ const InputGroupGroup = styled.div`
 
 interface IProps {
   countries: { [iso: string]: string }[];
+  failure?: boolean;
 }
 
-const Register: React.FC<IProps> = ({ countries }: IProps) => {
+const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
   const { data, setData, post, processing, reset, errors } = useForm({
     Name: "",
     Email: "",
@@ -84,10 +85,13 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
     Country: "",
     Phone: "",
     Institution: "",
-    Password: ""
+    Password: "",
+    "Password confirmation": ""
   });
 
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
+
+  if (failure) reset();
 
   return (
     <>
@@ -97,7 +101,7 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
           <form
             onSubmit={(e: any) => {
               e.preventDefault();
-              post("/sponsor", {
+              post("/register", {
                 preserveState: true,
                 onSuccess: () => {
                   reset();
@@ -137,7 +141,7 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
               <div className="input-group">
                 <label htmlFor="Username">Username</label>
                 <input
-                  type="email"
+                  type="text"
                   name="Username"
                   disabled={processing}
                   placeholder="govtsimp"
@@ -147,6 +151,21 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
                 {errors.Username && <div className="error">{errors.Username}</div>}
               </div>
 
+              <div className="input-group">
+                <label htmlFor="Institution">Company/Educational Institution</label>
+                <input
+                  type="text"
+                  name="Institution"
+                  disabled={processing}
+                  placeholder="BJP IT Cell"
+                  value={data.Institution}
+                  onChange={handleChange}
+                />
+                {errors.Institution && <div className="error">{errors.Institution}</div>}
+              </div>
+            </InputGroupGroup>
+
+            <InputGroupGroup>
               <div className="input-group">
                 <label htmlFor="Password">Password</label>
                 <input
@@ -158,6 +177,21 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
                   onChange={handleChange}
                 />
                 {errors.Password && <div className="error">{errors.Password}</div>}
+              </div>
+
+              <div className="input-group">
+                <label htmlFor="Password confirmation">Password Confirmation</label>
+                <input
+                  type="password"
+                  name="Password confirmation"
+                  disabled={processing}
+                  placeholder="g4y4m0d!j!"
+                  value={data["Password confirmation"]}
+                  onChange={handleChange}
+                />
+                {errors["Password confirmation"] && (
+                  <div className="error">{errors["Password confirmation"]}</div>
+                )}
               </div>
             </InputGroupGroup>
 
@@ -196,28 +230,11 @@ const Register: React.FC<IProps> = ({ countries }: IProps) => {
               </div>
             </InputGroupGroup>
 
-            <InputGroupGroup>
+            {failure && (
               <div className="input-group">
-                <label htmlFor="Institution">Company/Educational Institution</label>
-                <input
-                  type="text"
-                  name="Institution"
-                  disabled={processing}
-                  placeholder="BJP IT Cell"
-                  value={data.Institution}
-                  onChange={handleChange}
-                />
-                {errors.Institution && <div className="error">{errors.Institution}</div>}
+                <div className="annotate error">Could not register, please try again</div>
               </div>
-            </InputGroupGroup>
-
-            {/* success && (
-              <div className="input-group">
-                <div className="annotate">
-                  Submitted successfully, we'll reach out to you soon!
-                </div>
-              </div>
-            ) */}
+            )}
 
             <div className="input-group">
               <PrimaryButton

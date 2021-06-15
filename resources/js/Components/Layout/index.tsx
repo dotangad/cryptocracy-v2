@@ -1,8 +1,59 @@
+import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import React from "react";
-import { GridArea, Title, FooterLogo, FooterCopyright } from "./helpers";
+import {
+  GridArea,
+  Title,
+  FooterLogo,
+  FooterCopyright,
+  AuthData,
+  IPageProps
+} from "./helpers";
 import MobileHeader from "./MobileHeader";
 import Navbar from "./Navbar";
 import SocialLogos from "./SocialLogos";
+
+const lyrics = `<!-- Mine eyes have seen the glory of the coming of the Lord
+He is trapling out the vintage where the grapes of wrath are stored
+He have loosed the faiteful lightening of his terrible swift sword
+His truth is marching on
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+His truth is marching on
+I have seen him in the watch-fires of a hundred circling camps
+They have builded him an altar in the evening dews and damps
+I have read his righteous sentence by the dim and flaring lamps
+His truth is marching on
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+His truth is marching on
+I have read a fiery gospel writ in burnish'd rows of steel
+As ye deal with my condemners so with you my grace shall deal
+Let the hero, born of woman, crush the serpent with his heel
+His truth is marching on
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+His truth is marching on
+He has sounded form the trumpet that shall never call retreat
+He is sifting out the hearts of men before His judgment-seat
+Oh, be swift, my soul to answer, oh be jubilant, my feet
+His truth is marching on
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+In the beauty of the lilies Christ was born across the sea
+With a glory in his bosom that transfigures you and me
+As he died to make men holy let us die to make men free
+His truth is marching on
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+Glory, Glory halleluhja
+His truth is marching on
+Mine eyes have seen the glory of the coming of the lord
+He is trapling out the vintage where the grapes of wrath are stored
+He have loosed the faiteful lightening of his terrible swift sword
+His truth is marching on -->`;
 
 export interface ILayoutProps {
   title: string;
@@ -21,6 +72,8 @@ const Layout: React.FC<ILayoutProps> = ({
   gridStyles,
   imgStyles
 }: ILayoutProps) => {
+  const { auth } = usePage<IPageProps>().props;
+
   return (
     <>
       <div className="layers">
@@ -32,8 +85,23 @@ const Layout: React.FC<ILayoutProps> = ({
             <MobileHeader />
           </GridArea>
           <GridArea area="r1c2" />
-          <GridArea area="r1c3" />
-          <GridArea area="r1c4" />
+          <GridArea
+            area="r1c3"
+            dangerouslySetInnerHTML={{
+              __html: lyrics
+            }}
+          />
+          <AuthData area="r1c4">
+            {auth.user && (
+              <>
+                Hello
+                <InertiaLink href="/account" style={{ marginLeft: "0.5ch" }}>
+                  @{auth.user.username}
+                </InertiaLink>
+                !
+              </>
+            )}
+          </AuthData>
           <GridArea area="r2c1" />
           <GridArea area="Navbar">
             <Navbar />

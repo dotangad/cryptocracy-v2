@@ -12,7 +12,7 @@ class IndexController extends Controller
         return Inertia::render('Index');
     }
 
-    public function about_show()
+    public function about()
     {
         return Inertia::render('About');
     }

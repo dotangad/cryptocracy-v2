@@ -3,11 +3,10 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SponsorController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +20,28 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [IndexController::class, 'show'])
-    ->middleware(['guest'])
     ->name('index');
-Route::get('/about', [IndexController::class, 'about_show'])
-    ->middleware(['guest'])
+Route::get('/about', [IndexController::class, 'about'])
     ->name('about');
-Route::get('/leaderboard', [LeaderboardController::class, 'show'])
+Route::get('/leaderboard', [LeaderboardController::class, 'show_random'])
     ->name('leaderboard');
 
 Route::get('/register', [RegisterController::class, 'show'])
     ->middleware(['guest'])
-    ->name('register_show');
+    ->name('register');
+Route::post('/register', [RegisterController::class, 'create'])
+    ->middleware(['guest'])
+    ->name('register_create');
+
+Route::get('/login', [LoginController::class, 'show'])
+    ->middleware(['guest'])
+    ->name('login');
+Route::post('/login', [LoginController::class, 'create'])
+    ->middleware(['guest'])
+    ->name('login_create');
+Route::get('/logout', [LoginController::class, 'destroy'])
+    ->middleware(['auth'])
+    ->name('logout');
 
 Route::get('/sponsor', [SponsorController::class, 'show'])
     ->middleware(['guest'])
@@ -39,3 +49,7 @@ Route::get('/sponsor', [SponsorController::class, 'show'])
 Route::post('/sponsor', [SponsorController::class, 'create'])
     ->middleware(['guest'])
     ->name('sponsor_create');
+
+Route::get('/authn', function () {
+    return dd(Auth::user());
+})->middleware(['auth']);

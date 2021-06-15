@@ -1,7 +1,17 @@
-import React from "react";
+import { Page, PageProps } from "@inertiajs/inertia";
+import React, { HTMLAttributes } from "react";
 import styled from "styled-components";
 
-export const GridArea: React.FC<any> = ({ area, children, style, ...props }) => {
+export interface IGridAreaProps extends HTMLAttributes<HTMLDivElement> {
+  area: string;
+}
+
+export const GridArea: React.FC<IGridAreaProps> = ({
+  area,
+  children,
+  style,
+  ...props
+}) => {
   return (
     <div className={area} style={{ ...style, gridArea: area }} {...props}>
       {children}
@@ -106,3 +116,22 @@ export const MobileOnly = styled.div`
     display: block;
   }
 `;
+
+export const AuthData = styled(GridArea)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 15px;
+`;
+
+export interface IPageProps extends Page<PageProps> {
+  props: {
+    auth: {
+      user: {
+        username: string;
+        name: string;
+        email: string;
+      };
+    };
+  };
+}
