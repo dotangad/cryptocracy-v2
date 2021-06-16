@@ -23,7 +23,7 @@ Route::get('/', [IndexController::class, 'show'])
     ->name('index');
 Route::get('/about', [IndexController::class, 'about'])
     ->name('about');
-Route::get('/leaderboard', [LeaderboardController::class, 'show_random'])
+Route::get('/leaderboard', [LeaderboardController::class, 'show'])
     ->name('leaderboard');
 
 Route::get('/register', [RegisterController::class, 'show'])
