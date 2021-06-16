@@ -119,7 +119,6 @@ export const MobileOnly = styled.div`
 
 export const AuthData = styled(GridArea)`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   padding: 0 15px;
 `;

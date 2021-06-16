@@ -79,12 +79,7 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
   return (
     <>
       <Global />
-      <Layout
-        title="Leaderboard"
-        gridStyles={{
-          gridTemplateColumns: "75px 20vw 3fr 1fr"
-        }}
-      >
+      <Layout title="Leaderboard">
         <div>
           <SearchInput placeholder="Search" ref={searchRef} onChange={handleSearch} />
 
