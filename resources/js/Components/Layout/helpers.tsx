@@ -125,6 +125,10 @@ export const AuthData = styled(GridArea)`
 
 export interface IPageProps extends Page<PageProps> {
   props: {
+    dates: {
+      start: string;
+      end: string;
+    };
     auth: {
       user: {
         username: string;

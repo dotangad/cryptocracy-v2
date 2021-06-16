@@ -1,5 +1,6 @@
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import React from "react";
+import Countdown from "./Countdown";
 import {
   GridArea,
   Title,
@@ -84,7 +85,9 @@ const Layout: React.FC<ILayoutProps> = ({
           <GridArea area="MobileHeader">
             <MobileHeader />
           </GridArea>
-          <GridArea area="r1c2" />
+          <GridArea area="r1c2">
+            <Countdown />
+          </GridArea>
           <GridArea
             area="r1c3"
             dangerouslySetInnerHTML={{

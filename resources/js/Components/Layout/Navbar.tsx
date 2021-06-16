@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import { IPageProps } from "./helpers";
-
 const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,7 +85,7 @@ export default () => {
     auth.user
       ? [
           { href: "/guide", label: "Guide" },
-          { href: "/play", label: "Play" }
+          { href: "/logout", label: "Logout" }
         ]
       : [
           { href: "/register", label: "Register" },

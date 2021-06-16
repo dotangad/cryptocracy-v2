@@ -37,6 +37,11 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
+            'dates' => [
+                'start' => env('START_TIME'),
+                'end' => env('END_TIME')
+            ],
+
             // Lazily
             'auth.user' => fn () => $request->user()
                 ? $request->user()->only('username', 'email', 'name')
