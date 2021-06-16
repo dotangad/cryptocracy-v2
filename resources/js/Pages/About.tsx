@@ -2,7 +2,7 @@ import { InertiaLink } from "@inertiajs/inertia-react";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Layout from "../Components/Layout";
-import { SidebarTop } from "../Components/Layout/helpers";
+import { MobileOnly, SidebarTop } from "../Components/Layout/helpers";
 
 const Global = createGlobalStyle`
   .Sidebar {
@@ -133,7 +133,7 @@ const About: React.FC = () => {
           <Spacing style={{ marginTop: "0" }}>
             <p>
               Cryptocracy is an online 48-hour multiplayer cryptic hunt being held on
-              28th-29th June 2021, where thousands of people compete for amazing prizes.
+              28th-29th July 2021, where thousands of people compete for amazing prizes.
             </p>
           </Spacing>
 
@@ -159,6 +159,13 @@ const About: React.FC = () => {
               ))}
             </TeamDiv>
           </Spacing>
+
+          <MobileOnly>
+            <Spacing>
+              <h1 style={{ padding: "0 20px" }}>FAQs</h1>
+              <FAQs />
+            </Spacing>
+          </MobileOnly>
         </div>
       </Layout>
     </>
