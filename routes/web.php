@@ -44,10 +44,8 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     ->name('logout');
 
 Route::get('/sponsor', [SponsorController::class, 'show'])
-    ->middleware(['guest'])
-    ->name('sponsor_show');
+    ->name('sponsor');
 Route::post('/sponsor', [SponsorController::class, 'create'])
-    ->middleware(['guest'])
     ->name('sponsor_create');
 
 Route::get('/authn', function () {

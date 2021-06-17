@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -24,10 +26,12 @@ class LoginController extends Controller
 
     $body = $req->all();
 
-    if (Auth::attempt([
+    $attempt = Auth::attempt([
       "email" => $body["Email"],
       "password" => $body["Password"]
-    ])) {
+    ]);
+
+    if ($attempt) {
       $req->session()->regenerate();
 
       return Redirect::route('index');
