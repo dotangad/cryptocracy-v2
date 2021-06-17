@@ -21,13 +21,13 @@ const Global = createGlobalStyle`
   }
 
   .Content p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 20px 0;
   }
 
   @media screen and (max-width: 1300px) {
     .Content p {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       margin: 20px 0;
     }
   }

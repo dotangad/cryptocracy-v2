@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import { IPageProps } from "./helpers";
+
 const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,7 +21,7 @@ const NavContainer = styled.div`
 
   > a {
     color: white;
-    margin: 15px 0;
+    margin: 13px 0;
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, background 0.3s ease;
@@ -80,7 +81,9 @@ export default () => {
 
   const links: ILink[] = [
     { href: "/", label: "Home" },
-    { href: "/leaderboard", label: "Leaderboard" }
+    { href: "/leaderboard", label: "Leaderboard" },
+    { href: "/sponsor", label: "Sponsor Us" },
+    { href: "/about", label: "About" }
   ].concat(
     auth.user
       ? [
@@ -89,9 +92,7 @@ export default () => {
         ]
       : [
           { href: "/register", label: "Register" },
-          { href: "/login", label: "Login" },
-          { href: "/sponsor", label: "Sponsor Us" },
-          { href: "/about", label: "About" }
+          { href: "/login", label: "Login" }
         ]
   );
 
