@@ -90,8 +90,6 @@ const Login: React.FC<IProps> = ({ failure }: IProps) => {
 
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
 
-  if (failure) reset();
-
   return (
     <>
       <Global />
