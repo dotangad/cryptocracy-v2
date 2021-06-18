@@ -134,7 +134,12 @@ export interface IPageProps extends Page<PageProps> {
         username: string;
         name: string;
         email: string;
+        company: string;
+        phone: string;
+        country: string;
+        created: string;
       };
     };
+    countries: { [iso: string]: string }[];
   };
 }

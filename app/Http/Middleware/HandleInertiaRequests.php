@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -36,16 +37,22 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        /* Log::info($request->user()->only('createdAt')); */
         return array_merge(parent::share($request), [
             'dates' => [
                 'start' => env('START_TIME'),
                 'end' => env('END_TIME')
             ],
 
-            // Lazily
             'auth.user' => fn () => $request->user()
-                ? $request->user()->only('username', 'email', 'name')
+                ? $request->user()->only('username', 'email', 'name', 'company', 'phone', 'country')
                 : null,
+
+            'auth.user.created' => fn () => $request->user()
+                ? \Carbon\Carbon::parse($request->user()->only('created_at')['created_at'])->diffForHumans()
+                : null,
+
+            'countries' => fn () => Config::get('countries')
         ]);
     }
 }
