@@ -10,22 +10,8 @@ const Global = createGlobalStyle`
     min-height: 0;
   }
 
-  .Content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  .Content p {
-    font-size: 2rem;
-    margin: 20px 0;
-  }
-
-  @media screen and (max-width: 1300px) {
-    .Content p {
-      font-size: 1.6rem;
-      margin: 20px 0;
-    }
+  .layer.grid > .Content {
+    padding: 0 !important;
   }
 `;
 
@@ -87,12 +73,14 @@ const SplitContainer = styled.div`
   overflow: auto;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   flex-wrap: wrap;
 
   & > div {
     height: 100%;
-    width: 45%;
+    width: 50%;
     min-width: 300px;
+    padding: 20px;
   }
 
   @media screen and (max-width: 900px) {
@@ -110,11 +98,9 @@ const BigContainer = styled.div`
   height: calc((100vh - 150px) * 3 / 4);
   width: 100%;
   min-height: 0;
-  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 
   @media screen and (max-width: 900px) {
     height: 100%;
@@ -127,7 +113,7 @@ const BigContainer = styled.div`
 const UserCardContainer = styled.div`
   padding: 30px;
   background: #292929;
-  margin: 30px 0;
+  margin: 10px 0;
 `;
 
 const UserCreatedAt = styled.div`
@@ -224,7 +210,7 @@ const NumberCard = styled.div`
 `;
 
 const PlayBtn = styled(InertiaLink)`
-  margin: 30px 0;
+  margin: 10px 0;
   width: 100%;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -249,7 +235,16 @@ const PlayBtn = styled(InertiaLink)`
   }
 `;
 
+const InfoContainer = styled(UserCardContainer)`
+  min-height: 0;
+  height: 100%;
+  background: none;
+  border: 3px solid white;
+`;
+
 const Index: React.FC = () => {
+  const { started, ended } = usePage<IPageProps>().props;
+
   return (
     <>
       <Global />
@@ -271,22 +266,44 @@ const Index: React.FC = () => {
               <UserCard />
             </div>
             <div>
-              <NumberCard>
-                <span>12300</span>
-                <div>points</div>
-              </NumberCard>
-              <NumberCard>
-                <span>10</span>
-                <div>levels solved</div>
-              </NumberCard>
-              <NumberCard>
-                <span>#109</span>
-                <div>rank</div>
-              </NumberCard>
-              <PlayBtn href="/play">
-                <span>Play</span>
-                <ChevronRight />
-              </PlayBtn>
+              {started ? (
+                <>
+                  <NumberCard>
+                    <span>12300</span>
+                    <div>points</div>
+                  </NumberCard>
+                  <NumberCard>
+                    <span>10</span>
+                    <div>levels solved</div>
+                  </NumberCard>
+                  <NumberCard>
+                    <span>#109</span>
+                    <div>rank</div>
+                  </NumberCard>
+                  <PlayBtn href="/play">
+                    <span>Play</span>
+                    <ChevronRight />
+                  </PlayBtn>
+                </>
+              ) : ended ? (
+                <>
+                  <NumberCard>
+                    <span>12300</span>
+                    <div>points</div>
+                  </NumberCard>
+                  <NumberCard>
+                    <span>10</span>
+                    <div>levels solved</div>
+                  </NumberCard>
+                  <NumberCard>
+                    <span>#109</span>
+                    <div>rank</div>
+                  </NumberCard>
+                  <InfoContainer>Cryptocracy 2021 has ended.</InfoContainer>
+                </>
+              ) : (
+                <InfoContainer>Cryptocracy 2021 has not started yet.</InfoContainer>
+              )}
             </div>
           </SplitContainer>
         </BigContainer>

@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { usePage } from "@inertiajs/inertia-react";
 import { IPageProps } from "./helpers";
+import { withProps } from "../../lib/withProps";
 
-const CountdownContainer = styled.div`
+interface ICountdownContainerProps {
+  started: boolean;
+}
+
+const CountdownContainer = withProps<ICountdownContainerProps>()(styled.div)`
   display: flex;
   /* justify-content: flex-start; */
   justify-content: center;
@@ -19,7 +24,8 @@ const CountdownContainer = styled.div`
     align-items: center;
 
     > span:first-child {
-      background: #292929;
+      background: ${({ started }: ICountdownContainerProps) =>
+        started ? "#6f0000" : "#292929"};
       padding: 5px;
       font-size: 1.1rem;
       border: none;
@@ -72,19 +78,29 @@ interface ICountdown {
 }
 
 const Countdown: React.FC = () => {
-  const { dates } = usePage<IPageProps>().props;
-  const [countdown, setCountdown] = useState<ICountdown>(countdownTo(dates.start));
+  const { dates, started, ended } = usePage<IPageProps>().props;
+  if (ended) {
+    return (
+      <CountdownContainer>
+        <div>Cryptocracy 2021 has ended</div>
+      </CountdownContainer>
+    );
+  }
+
+  let date = started ? dates.end : dates.start;
+
+  const [countdown, setCountdown] = useState<ICountdown>(countdownTo(date));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountdown(countdownTo(dates.start));
+      setCountdown(countdownTo(date));
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <CountdownContainer>
+    <CountdownContainer started={started}>
       <div>
         <span>{countdown.days}</span>
         <span>DY</span>
