@@ -36,8 +36,6 @@ class RegisterController extends Controller
 
         $body = $req->all();
 
-        Log::info($body);
-
         $user = new User();
         $user->name = $body['Name'];
         $user->email = $body['Email'];
@@ -48,7 +46,7 @@ class RegisterController extends Controller
         $user->company = $body['Institution'];
         $user->save();
 
-        Auth::login($user);
+        Auth::login($user, true);
 
         return redirect('/');
     }

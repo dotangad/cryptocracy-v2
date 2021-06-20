@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -29,7 +27,7 @@ class LoginController extends Controller
     $attempt = Auth::attempt([
       "email" => $body["Email"],
       "password" => $body["Password"]
-    ]);
+    ], true);
 
     if ($attempt) {
       $req->session()->regenerate();
@@ -40,9 +38,11 @@ class LoginController extends Controller
     return Inertia::render('Login', ['failure' => true]);
   }
 
-  public function destroy()
+  public function destroy(Request $request)
   {
     Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
     return redirect('/');
   }
 }

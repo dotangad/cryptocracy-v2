@@ -92,7 +92,7 @@ const SplitContainer = styled.div`
   & > div {
     height: 100%;
     width: 45%;
-    min-width: 400px;
+    min-width: 300px;
   }
 
   @media screen and (max-width: 900px) {
@@ -127,6 +127,7 @@ const BigContainer = styled.div`
 const UserCardContainer = styled.div`
   padding: 30px;
   background: #292929;
+  margin: 30px 0;
 `;
 
 const UserCreatedAt = styled.div`
@@ -179,9 +180,6 @@ const UserCard: React.FC = () => {
         <PrimaryButton style={{ padding: "10px 20px" }} href="/discord">
           Connect Discord
         </PrimaryButton>
-        <SecondaryButton style={{ padding: "10px 20px" }} href="/account">
-          Edit
-        </SecondaryButton>
       </div>
     </UserCardContainer>
   );
@@ -206,11 +204,8 @@ const NumberCard = styled.div`
     color: white;
   }
 
-  &:first-child {
-    margin-top: 0;
-  }
-
   @media screen and (max-width: 900px) {
+    display: none;
     &:first-child {
       margin-top: 60px;
     }

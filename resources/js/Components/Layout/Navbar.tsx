@@ -85,7 +85,7 @@ export default () => {
     { href: "/sponsor", label: "Sponsor Us" },
     { href: "/about", label: "About" }
   ].concat(
-    auth.user
+    auth.authenticated
       ? [
           { href: "/guide", label: "Guide" },
           { href: "/logout", label: "Logout" }

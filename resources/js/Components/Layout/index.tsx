@@ -75,6 +75,8 @@ const Layout: React.FC<ILayoutProps> = ({
 }: ILayoutProps) => {
   const { auth } = usePage<IPageProps>().props;
 
+  console.log(auth);
+
   return (
     <>
       <div className="layers">
@@ -93,7 +95,7 @@ const Layout: React.FC<ILayoutProps> = ({
             }}
           />
           <AuthData area="r1c4">
-            {auth.user && (
+            {auth.authenticated && (
               <>
                 Hello
                 <InertiaLink href="/account" style={{ marginLeft: "0.5ch" }}>

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -44,11 +45,13 @@ class HandleInertiaRequests extends Middleware
                 'end' => env('END_TIME')
             ],
 
-            'auth.user' => fn () => $request->user()
+            'auth.authenticated' => fn () => Auth::check(),
+
+            'auth.user' => fn () => Auth::check()
                 ? $request->user()->only('username', 'email', 'name', 'company', 'phone', 'country')
                 : null,
 
-            'auth.user.created' => fn () => $request->user()
+            'auth.user.created' => fn () => Auth::check()
                 ? \Carbon\Carbon::parse($request->user()->only('created_at')['created_at'])->diffForHumans()
                 : null,
 
