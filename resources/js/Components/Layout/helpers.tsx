@@ -139,6 +139,8 @@ export interface IPageProps extends Page<PageProps> {
         phone: string;
         country: string;
         created: string;
+        discord_username?: string;
+        discord_discriminator?: string;
       };
     };
     countries: { [iso: string]: string }[];

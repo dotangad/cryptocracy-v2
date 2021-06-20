@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +50,13 @@ Route::get('/sponsor', [SponsorController::class, 'show'])
 Route::post('/sponsor', [SponsorController::class, 'create'])
     ->name('sponsor_create');
 
-Route::get('/authn', function () {
-    return dd(Auth::user());
-})->middleware(['auth']);
+Route::get('/discord', [DiscordController::class, 'redirect'])
+    ->middleware(['auth']);
+Route::get('/discord/callback', [DiscordController::class, 'callback'])
+    ->middleware(['auth']);
+
+if (App::environment('local')) {
+    Route::get('/authn', function () {
+        return dd(Auth::user());
+    })->middleware(['auth']);
+}

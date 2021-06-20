@@ -38,7 +38,6 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
-        /* Log::info($request->user()->only('createdAt')); */
         return array_merge(parent::share($request), [
             'dates' => [
                 'start' => env('START_TIME'),
@@ -48,7 +47,16 @@ class HandleInertiaRequests extends Middleware
             'auth.authenticated' => fn () => Auth::check(),
 
             'auth.user' => fn () => Auth::check()
-                ? $request->user()->only('username', 'email', 'name', 'company', 'phone', 'country')
+                ? $request->user()->only(
+                    'username',
+                    'email',
+                    'name',
+                    'company',
+                    'phone',
+                    'country',
+                    'discord_username',
+                    'discord_discriminator'
+                )
                 : null,
 
             'auth.user.created' => fn () => Auth::check()

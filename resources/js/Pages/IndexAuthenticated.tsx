@@ -2,7 +2,7 @@ import React from "react";
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import styled, { createGlobalStyle } from "styled-components";
 import Layout, { SidebarTop, IPageProps } from "../Components/Layout";
-import { PrimaryButton, SecondaryButton } from "../Components/Button";
+import { PrimaryButton } from "../Components/Button";
 import { ChevronRight } from "../Components/Icons";
 
 const Global = createGlobalStyle`
@@ -164,7 +164,16 @@ const UserCard: React.FC = () => {
       // @ts-ignore
       data: country ? country[1] : "Unknown"
     }
-  ];
+  ].concat(
+    auth.user.discord_discriminator && auth.user.discord_username
+      ? [
+          {
+            label: "Discord",
+            data: "@" + auth.user.discord_username + "#" + auth.user.discord_discriminator
+          }
+        ]
+      : []
+  );
 
   return (
     <UserCardContainer>
@@ -176,11 +185,13 @@ const UserCard: React.FC = () => {
           <div>{data}</div>
         </UserAttribute>
       ))}
-      <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-        <PrimaryButton style={{ padding: "10px 20px" }} href="/discord">
-          Connect Discord
-        </PrimaryButton>
-      </div>
+      {!auth.user.discord_username && !auth.user.discord_discriminator && (
+        <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+          <PrimaryButton style={{ padding: "10px 20px" }} href="/discord">
+            Connect Discord
+          </PrimaryButton>
+        </div>
+      )}
     </UserCardContainer>
   );
 };

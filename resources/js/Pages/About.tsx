@@ -133,7 +133,7 @@ const About: React.FC = () => {
           <Spacing style={{ marginTop: "0" }}>
             <p>
               Cryptocracy is an online 48-hour multiplayer cryptic hunt being held on
-              28th-29th July 2021, where thousands of people compete for amazing prizes.
+              30th-31st July 2021, where thousands of people compete for amazing prizes.
             </p>
           </Spacing>
 
