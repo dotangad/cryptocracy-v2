@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { usePage } from "@inertiajs/inertia-react";
 import { IPageProps } from "./helpers";
-import { withProps } from "../../lib/withProps";
 
 interface ICountdownContainerProps {
   started: boolean;
 }
 
-const CountdownContainer = withProps<ICountdownContainerProps>()(styled.div)`
+const CountdownContainer = styled.div`
   display: flex;
   /* justify-content: flex-start; */
   justify-content: center;
@@ -81,7 +80,7 @@ const Countdown: React.FC = () => {
   const { dates, started, ended } = usePage<IPageProps>().props;
   if (ended) {
     return (
-      <CountdownContainer>
+      <CountdownContainer started={false}>
         <div>Cryptocracy 2021 has ended</div>
       </CountdownContainer>
     );
