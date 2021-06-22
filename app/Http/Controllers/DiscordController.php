@@ -17,6 +17,10 @@ class DiscordController extends Controller
      */
     public function redirect()
     {
+        if (auth()->user()->discord_id) {
+            return redirect(route('index'));
+        }
+
         $discord_url = "https://discord.com/api/oauth2/authorize?response_type=code" .
             "&client_id=" . urlencode(Config::get('auth.discord_oauth_client_id')) .
             "&scope=" . urlencode("email identify") .

@@ -19,12 +19,18 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', [IndexController::class, 'show'])
+    ->middleware(['dq'])
     ->name('index');
 Route::get('/about', [IndexController::class, 'about'])
+    ->middleware(['dq'])
     ->name('about');
+Route::get('/dq', [IndexController::class, 'dq'])
+    ->middleware(['auth'])
+    ->name('dq');
+
 Route::get('/leaderboard', [LeaderboardController::class, 'show'])
     ->name('leaderboard');
 
