@@ -1,3 +1,4 @@
+import { InertiaLink } from "@inertiajs/inertia-react";
 import React from "react";
 import styled from "styled-components";
 import { ChevronRight } from "../Components/Icons";
@@ -50,7 +51,7 @@ const Admin: React.FC = () => {
           </div>
         </a>
 
-        <a href="/admin/notifications">
+        <InertiaLink href="/admin/notifications">
           <div className="meta">
             <h2 className="title">Notifications</h2>
             <div className="desc">Create, list, edit, delete</div>
@@ -58,7 +59,7 @@ const Admin: React.FC = () => {
           <div className="chevron">
             <ChevronRight />
           </div>
-        </a>
+        </InertiaLink>
       </AdminTiles>
     </AdminLayout>
   );
