@@ -24,7 +24,7 @@ const CountdownContainer = styled.div`
 
     > span:first-child {
       background: ${({ started }: ICountdownContainerProps) =>
-        started ? "#6f0000" : "#292929"};
+        started ? "#ff000060" : "#ffffff30"};
       padding: 5px;
       font-size: 1.1rem;
       border: none;
