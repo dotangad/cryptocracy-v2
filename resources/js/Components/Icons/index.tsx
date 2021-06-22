@@ -109,13 +109,19 @@ export const Email: React.FC = () => {
   );
 };
 
-export const ChevronRight: React.FC<any> = ({ className }: any) => {
+/* React.SVGProps<SVGElement> */
+
+export const ChevronRight: React.FC<React.SVGProps<any>> = ({
+  className,
+  ...props
+}: React.SVGProps<any>) => {
   return (
     <svg
       className={className}
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         fillRule="evenodd"

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DiscordController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LeaderboardController;
@@ -60,6 +61,10 @@ Route::get('/discord', [DiscordController::class, 'redirect'])
     ->middleware(['auth']);
 Route::get('/discord/callback', [DiscordController::class, 'callback'])
     ->middleware(['auth']);
+
+Route::get('/admin', [AdminController::class, 'show'])
+    ->middleware(['auth', 'admin'])
+    ->name('admin');
 
 if (App::environment('local')) {
     Route::get('/authn', function () {

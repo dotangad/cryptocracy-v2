@@ -84,17 +84,19 @@ export default () => {
     { href: "/leaderboard", label: "Leaderboard" },
     { href: "/sponsor", label: "Sponsor Us" },
     { href: "/about", label: "About" }
-  ].concat(
-    auth.authenticated
-      ? [
-          { href: "/guide", label: "Guide" },
-          { href: "/logout", label: "Logout" }
-        ]
-      : [
-          { href: "/register", label: "Register" },
-          { href: "/login", label: "Login" }
-        ]
-  );
+  ]
+    .concat(
+      auth.authenticated
+        ? [
+            { href: "/guide", label: "Guide" },
+            { href: "/logout", label: "Logout" }
+          ]
+        : [
+            { href: "/register", label: "Register" },
+            { href: "/login", label: "Login" }
+          ]
+    )
+    .concat(auth.user.admin ? [{ href: "/admin", label: "Admin" }] : []);
 
   const ActiveIndicator: React.FC = () => (
     <svg

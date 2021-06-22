@@ -143,6 +143,8 @@ export interface IPageProps extends Page<PageProps> {
         created: string;
         discord_username?: string;
         discord_discriminator?: string;
+        admin: boolean;
+        disqualified: boolean;
       };
     };
     countries: { [iso: string]: string }[];

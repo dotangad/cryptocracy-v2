@@ -64,7 +64,9 @@ class HandleInertiaRequests extends Middleware
                     'phone',
                     'country',
                     'discord_username',
-                    'discord_discriminator'
+                    'discord_discriminator',
+                    'admin',
+                    'disqualify'
                 )
                 : null,
 
