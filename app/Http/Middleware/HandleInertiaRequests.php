@@ -69,7 +69,7 @@ class HandleInertiaRequests extends Middleware
                 : null,
 
             'auth.user.created' => fn () => Auth::check()
-                ? \Carbon\Carbon::parse($request->user()->only('created_at')['created_at'])->diffForHumans()
+                ? $request->user()->only('created_at')['created_at']->diffForHumans()
                 : null,
 
             'countries' => fn () => Config::get('countries')

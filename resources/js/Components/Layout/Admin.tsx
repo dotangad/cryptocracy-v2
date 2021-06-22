@@ -17,6 +17,10 @@ const Layer = styled.div`
     margin: 15px 0;
   }
 
+  & > *:last-child {
+    margin-bottom: 100px;
+  }
+
   div.back a {
     display: flex;
     alignitems: center;

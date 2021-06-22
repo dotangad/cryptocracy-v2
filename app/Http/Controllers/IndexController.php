@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -12,7 +13,9 @@ class IndexController extends Controller
     public function show()
     {
         if (Auth::check()) {
-            return Inertia::render('IndexAuthenticated');
+            return Inertia::render('IndexAuthenticated', [
+                'notifications' => NotificationController::format_notifications()
+            ]);
         }
 
         return Inertia::render('Index');

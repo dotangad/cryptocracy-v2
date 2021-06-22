@@ -4,9 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class NotificationController extends Controller
 {
+    /**
+     * Get all notifications
+     */
+    public static function format_notifications()
+    {
+        return Notification::orderBy('created_at', 'DESC')
+            ->get(['id', 'content', 'created_at'])
+            ->map(function ($item) {
+                return [
+                    'id' => $item['id'],
+                    'content' => $item['content'],
+                    'created_at' => $item['created_at']->diffForHumans()
+                ];
+            });
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +32,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Notifications', [
+            'notifications' => $this->format_notifications()
+        ]);
     }
 
     /**
@@ -35,7 +55,15 @@ class NotificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'content' => 'required'
+        ]);
+
+        $notif = new Notification();
+        $notif->content = $data['content'];
+        $notif->save();
+
+        return Redirect::route('notifications.index');
     }
 
     /**

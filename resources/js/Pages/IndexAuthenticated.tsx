@@ -45,23 +45,30 @@ const NotificationsContainer = styled.div`
   }
 `;
 
-const Notifications: React.FC = () => {
+interface INotificationsProps {
+  notifications: { content: string; created_at: string }[];
+}
+
+const Notifications: React.FC<INotificationsProps> = ({
+  notifications
+}: INotificationsProps) => {
   return (
     <NotificationsContainer>
       <div>
-        {Array(20)
-          .fill("-")
-          .map((_, i) => (
+        {notifications.length === 0 ? (
+          <div>
+            <span style={{ fontWeight: "bold", color: "#999" }}>
+              No new notifications
+            </span>
+          </div>
+        ) : (
+          notifications.map(({ content, created_at }, i) => (
             <div key={i}>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dolorum
-                qui aut voluptatem error. Explicabo quos velit consectetur quas quidem,
-                minus beatae dolore voluptate aspernatur quod harum assumenda odit.
-                Maxime!
-              </span>
-              <span className="timestamp">a minute ago</span>
+              <span>{content}</span>
+              <span className="timestamp">{created_at}</span>
             </div>
-          ))}
+          ))
+        )}
       </div>
     </NotificationsContainer>
   );
@@ -242,7 +249,11 @@ const InfoContainer = styled(UserCardContainer)`
   border: 3px solid white;
 `;
 
-const Index: React.FC = () => {
+interface IIndexProps {
+  notifications: { content: string; created_at: string }[];
+}
+
+const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
   const { started, ended } = usePage<IPageProps>().props;
 
   return (
@@ -255,7 +266,7 @@ const Index: React.FC = () => {
             <h1>Notifications</h1>
           </SidebarTop>
         }
-        Sidebar={<Notifications />}
+        Sidebar={<Notifications notifications={notifications} />}
         gridStyles={{
           gridTemplateColumns: "75px 20vw 1fr 0.3fr"
         }}

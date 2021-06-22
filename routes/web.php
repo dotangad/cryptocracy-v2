@@ -67,7 +67,9 @@ Route::get('/admin', [AdminController::class, 'show'])
     ->middleware(['auth', 'admin'])
     ->name('admin');
 
-Route::resource('/admin/notifications', NotificationController::class);
+Route::resource('/admin/notifications', NotificationController::class)
+    ->only(['index', 'store'])
+    ->middleware(['auth', 'admin']);
 
 if (App::environment('local')) {
     Route::get('/authn', function () {
