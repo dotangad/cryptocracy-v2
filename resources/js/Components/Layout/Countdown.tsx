@@ -47,10 +47,6 @@ const CountdownContainer = styled.div`
       margin-right: 0;
     }
   }
-
-  @media screen and (max-width: 1300px) {
-    display: none;
-  }
 `;
 
 function countdownTo(dt: string): ICountdown {
@@ -102,7 +98,7 @@ const Countdown: React.FC = () => {
     <CountdownContainer started={started}>
       <div>
         <span>{countdown.days}</span>
-        <span>DY</span>
+        <span>DAY{countdown.days !== "01" && "S"}</span>
       </div>
       <div>
         <span>{countdown.hours}</span>

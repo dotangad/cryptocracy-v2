@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
@@ -65,6 +66,8 @@ Route::get('/discord/callback', [DiscordController::class, 'callback'])
 Route::get('/admin', [AdminController::class, 'show'])
     ->middleware(['auth', 'admin'])
     ->name('admin');
+
+Route::resource('/admin/notifications', NotificationController::class);
 
 if (App::environment('local')) {
     Route::get('/authn', function () {

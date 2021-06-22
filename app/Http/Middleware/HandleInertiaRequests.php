@@ -45,9 +45,6 @@ class HandleInertiaRequests extends Middleware
                 'end' => env('END_TIME')
             ],
 
-
-            'auth.authenticated' => fn () => Auth::check(),
-
             'started' => \Carbon\Carbon::parse(env('START_TIME'))
                 ->lt(\Carbon\Carbon::now('Asia/Kolkata')) &&
                 \Carbon\Carbon::now('Asia/Kolkata')
@@ -55,6 +52,7 @@ class HandleInertiaRequests extends Middleware
             'ended' => \Carbon\Carbon::parse(env('END_TIME'))
                 ->lt(\Carbon\Carbon::now('Asia/Kolkata')),
 
+            'auth.authenticated' => fn () => Auth::check(),
             'auth.user' => fn () => Auth::check()
                 ? $request->user()->only(
                     'username',

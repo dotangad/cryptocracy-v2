@@ -62,7 +62,7 @@ body,
 .layer.curves img {
   width: 100vw;
   height: 30vh;
-  opacity: 0.5;
+  opacity: 0.3;
   object-fit: cover;
   z-index: 1000;
 }

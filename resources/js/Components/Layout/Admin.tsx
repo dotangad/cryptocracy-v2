@@ -5,7 +5,7 @@ import Countdown from "./Countdown";
 
 const Layer = styled.div`
   z-index: 1001;
-  padding: 50px 0;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ const Layer = styled.div`
 
   & > div {
     width: 100%;
-    max-width: 600px;
+    max-width: 640px;
     margin: 15px 0;
   }
 
@@ -40,7 +40,7 @@ const Admin: React.FC<IAdminProps> = ({ children, title }: IAdminProps) => {
     <>
       <div className="layers">
         <div className="layer curves">
-          <img src="/img/header-curves.png" />
+          <img style={{ opacity: "0.3" }} src="/img/header-curves.png" />
         </div>
         <Layer className="layer">
           <div style={{ transform: "scale(2)", marginBottom: "30px" }}>
