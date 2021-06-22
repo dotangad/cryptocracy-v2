@@ -51,7 +51,7 @@ const Notifications: React.FC<INotificationsProps> = ({
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
 
   return (
-    <AdminLayout title="Admin">
+    <AdminLayout title="Notifications" backTo="/admin">
       <>
         <div>
           <form

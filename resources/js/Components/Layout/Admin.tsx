@@ -1,3 +1,4 @@
+import { InertiaLink } from "@inertiajs/inertia-react";
 import React from "react";
 import styled from "styled-components";
 import { ChevronRight } from "../Icons";
@@ -17,10 +18,6 @@ const Layer = styled.div`
     margin: 15px 0;
   }
 
-  & > *:last-child {
-    margin-bottom: 100px;
-  }
-
   div.back a {
     display: flex;
     alignitems: center;
@@ -37,9 +34,10 @@ const Layer = styled.div`
 interface IAdminProps {
   children: React.ReactNode;
   title: string;
+  backTo: string;
 }
 
-const Admin: React.FC<IAdminProps> = ({ children, title }: IAdminProps) => {
+const Admin: React.FC<IAdminProps> = ({ children, title, backTo }: IAdminProps) => {
   return (
     <>
       <div className="layers">
@@ -52,10 +50,10 @@ const Admin: React.FC<IAdminProps> = ({ children, title }: IAdminProps) => {
           </div>
 
           <div className="back">
-            <a href="/">
+            <InertiaLink href={backTo}>
               <ChevronRight />
-              Back to index
-            </a>
+              Back
+            </InertiaLink>
           </div>
 
           <div className="title">

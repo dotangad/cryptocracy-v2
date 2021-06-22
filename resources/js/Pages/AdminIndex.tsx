@@ -38,7 +38,7 @@ const AdminTiles = styled.div`
 
 const Admin: React.FC = () => {
   return (
-    <AdminLayout title="Admin">
+    <AdminLayout title="Admin" backTo="/">
       <AdminTiles>
         <a href="/admin/users">
           <div className="meta">
