@@ -40,7 +40,7 @@ class RegisterController extends Controller
         $user->name = $body['Name'];
         $user->email = $body['Email'];
         $user->username = $body['Username'];
-        $user->password = Hash::make($body['Username']);
+        $user->password = Hash::make($body['Password']);
         $user->country = $body['Country'];
         $user->phone = $body['Phone'];
         $user->company = $body['Institution'];
