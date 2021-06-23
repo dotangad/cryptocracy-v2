@@ -73,7 +73,7 @@ const InputGroupGroup = styled.div`
 `;
 
 interface IProps {
-  failure?: boolean;
+  failure?: string;
 }
 
 const Login: React.FC<IProps> = ({ failure }: IProps) => {
@@ -136,7 +136,7 @@ const Login: React.FC<IProps> = ({ failure }: IProps) => {
 
             {failure && (
               <div className="input-group">
-                <div className="annotate error">Could not log in, please try again</div>
+                <div className="annotate error">{failure}</div>
               </div>
             )}
 
