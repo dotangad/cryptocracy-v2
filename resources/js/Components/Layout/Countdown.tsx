@@ -15,6 +15,7 @@ const CountdownContainer = styled.div`
   height: 100%;
   width: 100%;
   padding: 0 20px;
+  user-select: none;
 
   & > div {
     margin: 0 2px;

@@ -32,7 +32,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Notifications', [
+        return Inertia::render('Admin/Notifications', [
             'notifications' => $this->format_notifications()
         ]);
     }
@@ -74,7 +74,13 @@ class NotificationController extends Controller
      */
     public function show(Notification $notification)
     {
-        //
+        return Inertia::render('Admin/Notification', [
+            'notification' => [
+                'id' => $notification->id,
+                'content' => $notification->content,
+                'created_at' => $notification->created_at->diffForHumans()
+            ]
+        ]);
     }
 
     /**
@@ -97,7 +103,14 @@ class NotificationController extends Controller
      */
     public function update(Request $request, Notification $notification)
     {
-        //
+        $data = request()->validate([
+            'content' => 'required'
+        ]);
+
+        $notification->content = $data['content'];
+        $notification->save();
+
+        return redirect()->route('notifications.show', $notification);
     }
 
     /**
@@ -108,6 +121,7 @@ class NotificationController extends Controller
      */
     public function destroy(Notification $notification)
     {
-        //
+        $notification->delete();
+        return Redirect::route('notifications.index');
     }
 }

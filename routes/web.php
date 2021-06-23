@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SponsorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -68,8 +69,32 @@ Route::get('/admin', [AdminController::class, 'show'])
     ->name('admin');
 
 Route::resource('/admin/notifications', NotificationController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'show', 'update', 'destroy'])
     ->middleware(['auth', 'admin']);
+
+Route::get('/admin/users', [UserController::class, 'index'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.index');
+
+Route::get('/admin/users/{user}', [UserController::class, 'show'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.show');
+
+Route::post('/admin/users/{user}/promote', [UserController::class, 'promote'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.promote');
+
+Route::post('/admin/users/{user}/demote', [UserController::class, 'demote'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.demote');
+
+Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.disqualify');
+
+Route::post('/admin/users/{user}/rq', [UserController::class, 'requalify'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.requalify');
 
 if (App::environment('local')) {
     Route::get('/authn', function () {

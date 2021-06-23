@@ -9,6 +9,6 @@ class AdminController extends Controller
 {
     public function show()
     {
-        return Inertia::render('AdminIndex');
+        return Inertia::render('Admin/index');
     }
 }

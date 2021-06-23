@@ -1,8 +1,8 @@
 import { useForm } from "@inertiajs/inertia-react";
 import React from "react";
 import styled from "styled-components";
-import AdminLayout from "../Components/Layout/Admin";
-import { PrimaryButton } from "../Components/Button";
+import AdminLayout from "../../Components/Layout/Admin";
+import { PrimaryButton } from "../../Components/Button";
 
 const Table = styled.table`
   width: 100%;
@@ -96,7 +96,7 @@ const Notifications: React.FC<INotificationsProps> = ({
           </form>
         </div>
 
-        <div style={{ maxWidth: "800px" }}>
+        <div style={{ maxWidth: "800px", paddingBottom: "50px" }}>
           <Table>
             <thead>
               <tr>
@@ -106,8 +106,8 @@ const Notifications: React.FC<INotificationsProps> = ({
               </tr>
             </thead>
             <tbody>
-              {notifications.map(({ id, content, created_at }) => (
-                <tr>
+              {notifications.map(({ id, content, created_at }, i) => (
+                <tr key={i}>
                   <td>{content}</td>
                   <td>{created_at}</td>
                   <td>

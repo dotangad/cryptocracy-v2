@@ -1,8 +1,8 @@
 import { InertiaLink } from "@inertiajs/inertia-react";
 import React from "react";
 import styled from "styled-components";
-import { ChevronRight } from "../Components/Icons";
-import AdminLayout from "../Components/Layout/Admin";
+import { ChevronRight } from "../../Components/Icons";
+import AdminLayout from "../../Components/Layout/Admin";
 
 const AdminTiles = styled.div`
   & > a {
@@ -41,7 +41,7 @@ const Admin: React.FC = () => {
   return (
     <AdminLayout title="Admin" backTo="/">
       <AdminTiles>
-        <a href="/admin/users">
+        <InertiaLink href="/admin/users">
           <div className="meta">
             <h2 className="title">Users</h2>
             <div className="desc">List, edit, delete, disqualify</div>
@@ -49,7 +49,7 @@ const Admin: React.FC = () => {
           <div className="chevron">
             <ChevronRight />
           </div>
-        </a>
+        </InertiaLink>
 
         <InertiaLink href="/admin/notifications">
           <div className="meta">
