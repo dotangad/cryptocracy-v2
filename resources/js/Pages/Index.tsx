@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Layout from "../Components/Layout";
+import Countdown from "../Components/Layout/Countdown";
 import PriestChat, { PriestChatHeader } from "../Components/PriestChat";
 import { PrimaryButton, SecondaryButton, ButtonContainer } from "../Components/Button";
 import { ChevronRight, Discord } from "../Components/Icons";
@@ -66,6 +67,10 @@ const Index: React.FC = () => {
           <p>
             <strong>We're back.</strong>
           </p>
+
+          <div>
+            <Countdown large={true} />
+          </div>
 
           <p>
             Cryptocracy is an international 48-hour cryptic hunt, coming soon to a

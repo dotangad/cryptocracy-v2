@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { usePage } from "@inertiajs/inertia-react";
 import { IPageProps } from "./helpers";
 
-interface ICountdownContainerProps {
+interface ICountdownContainerProps extends React.HTMLProps<HTMLDivElement> {
   started: boolean;
 }
 
@@ -50,6 +50,36 @@ const CountdownContainer = styled.div`
   }
 `;
 
+const CountdownContainerLg = styled(CountdownContainer)`
+  justify-content: flex-start;
+  padding: 0;
+  & > div {
+    margin: 0 5px;
+
+    > span:first-child {
+      padding: 10px;
+      font-size: 2rem;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      background: ${({ started }: ICountdownContainerProps) =>
+        started ? "#6f0000" : "#292929"};
+    }
+
+    > span:last-child {
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+`;
+
 function countdownTo(dt: string): ICountdown {
   const fmt = (n: number) => String(Math.floor(n)).padStart(2, "0");
   const diff = (Date.parse(dt) - Date.now()) / 1000;
@@ -73,7 +103,11 @@ interface ICountdown {
   seconds: string;
 }
 
-const Countdown: React.FC = () => {
+interface ICountdownProps extends React.HTMLProps<HTMLDivElement> {
+  large?: boolean;
+}
+
+const Countdown: React.FC<ICountdownProps> = ({ large }: ICountdownProps) => {
   const { dates, started, ended } = usePage<IPageProps>().props;
   if (ended) {
     return (
@@ -95,8 +129,12 @@ const Countdown: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const Container: React.FC<ICountdownContainerProps> = large
+    ? CountdownContainerLg
+    : CountdownContainer;
+
   return (
-    <CountdownContainer started={started}>
+    <Container started={started}>
       <div>
         <span>{countdown.days}</span>
         <span>DAY{countdown.days !== "01" && "S"}</span>
@@ -113,7 +151,7 @@ const Countdown: React.FC = () => {
         <span>{countdown.seconds}</span>
         <span>Sec</span>
       </div>
-    </CountdownContainer>
+    </Container>
   );
 };
 

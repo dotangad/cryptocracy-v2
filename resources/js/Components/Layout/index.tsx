@@ -75,8 +75,6 @@ const Layout: React.FC<ILayoutProps> = ({
 }: ILayoutProps) => {
   const { auth } = usePage<IPageProps>().props;
 
-  console.log(auth);
-
   return (
     <>
       <div className="layers">
@@ -98,10 +96,7 @@ const Layout: React.FC<ILayoutProps> = ({
             {auth.authenticated && (
               <>
                 Hello
-                <InertiaLink href="/account" style={{ marginLeft: "0.5ch" }}>
-                  @{auth.user.username}
-                </InertiaLink>
-                !
+                <strong style={{ marginLeft: "0.5ch" }}>@{auth.user.username}</strong>!
               </>
             )}
           </AuthData>
@@ -120,9 +115,7 @@ const Layout: React.FC<ILayoutProps> = ({
           <GridArea area="Social" style={{ padding: "0 20px" }}>
             <SocialLogos />
           </GridArea>
-          <GridArea area="fContent">
-            <Countdown />
-          </GridArea>
+          <GridArea area="fContent"></GridArea>
           <GridArea area="Copyright">
             <FooterCopyright />
           </GridArea>

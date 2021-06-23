@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import Layout, { SidebarTop, IPageProps } from "../Components/Layout";
 import { PrimaryButton } from "../Components/Button";
 import { ChevronRight } from "../Components/Icons";
+import Countdown from "../Components/Layout/Countdown";
 
 const Global = createGlobalStyle`
   .Content > div {
@@ -246,7 +247,7 @@ const InfoContainer = styled(UserCardContainer)`
   min-height: 0;
   height: 100%;
   background: none;
-  border: 3px solid white;
+  border: 3px solid #292929;
 `;
 
 interface IIndexProps {
@@ -279,6 +280,9 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
             <div>
               {started ? (
                 <>
+                  <div style={{ marginBottom: "30px" }}>
+                    <Countdown large={true} />
+                  </div>
                   <NumberCard>
                     <span>12300</span>
                     <div>points</div>
@@ -313,7 +317,12 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
                   <InfoContainer>Cryptocracy 2021 has ended.</InfoContainer>
                 </>
               ) : (
-                <InfoContainer>Cryptocracy 2021 has not started yet.</InfoContainer>
+                <>
+                  <div style={{ marginBottom: "30px" }}>
+                    <Countdown large={true} />
+                  </div>
+                  <InfoContainer>Cryptocracy 2021 has not started yet.</InfoContainer>
+                </>
               )}
             </div>
           </SplitContainer>
