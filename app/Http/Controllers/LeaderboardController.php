@@ -2,26 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 
 class LeaderboardController extends Controller
 {
     public function show()
     {
-        return Inertia::render('ComingSoon', ['title' => "Leaderboard"]);
-    }
-
-    public function show_random()
-    {
-        $faker = \Faker\Factory::create();
-        $users = [];
-
-        for ($i = 0; $i < 100; $i++) {
-            $users[$i] = [
-                'rank' => $i + 1,
-                'username' => $faker->username()
-            ];
-        }
+        $users = User::orderBy('created_at', 'ASC')
+            ->get('username')
+            ->map(function ($user, $key) {
+                return [
+                    'rank' => $key + 1,
+                    'username' => $user->username
+                ];
+            });
 
         return Inertia::render('Leaderboard', ['users' => $users]);
     }
