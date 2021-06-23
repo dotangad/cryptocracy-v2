@@ -51,7 +51,7 @@ const Users: React.FC<IUsersProps> = ({ users }: IUsersProps) => {
   return (
     <AdminLayout title="Users" backTo="/admin">
       <>
-        <div style={{ maxWidth: "1000px" }}>
+        <div style={{ maxWidth: "1000px", paddingBottom: "100px" }}>
           <Table>
             <thead>
               <tr>
