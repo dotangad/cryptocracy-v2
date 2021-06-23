@@ -10,6 +10,8 @@ class LeaderboardController extends Controller
     public function show()
     {
         $users = User::orderBy('created_at', 'ASC')
+            ->where('admin', false)
+            ->where('disqualified', false)
             ->get('username')
             ->map(function ($user, $key) {
                 return [
