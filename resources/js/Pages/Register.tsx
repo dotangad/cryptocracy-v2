@@ -172,7 +172,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="password"
                   name="Password"
                   disabled={processing}
-                  placeholder="g4y4m0d!j!"
+                  placeholder="kh4l1f4n!"
                   value={data.Password}
                   onChange={handleChange}
                 />
@@ -185,7 +185,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="password"
                   name="Password confirmation"
                   disabled={processing}
-                  placeholder="g4y4m0d!j!"
+                  placeholder="kh4l1f4n!"
                   value={data["Password confirmation"]}
                   onChange={handleChange}
                 />
