@@ -65,7 +65,7 @@ const Index: React.FC = () => {
       >
         <div>
           <p>
-            <strong>We're back.</strong>
+            <strong>We're back. 30-31st July.</strong>
           </p>
 
           <div>

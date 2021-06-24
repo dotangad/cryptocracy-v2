@@ -18,9 +18,9 @@ const TeamDiv = styled.div`
 
   > div {
     width: 48%;
-    background: white;
+    background: #292929;
     margin: 20px 0;
-    color: #333;
+    color: #fff;
     padding: 15px;
     height: 100px;
     font-size: 1.3rem;
@@ -103,6 +103,20 @@ const FAQs: React.FC = () => {
   );
 };
 
+const Sponsors = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  & > img {
+    height: 100px;
+    width: auto;
+    margin-right: 30px;
+    margin-top: 20px;
+  }
+`;
+
 const About: React.FC = () => {
   const members = [
     { name: "Angad Singh", role: "Systems" },
@@ -126,11 +140,18 @@ const About: React.FC = () => {
         }
         Sidebar={<FAQs />}
         gridStyles={{
-          gridTemplateColumns: "75px 20vw 1.5fr 1fr"
+          gridTemplateColumns: "75px 20vw calc(48vw - 75px) 32vw"
         }}
       >
         <div>
           <Spacing style={{ marginTop: "0" }}>
+            <h2>Sponsors</h2>
+            <Sponsors>
+              <img src="/img/slingshot-white.png" alt="Slingshot" />
+            </Sponsors>
+          </Spacing>
+
+          <Spacing>
             <p>
               Cryptocracy is an online 48-hour multiplayer cryptic hunt, where thousands
               of people compete for amazing prizes.
