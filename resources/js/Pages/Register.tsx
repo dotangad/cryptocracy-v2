@@ -116,7 +116,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="text"
                   name="Name"
                   disabled={processing}
-                  placeholder="Ram Kumar"
+                  placeholder="Jahir Bhordoj"
                   value={data.Name}
                   onChange={handleChange}
                 />
@@ -129,7 +129,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="email"
                   name="Email"
                   disabled={processing}
-                  placeholder="ramkumar@aadhar.co"
+                  placeholder="jahir@cryptocracy.co"
                   value={data.Email}
                   onChange={handleChange}
                 />
@@ -144,7 +144,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="text"
                   name="Username"
                   disabled={processing}
-                  placeholder="govtsimp"
+                  placeholder="jahir"
                   value={data.Username}
                   onChange={handleChange}
                 />
@@ -157,7 +157,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="text"
                   name="Institution"
                   disabled={processing}
-                  placeholder="BJP IT Cell"
+                  placeholder="Cryptocracy"
                   value={data.Institution}
                   onChange={handleChange}
                 />
@@ -172,7 +172,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="password"
                   name="Password"
                   disabled={processing}
-                  placeholder="kh4l1f4n!"
+                  placeholder="we<3u"
                   value={data.Password}
                   onChange={handleChange}
                 />
@@ -185,7 +185,7 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   type="password"
                   name="Password confirmation"
                   disabled={processing}
-                  placeholder="kh4l1f4n!"
+                  placeholder="we<3u"
                   value={data["Password confirmation"]}
                   onChange={handleChange}
                 />
