@@ -109,7 +109,7 @@ const Sponsors = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
 
-  & > img {
+  & img {
     height: 100px;
     width: auto;
     margin-right: 30px;
@@ -126,6 +126,14 @@ const About: React.FC = () => {
     { name: "Shashwat Mundra", role: "Gameplay" },
     { name: "Somesh Kar", role: "Systems" },
     { name: "Tarush Sonakya", role: "Gameplay" }
+  ];
+
+  const sponsors = [
+    {
+      link: "https://slingshotahead.com/",
+      img: "/img/slingshot-white.png",
+      alt: "Slingshot"
+    }
   ];
 
   return (
@@ -147,7 +155,11 @@ const About: React.FC = () => {
           <Spacing style={{ marginTop: "0" }}>
             <h2>Sponsors</h2>
             <Sponsors>
-              <img src="/img/slingshot-white.png" alt="Slingshot" />
+              {sponsors.map(({ link, img, alt }) => (
+                <a href={link} target="_blank">
+                  <img src={img} alt={alt} />
+                </a>
+              ))}
             </Sponsors>
           </Spacing>
 
