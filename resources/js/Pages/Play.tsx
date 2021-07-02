@@ -28,8 +28,9 @@ const Footer = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: bold;
+  font-family: "Bruta Pro";
   width: 100%;
   height: 100%;
   display: flex;
@@ -68,6 +69,14 @@ const Back = styled.div`
   }
 `;
 
+const CountdownContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
+`;
+
 const Play: React.FC = () => {
   return (
     <>
@@ -91,7 +100,11 @@ const Play: React.FC = () => {
           <GridArea area="Heading">
             <Title>Play</Title>
           </GridArea>
-          <GridArea area="r2c3"></GridArea>
+          <GridArea area="r2c3">
+            <CountdownContainer>
+              <Countdown style={{ transform: "scale(1.5)", height: "auto" }} />
+            </CountdownContainer>
+          </GridArea>
           <GridArea area="r2c4"></GridArea>
           <GridArea area="r3c1"></GridArea>
           <GridArea area="Tile">Tile</GridArea>
@@ -105,7 +118,6 @@ const Play: React.FC = () => {
           <GridArea area="Footer">
             <Footer>
               <SocialLogos style={{ width: "20%" }} />
-              <Countdown style={{ width: "60%" }} />
               <FooterCopyright style={{ justifyContent: "flex-end", width: "20%" }} />
             </Footer>
           </GridArea>
