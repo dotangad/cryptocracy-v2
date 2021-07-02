@@ -5,6 +5,7 @@ import Layout, { SidebarTop, IPageProps } from "../Components/Layout";
 import { PrimaryButton } from "../Components/Button";
 import { ChevronRight } from "../Components/Icons";
 import Countdown from "../Components/Layout/Countdown";
+import countries from "../Data/countries";
 
 const Global = createGlobalStyle`
   .Content > div {
@@ -145,7 +146,7 @@ const UserAttribute = styled.div`
 `;
 
 const UserCard: React.FC = () => {
-  const { auth, countries } = usePage<IPageProps>().props;
+  const { auth } = usePage<IPageProps>().props;
 
   const country = Object.entries(countries).find(([iso]) => iso === auth.user.country);
   const userData = [

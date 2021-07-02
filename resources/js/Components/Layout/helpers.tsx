@@ -76,8 +76,8 @@ const CopyrightContainer = styled.div`
   }
 `;
 
-export const FooterCopyright: React.FC = () => {
-  return <CopyrightContainer>&copy; 2021 Cryptocracy</CopyrightContainer>;
+export const FooterCopyright: React.FC<any> = ({ style }: any) => {
+  return <CopyrightContainer style={style}>&copy; 2021 Cryptocracy</CopyrightContainer>;
 };
 
 const FooterLogoDiv = styled.div`
@@ -147,6 +147,5 @@ export interface IPageProps extends Page<PageProps> {
         disqualified: boolean;
       };
     };
-    countries: { [iso: string]: string }[];
   };
 }
