@@ -71,8 +71,6 @@ class HandleInertiaRequests extends Middleware
             'auth.user.created' => fn () => Auth::check()
                 ? $request->user()->only('created_at')['created_at']->diffForHumans()
                 : null,
-
-            'countries' => fn () => Config::get('countries')
         ]);
     }
 }
