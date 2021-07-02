@@ -215,8 +215,8 @@ form {
 
 .layer.play {
   display: grid;
-  grid-template-columns: 75px 1fr 1fr 75px;
-  grid-template-rows: 75px 1fr 2.5fr 75px;
+  grid-template-columns: 75px 1fr 65vh 75px;
+  grid-template-rows: 75px calc(35vh - 150px) 65vh 75px;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
