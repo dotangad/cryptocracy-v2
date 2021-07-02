@@ -21,7 +21,7 @@ const SocialLogosContainer = styled.div`
   }
 `;
 
-export default () => {
+export default ({ style }: any) => {
   const links = [
     {
       link: "https://discord.gg/Rj2Q9xuKWR",
@@ -46,7 +46,7 @@ export default () => {
   ];
 
   return (
-    <SocialLogosContainer>
+    <SocialLogosContainer style={style}>
       {links.map(({ link, icon: Icon }, i) => (
         <a href={link} key={i} target="_blank">
           <Icon />

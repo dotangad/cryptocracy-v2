@@ -155,7 +155,7 @@ a:hover {
 
   .layer.grid .Content {
     height: fit-content;
-    width: 100vw;
+    width: 100%;
     overflow: visible;
     padding: 20px 0;
     padding-right: 40px;
@@ -211,4 +211,48 @@ form {
   display: block;
   color: #ff0000;
   font-size: 0.8rem;
+}
+
+.layer.play {
+  display: grid;
+  grid-template-columns: 75px 1fr 1fr 75px;
+  grid-template-rows: 75px 1fr 2.5fr 75px;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "r1c1 Back r1c3 r1c4"
+    "r2c1 Heading r2c3 r2c4"
+    "r3c1 Tile Tiles r3c4"
+    "FooterLogo Footer Footer Footer";
+}
+
+.layer.play > div {
+  color: white;
+  border: 1.5px solid #282828;
+}
+
+@media screen and (max-width: 1300px) {
+  .layer.play {
+    display: flex !important;
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .layer.play > div {
+    color: white;
+    border: none;
+    display: none !important;
+    height: auto;
+  }
+
+  .layer.curves img {
+    opacity: 0.15;
+  }
+
+  .layer.play .Back,
+  .layer.play .Heading,
+  .layer.play .Tile,
+  .layer.play .Footer {
+    display: block !important;
+  }
 }

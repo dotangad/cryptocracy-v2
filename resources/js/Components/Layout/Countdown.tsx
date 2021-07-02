@@ -107,11 +107,11 @@ interface ICountdownProps extends React.HTMLProps<HTMLDivElement> {
   large?: boolean;
 }
 
-const Countdown: React.FC<ICountdownProps> = ({ large }: ICountdownProps) => {
+const Countdown: React.FC<ICountdownProps> = ({ large, style }: ICountdownProps) => {
   const { dates, started, ended } = usePage<IPageProps>().props;
   if (ended) {
     return (
-      <CountdownContainer started={false}>
+      <CountdownContainer started={false} style={style}>
         <div>Cryptocracy 2021 has ended</div>
       </CountdownContainer>
     );
@@ -134,7 +134,7 @@ const Countdown: React.FC<ICountdownProps> = ({ large }: ICountdownProps) => {
     : CountdownContainer;
 
   return (
-    <Container started={started}>
+    <Container started={started} style={style}>
       <div>
         <span>{countdown.days}</span>
         <span>DAY{countdown.days !== "01" && "S"}</span>

@@ -7,6 +7,7 @@ use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PlayController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -95,6 +96,10 @@ Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
 Route::post('/admin/users/{user}/rq', [UserController::class, 'requalify'])
     ->middleware(['auth', 'admin'])
     ->name('users.requalify');
+
+Route::get('/play', [PlayController::class, 'show'])
+    ->middleware(['auth', 'dq', 'inprogress'])
+    ->name('play');
 
 if (App::environment('local')) {
     Route::get('/authn', function () {
