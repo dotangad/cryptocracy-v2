@@ -142,6 +142,15 @@ const About: React.FC = () => {
       css: {
         height: "60px"
       }
+    },
+    {
+      link: "https://www.taskade.com/",
+      img: "/img/taskade-logo.png",
+      alt: "Taskade",
+      css: {
+        filter: "invert(1)",
+        height: "60px"
+      }
     }
   ];
 
