@@ -133,6 +133,14 @@ const About: React.FC = () => {
       link: "https://slingshotahead.com/",
       img: "/img/slingshot-white.png",
       alt: "Slingshot"
+    },
+    {
+      link: "https://www.interviewcake.com",
+      img: "/img/interviewcake.svg",
+      alt: "InterviewCake",
+      css: {
+        height: "60px"
+      }
     }
   ];
 
@@ -155,9 +163,9 @@ const About: React.FC = () => {
           <Spacing style={{ marginTop: "0" }}>
             <h2>Sponsors</h2>
             <Sponsors>
-              {sponsors.map(({ link, img, alt }) => (
+              {sponsors.map(({ link, img, alt, css }) => (
                 <a href={link} target="_blank">
-                  <img src={img} alt={alt} />
+                  <img src={img} alt={alt} style={css} />
                 </a>
               ))}
             </Sponsors>
