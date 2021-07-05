@@ -185,6 +185,22 @@ form {
   color: #fff;
 }
 
+.input-group input:disabled,
+.input-group select:disabled,
+.input-group textarea:disabled {
+  background: #191919;
+  border-color: #282828;
+}
+
+.input-group input:disabled:focus,
+.input-group input:disabled:active,
+.input-group select:disabled:focus,
+.input-group select:disabled:active,
+.input-group textarea:disabled:focus,
+.input-group textarea:disabled:active {
+  border-color: #282828;
+}
+
 .input-group input:focus,
 .input-group textarea:focus,
 .input-group select:focus,
