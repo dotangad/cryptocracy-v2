@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\SponsorController;
+use App\Http\Controllers\TileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
@@ -96,6 +97,18 @@ Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
 Route::post('/admin/users/{user}/rq', [UserController::class, 'requalify'])
     ->middleware(['auth', 'admin'])
     ->name('users.requalify');
+
+Route::get('/admin/tiles', [TileController::class, 'index'])
+    ->middleware(['auth', 'admin'])
+    ->name('tiles.index');
+
+Route::get('/admin/tiles/{tile}', [TileController::class, 'show'])
+    ->middleware(['auth', 'admin'])
+    ->name('tiles.show');
+
+Route::post('/admin/tiles/{tile}', [TileController::class, 'edit'])
+    ->middleware(['auth', 'admin'])
+    ->name('tiles.show');
 
 Route::get('/play', [PlayController::class, 'show'])
     ->middleware(['auth', 'dq', 'inprogress'])

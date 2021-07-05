@@ -60,6 +60,16 @@ const Admin: React.FC = () => {
             <ChevronRight />
           </div>
         </InertiaLink>
+
+        <InertiaLink href="/admin/tiles">
+          <div className="meta">
+            <h2 className="title">Tiles</h2>
+            <div className="desc">List, edit</div>
+          </div>
+          <div className="chevron">
+            <ChevronRight />
+          </div>
+        </InertiaLink>
       </AdminTiles>
     </AdminLayout>
   );
