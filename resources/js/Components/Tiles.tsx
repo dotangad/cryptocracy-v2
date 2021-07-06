@@ -10,15 +10,29 @@ const TilesContainer = styled.div`
   grid-template-areas:
     "str x01 x02 x03 x04 x05 x06"
     "x07 x08 x09 x10 x11 x12 x13"
-    "x14 x15 cen cen cen x19 x20"
-    "x21 x22 cen cen cen x26 x27"
-    "x28 x29 cen cen cen x33 x34"
-    "x35 x36 x37 x38 x39 x40 x41"
-    "x42 x43 x44 x45 x46 x47 x48";
+    "x14 x15 cen cen cen x16 x17"
+    "x18 x19 cen cen cen x20 x21"
+    "x22 x23 cen cen cen x24 x25"
+    "x26 x27 x28 x29 x30 x31 x32"
+    "x33 x34 x35 x36 x37 x38 x39";
+
+  & a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #999;
+  }
 
   > div {
     border: 0.5px solid #29292940;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -38,15 +52,14 @@ const Tiles: React.FC = () => {
   return (
     <TilesContainer>
       <Start>Start</Start>
-      {Array(49)
+      {Array(39)
         .fill("-")
-        .map((_, i) =>
-          ![0, 16, 17, 18, 23, 24, 25, 30, 31, 32].includes(i) ? (
-            <div key={i} style={{ gridArea: `x${String(i).padStart(2, "0")}` }}>
-              {i}
-            </div>
-          ) : null
-        )}
+        .map((_, i) => i + 1)
+        .map((i) => (
+          <div key={i} style={{ gridArea: `x${String(i).padStart(2, "0")}` }}>
+            {i}
+          </div>
+        ))}
       <div style={{ gridArea: "cen" }}>
         <svg
           viewBox="0 0 36 28"

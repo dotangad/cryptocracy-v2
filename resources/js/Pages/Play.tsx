@@ -6,6 +6,7 @@ import { ChevronRight } from "../Components/Icons";
 import Countdown from "../Components/Layout/Countdown";
 import SocialLogos from "../Components/Layout/SocialLogos";
 import Tiles from "../Components/Tiles";
+import { SidequestTile, StoryTile, LevelTile } from "../Components/Tile";
 
 const Footer = styled.div`
   width: 100%;
@@ -107,7 +108,11 @@ const Play: React.FC = () => {
           </GridArea>
           <GridArea area="r2c4"></GridArea>
           <GridArea area="r3c1"></GridArea>
-          <GridArea area="Tile">Tile</GridArea>
+          <GridArea area="Tile">
+            {/* <StoryTile /> */}
+            {/* <SidequestTile /> */}
+            <LevelTile />
+          </GridArea>
           <GridArea area="Tiles">
             <Tiles />
           </GridArea>
@@ -117,7 +122,7 @@ const Play: React.FC = () => {
           </GridArea>
           <GridArea area="Footer">
             <Footer>
-              <SocialLogos style={{ width: "20%" }} />
+              <SocialLogos style={{ width: "20%", maxWidth: "250px" }} />
               <FooterCopyright style={{ justifyContent: "flex-end", width: "20%" }} />
             </Footer>
           </GridArea>
