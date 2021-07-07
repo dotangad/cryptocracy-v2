@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserTile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -44,7 +45,13 @@ class RegisterController extends Controller
         $user->country = $body['Country'];
         $user->phone = $body['Phone'];
         $user->company = $body['Institution'];
+        $user->tile_id = 1;
         $user->save();
+
+        $user_tile = new UserTile();
+        $user_tile->tile_id = 1;
+        $user_tile->user_id = $user->id;
+        $user_tile->save();
 
         Auth::login($user, true);
 

@@ -44,4 +44,85 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the tile that the user is on.
+     */
+    public function tile()
+    {
+        return $this->belongsTo(Tile::class);
+    }
+
+    public function can_back()
+    {
+        $tile = $this->tile;
+        if ($tile->id == 1) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function can_next()
+    {
+        $tile = $this->tile;
+        if ($tile->id == 39) {
+            return false;
+        }
+
+        // if tile is level, and level is not solved - return false
+
+        return true;
+    }
+
+    public function prev_tile()
+    {
+        if (!$this->can_back()) {
+            return false;
+        }
+
+        $this->tile_id = $this->tile->id - 1;
+        $this->save();
+        return true;
+    }
+
+    public function next_tile()
+    {
+        if (!$this->can_next()) {
+            return false;
+        }
+
+        $this->tile_id = $this->tile->id + 1;
+
+        $user_tile = UserTile
+            ::where('user_id', $this->id)
+            ->where('tile_id', $this->tile_id)
+            ->first();
+
+        if (!$user_tile) {
+            $user_tile = new UserTile();
+            $user_tile->user_id = $this->id;
+            $user_tile->tile_id = $this->tile_id;
+            $user_tile->save();
+        }
+
+        $this->save();
+
+        return true;
+    }
+
+    public function tiles()
+    {
+        return $this->belongsToMany(Tile::class, 'user_tiles');
+    }
+
+    public function user_tiles()
+    {
+        return $this->hasMany(UserTile::class);
+    }
+
+    /* public function user_tile() */
+    /* { */
+    /*     return $this->hasOne(UserTile::class)->ofMany(''); */
+    /* } */
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { TileType } from "../Pages/Admin/Tiles";
+import { ITile } from "../Pages/Play";
 
 const TilesContainer = styled.div`
   width: 100%;
@@ -16,14 +18,7 @@ const TilesContainer = styled.div`
     "x26 x27 x28 x29 x30 x31 x32"
     "x33 x34 x35 x36 x37 x38 x39";
 
-  & a {
-    text-decoration: none;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  & > div > div {
     font-size: 0.7rem;
     font-weight: 900;
     color: #999;
@@ -48,18 +43,55 @@ const Start = styled.div`
   font-size: 0.9rem;
 `;
 
-const Tiles: React.FC = () => {
+interface ITilesProps {
+  tiles: ITile[];
+  tile: ITile;
+}
+
+interface ITilesF extends ITile {
+  visited: boolean;
+}
+
+const Tiles: React.FC<ITilesProps> = ({ tiles, tile }: ITilesProps) => {
+  const tilesf: ITilesF[] = Array(39)
+    .fill("-")
+    .map((_, i) =>
+      i < tiles.length
+        ? { ...tiles[i], visited: true }
+        : {
+            id: i + 1,
+            visited: false,
+            content: "",
+            type: TileType.STORY
+          }
+    );
+
   return (
     <TilesContainer>
       <Start>Start</Start>
-      {Array(39)
-        .fill("-")
-        .map((_, i) => i + 1)
-        .map((i) => (
-          <div key={i} style={{ gridArea: `x${String(i).padStart(2, "0")}` }}>
-            {i}
-          </div>
-        ))}
+      {tilesf.map((tile_, i) => (
+        <div
+          key={i}
+          style={{
+            gridArea: `x${String(tile_.id).padStart(2, "0")}`,
+            background: tile_.visited ? "#202020" : "",
+            border: tile.id === tile_.id ? "2px solid #fff" : ""
+          }}
+        >
+          {tile_.visited ? (
+            <>
+              <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>{tile_.id}</div>
+              <div>{tile_.type as string}</div>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: "1.6rem", fontWeight: 700, color: "#555" }}>
+                {tile_.id}
+              </div>
+            </>
+          )}
+        </div>
+      ))}
       <div style={{ gridArea: "cen" }}>
         <svg
           viewBox="0 0 36 28"

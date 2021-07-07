@@ -6,6 +6,7 @@ import { ChevronRight } from "../Components/Icons";
 import Countdown from "../Components/Layout/Countdown";
 import SocialLogos from "../Components/Layout/SocialLogos";
 import Tiles from "../Components/Tiles";
+import { TileType } from "./Admin/Tiles";
 import { SidequestTile, StoryTile, LevelTile } from "../Components/Tile";
 
 const Footer = styled.div`
@@ -78,7 +79,22 @@ const CountdownContainer = styled.div`
   padding-bottom: 20px;
 `;
 
-const Play: React.FC = () => {
+export interface ITile {
+  id: number;
+  content: string;
+  type: TileType;
+  comment?: string;
+  points?: number;
+}
+
+interface IPlayProps {
+  tiles: ITile[];
+  tile: ITile;
+  canBack: boolean;
+  canNext: boolean;
+}
+
+const Play: React.FC<IPlayProps> = ({ tiles, tile, canBack, canNext }: IPlayProps) => {
   return (
     <>
       <div className="layers">
@@ -109,12 +125,16 @@ const Play: React.FC = () => {
           <GridArea area="r2c4"></GridArea>
           <GridArea area="r3c1"></GridArea>
           <GridArea area="Tile">
-            {/* <StoryTile /> */}
-            {/* <SidequestTile /> */}
-            <LevelTile />
+            {tile.type === TileType.LEVEL ? (
+              <LevelTile {...{ tile, canBack, canNext }} />
+            ) : tile.type === TileType.STORY ? (
+              <StoryTile {...{ tile, canBack, canNext }} />
+            ) : (
+              <SidequestTile {...{ tile, canBack, canNext }} />
+            )}
           </GridArea>
           <GridArea area="Tiles">
-            <Tiles />
+            <Tiles tiles={tiles} tile={tile} />
           </GridArea>
           <GridArea area="r3c4"></GridArea>
           <GridArea area="FooterLogo">
