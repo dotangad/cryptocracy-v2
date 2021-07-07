@@ -65,12 +65,14 @@ class User extends Authenticatable
 
     public function can_next()
     {
-        $tile = $this->tile;
-        if ($tile->id == 39) {
+        if ($this->tile->id == 39) {
             return false;
         }
 
         // if tile is level, and level is not solved - return false
+        if ($this->tile->type == "LEVEL" && !$this->user_tile->solved) {
+            return false;
+        }
 
         return true;
     }
@@ -121,8 +123,11 @@ class User extends Authenticatable
         return $this->hasMany(UserTile::class);
     }
 
-    /* public function user_tile() */
-    /* { */
-    /*     return $this->hasOne(UserTile::class)->ofMany(''); */
-    /* } */
+    public function user_tile()
+    {
+        $tile_id = $this->tile->id;
+        return $this->hasOne(UserTile::class)->ofMany([], function ($query) use ($tile_id) {
+            $query->where('tile_id', '=', $tile_id);
+        });
+    }
 }

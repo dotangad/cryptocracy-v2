@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tile;
+use App\Rules\Level;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -22,6 +24,11 @@ class PlayController extends Controller
                 ->tile()
                 ->first()
                 ->makeHidden(['solution', 'created_at', 'updated_at']),
+            'userTile' => $req
+                ->user()
+                ->user_tile()
+                ->first()
+                ->makeHidden(['id', 'created_at', 'updated_at']),
             'canBack' => $req->user()->can_back(),
             'canNext' => $req->user()->can_next(),
         ]);
@@ -39,5 +46,51 @@ class PlayController extends Controller
         $req->user()->next_tile();
 
         return Redirect::route('play');
+    }
+
+    private function submit_sidequest(Request $req)
+    {
+        $req->validate([
+            'link' => ['required', 'url']
+        ]);
+
+        $ut = $req->user()->user_tile;
+        $ut->media_link = $req->all()['link'];
+        $ut->save();
+    }
+
+    private function attempt_level(Request $req)
+    {
+        $req->validate([
+            'answer' => [
+                'required',
+                'regex:/^[a-z0-9-_]+$/',
+                new Level
+            ]
+        ]);
+
+        $ut = $req->user()->user_tile;
+        $ut->solved = true;
+        $ut->save();
+
+        // TODO: User attempt model
+    }
+
+    public function try(Request $req)
+    {
+        if (
+            $req->user()->tile->type === 'SIDEQUEST' &&
+            !$req->user()->user_tile->media_link
+        ) {
+            $this->submit_sidequest($req);
+            return Redirect::route('play');
+        }
+
+        if ($req->user()->tile->type === 'LEVEL') {
+            $this->attempt_level($req);
+            return Redirect::route('play');
+        }
+
+        abort(Response::HTTP_BAD_REQUEST);
     }
 }

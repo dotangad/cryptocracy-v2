@@ -122,6 +122,10 @@ Route::post('/play/next', [PlayController::class, 'next'])
     ->middleware(['auth', 'dq', 'inprogress'])
     ->name('play.next');
 
+Route::post('/play/try', [PlayController::class, 'try'])
+    ->middleware(['auth', 'dq', 'inprogress'])
+    ->name('play.try');
+
 if (App::environment('local')) {
     Route::get('/authn', function () {
         return dd(Auth::user());
