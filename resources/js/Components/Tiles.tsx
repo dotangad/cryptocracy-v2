@@ -18,18 +18,23 @@ const TilesContainer = styled.div`
     "x26 x27 x28 x29 x30 x31 x32"
     "x33 x34 x35 x36 x37 x38 x39";
 
-  & > div > div {
+  > div {
     font-size: 0.7rem;
     font-weight: 900;
     color: #999;
-  }
-
-  > div {
     border: 0.5px solid #29292940;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    &.visited {
+      background: #202020;
+    }
+
+    &.current {
+      border: 3px solid #ffffff60;
+    }
   }
 `;
 
@@ -37,10 +42,10 @@ const Start = styled.div`
   background: white;
   border-color: white;
   grid-area: str;
-  color: #333;
+  color: #333 !important;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
 `;
 
 interface ITilesProps {
@@ -72,11 +77,10 @@ const Tiles: React.FC<ITilesProps> = ({ tiles, tile }: ITilesProps) => {
       {tilesf.map((tile_, i) => (
         <div
           key={i}
-          style={{
-            gridArea: `x${String(tile_.id).padStart(2, "0")}`,
-            background: tile_.visited ? "#202020" : "",
-            border: tile.id === tile_.id ? "2px solid #fff" : ""
-          }}
+          className={
+            (tile_.visited ? "visited" : "") + (tile_.id == tile.id ? " current" : "")
+          }
+          style={{ gridArea: `x${String(tile_.id).padStart(2, "0")}` }}
         >
           {tile_.visited ? (
             <>

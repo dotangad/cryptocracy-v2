@@ -87,14 +87,28 @@ export interface ITile {
   points?: number;
 }
 
+export interface IUserTile {
+  solved: boolean;
+  user_id: number;
+  tile_id: number;
+  media_link: string | null;
+}
+
 interface IPlayProps {
   tiles: ITile[];
   tile: ITile;
+  userTile: IUserTile;
   canBack: boolean;
   canNext: boolean;
 }
 
-const Play: React.FC<IPlayProps> = ({ tiles, tile, canBack, canNext }: IPlayProps) => {
+const Play: React.FC<IPlayProps> = ({
+  tiles,
+  tile,
+  canBack,
+  canNext,
+  userTile
+}: IPlayProps) => {
   return (
     <>
       <div className="layers">
@@ -126,11 +140,11 @@ const Play: React.FC<IPlayProps> = ({ tiles, tile, canBack, canNext }: IPlayProp
           <GridArea area="r3c1"></GridArea>
           <GridArea area="Tile">
             {tile.type === TileType.LEVEL ? (
-              <LevelTile {...{ tile, canBack, canNext }} />
+              <LevelTile {...{ tile, canBack, canNext, userTile }} />
             ) : tile.type === TileType.STORY ? (
-              <StoryTile {...{ tile, canBack, canNext }} />
+              <StoryTile {...{ tile, canBack, canNext, userTile }} />
             ) : (
-              <SidequestTile {...{ tile, canBack, canNext }} />
+              <SidequestTile {...{ tile, canBack, canNext, userTile }} />
             )}
           </GridArea>
           <GridArea area="Tiles">
