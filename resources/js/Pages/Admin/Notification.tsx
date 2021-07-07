@@ -30,8 +30,7 @@ const Notifications: React.FC<INotificationsProps> = ({
           onSubmit={(e: any) => {
             e.preventDefault();
             put(`/admin/notifications/${notification.id}`, {
-              preserveState: true,
-              onSuccess: () => window.location.reload()
+              preserveState: true
             });
           }}
         >

@@ -126,8 +126,10 @@ class User extends Authenticatable
     public function user_tile()
     {
         $tile_id = $this->tile->id;
-        return $this->hasOne(UserTile::class)->ofMany([], function ($query) use ($tile_id) {
-            $query->where('tile_id', '=', $tile_id);
-        });
+        return $this
+            ->hasOne(UserTile::class)
+            ->ofMany([], function ($query) use ($tile_id) {
+                $query->where('tile_id', '=', $tile_id);
+            });
     }
 }
