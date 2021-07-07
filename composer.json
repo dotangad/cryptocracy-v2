@@ -13,7 +13,7 @@
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "inertiajs/inertia-laravel": "^0.4.1",
-    "laravel/framework": "^8.12",
+    "laravel/framework": "8.*",
     "laravel/tinker": "^2.5",
     "sleiman/airtable-php": "^2.4",
     "tightenco/ziggy": "^1.2"
