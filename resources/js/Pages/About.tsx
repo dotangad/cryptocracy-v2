@@ -111,7 +111,7 @@ const Sponsors = styled.div`
   align-items: center;
 
   & img {
-    height: 100px;
+    height: 60px;
     width: auto;
     margin-right: 30px;
     margin-top: 20px;
@@ -133,14 +133,17 @@ const About: React.FC = () => {
     {
       link: "https://slingshotahead.com/",
       img: "/img/slingshot-white.png",
-      alt: "Slingshot"
+      alt: "Slingshot",
+      css: {
+        height: "80px"
+      }
     },
     {
       link: "https://www.interviewcake.com",
       img: "/img/interviewcake.svg",
       alt: "InterviewCake",
       css: {
-        height: "60px"
+        height: "40px"
       }
     },
     {
@@ -148,8 +151,15 @@ const About: React.FC = () => {
       img: "/img/taskade-logo.png",
       alt: "Taskade",
       css: {
-        filter: "invert(1)",
-        height: "60px"
+        filter: "invert(1)"
+      }
+    },
+    {
+      link: "https://gen.xyz/",
+      img: "/img/xyz-logo-white.png",
+      alt: "gen.xyz",
+      css: {
+        height: "80px"
       }
     }
   ];
