@@ -44,7 +44,7 @@ const TilePage: React.FC<ITilePageProps> = ({ tile, failure }: ITilePageProps) =
             post(`/admin/tiles/${tile.id}`, {
               preserveState: true,
               onSuccess: () => {
-                window.location.reload();
+                reset();
               }
             });
           }}
