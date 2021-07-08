@@ -9,7 +9,7 @@ class UserAttempt extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['attempt', 'user_id', 'tile_id'];
+    protected $fillable = ['attempt', 'user_id', 'tile_id', 'ip'];
 
     public function user()
     {

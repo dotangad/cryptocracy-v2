@@ -144,6 +144,7 @@ class User extends Authenticatable
             'attempt' => $attempt,
             'user_id' => $this->id,
             'tile_id' => $this->tile->id,
+            'ip' => request()->ip()
         ]))->save();
     }
 
