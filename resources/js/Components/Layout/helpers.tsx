@@ -145,6 +145,8 @@ export interface IPageProps extends Page<PageProps> {
         discord_discriminator?: string;
         admin: boolean;
         disqualified: boolean;
+        points: number;
+        tile_id: number;
       };
     };
   };

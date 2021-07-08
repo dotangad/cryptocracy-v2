@@ -256,7 +256,11 @@ interface IIndexProps {
 }
 
 const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
-  const { started, ended } = usePage<IPageProps>().props;
+  const {
+    started,
+    ended,
+    auth: { user }
+  } = usePage<IPageProps>().props;
 
   return (
     <>
@@ -285,37 +289,21 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
                     <Countdown large={true} />
                   </div>
                   <NumberCard>
-                    <span>12300</span>
+                    <span>{user.points}</span>
                     <div>points</div>
                   </NumberCard>
                   <NumberCard>
-                    <span>10</span>
-                    <div>levels solved</div>
+                    <span>{user.tile_id}</span>
+                    <div>tile</div>
                   </NumberCard>
-                  <NumberCard>
-                    <span>#109</span>
-                    <div>rank</div>
-                  </NumberCard>
-                  <PlayBtn href="/play">
-                    <span>Play</span>
-                    <ChevronRight />
-                  </PlayBtn>
-                </>
-              ) : ended ? (
-                <>
-                  <NumberCard>
-                    <span>12300</span>
-                    <div>points</div>
-                  </NumberCard>
-                  <NumberCard>
-                    <span>10</span>
-                    <div>levels solved</div>
-                  </NumberCard>
-                  <NumberCard>
-                    <span>#109</span>
-                    <div>rank</div>
-                  </NumberCard>
-                  <InfoContainer>Cryptocracy 2021 has ended.</InfoContainer>
+                  {ended ? (
+                    <InfoContainer>Cryptocracy 2021 has ended.</InfoContainer>
+                  ) : (
+                    <PlayBtn href="/play">
+                      <span>Play</span>
+                      <ChevronRight />
+                    </PlayBtn>
+                  )}
                 </>
               ) : (
                 <>

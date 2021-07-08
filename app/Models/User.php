@@ -157,5 +157,8 @@ class User extends Authenticatable
     {
         $this->user_tile->solved = true;
         $this->user_tile->save();
+
+        $this->points += $this->tile->points;
+        $this->save();
     }
 }
