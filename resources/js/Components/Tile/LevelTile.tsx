@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useForm } from "@inertiajs/inertia-react";
 import { PrevNext } from "./PrevNext";
 import { ITileProps, TileContainer } from "./common";
+import { PrimaryButton } from "../Button";
 
 const LevelContainer = styled.div``;
 
@@ -53,7 +54,7 @@ export const LevelTile: React.FC<ITileProps> = ({
                 <input
                   type="text"
                   name="answer"
-                  placeholder="Answer (enter to submit)"
+                  placeholder="Answer"
                   autoFocus={true}
                   autoComplete="off"
                   value={data.answer}
@@ -69,6 +70,9 @@ export const LevelTile: React.FC<ITileProps> = ({
                   }
                   disabled={processing}
                 />
+                <PrimaryButton as="button" type="submit">
+                  Submit
+                </PrimaryButton>
               </div>
             </form>
           )}

@@ -19,8 +19,7 @@ export const TileContainer = styled.div`
   & > div {
     min-height: 300px;
     height: auto;
-    max-width: 100%;
-    max-width: 500px;
+    width: 500px;
     margin: 0 auto;
     padding: 30px;
     background: #292929;
@@ -50,6 +49,20 @@ export const TileContainer = styled.div`
 
     .answer > form {
       margin: 20px 0;
+      > div {
+        display: flex;
+        align-items: stretch;
+      }
+
+      input {
+        flex: 1;
+      }
+
+      button {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
     }
 
     .answer > div {
@@ -99,7 +112,8 @@ export const TileContainer = styled.div`
 
     & > div {
       width: 100%;
-      padding: 30px;
+      min-width: 300px;
+      padding: 0;
       background: none;
       box-shadow: none;
     }

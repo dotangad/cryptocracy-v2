@@ -76,9 +76,6 @@ const TilesContainer = styled.div`
     }
 
     &.current {
-       {
-        /* border: 3px solid #ffffff60; */
-      }
     }
 
     > div {

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useForm } from "@inertiajs/inertia-react";
 import { PrevNext } from "./PrevNext";
 import { ITileProps, TileContainer } from "./common";
+import { PrimaryButton } from "../Button";
 
 const SidequestContainer = styled.div``;
 
@@ -43,11 +44,14 @@ export const SidequestTile: React.FC<ITileProps> = ({
                 <input
                   type="text"
                   name="link"
-                  placeholder="Link to media (enter to submit)"
+                  placeholder="Link to media"
                   value={data.link}
                   onChange={(e: any) => setData("link", e.target.value)}
                   disabled={processing}
                 />
+                <PrimaryButton as="button" type="submit">
+                  Submit
+                </PrimaryButton>
               </div>
             </form>
           )}
