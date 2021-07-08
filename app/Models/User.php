@@ -96,17 +96,28 @@ class User extends Authenticatable
 
         $this->tile_id = $this->tile->id + 1;
 
-        $user_tile = UserTile
-            ::where('user_id', $this->id)
-            ->where('tile_id', $this->tile_id)
-            ->first();
+        /* $user_tile = UserTile */
+        /*     ::where('user_id', $this->id) */
+        /*     ->where('tile_id', $this->tile_id) */
+        /*     ->first(); */
 
-        if (!$user_tile) {
-            $user_tile = new UserTile();
-            $user_tile->user_id = $this->id;
-            $user_tile->tile_id = $this->tile_id;
-            $user_tile->save();
-        }
+        /* if (!$user_tile) { */
+        /*     $user_tile = new UserTile(); */
+        /*     $user_tile->user_id = $this->id; */
+        /*     $user_tile->tile_id = $this->tile_id; */
+        /*     $user_tile->ip = request()->ip(); */
+        /*     $user_tile->save(); */
+        /* } */
+
+        UserTile::where('user_id', $this->id)
+            ->where('tile_id', $this->tile_id)
+            ->firstOr(function () {
+                return UserTile::create([
+                    'user_id' => $this->id,
+                    'tile_id' => $this->tile_id,
+                    'ip' => request()->ip()
+                ]);
+            });
 
         $this->save();
 

@@ -51,6 +51,7 @@ class RegisterController extends Controller
         $user_tile = new UserTile();
         $user_tile->tile_id = 1;
         $user_tile->user_id = $user->id;
+        $user_tile->ip = $req->ip();
         $user_tile->save();
 
         Auth::login($user, true);
