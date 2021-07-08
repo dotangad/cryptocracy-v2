@@ -13,11 +13,11 @@ class UserAttempt extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function tile()
     {
-        return $this->hasOne(Tile::class);
+        return $this->belongsTo(Tile::class);
     }
 }
