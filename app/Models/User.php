@@ -132,4 +132,30 @@ class User extends Authenticatable
                 $query->where('tile_id', '=', $tile_id);
             });
     }
+
+    public function attempts()
+    {
+        return $this->hasMany(UserAttempt::class);
+    }
+
+    public function record_attempt(String $attempt)
+    {
+        (new UserAttempt([
+            'attempt' => $attempt,
+            'user_id' => $this->id,
+            'tile_id' => $this->tile->id,
+        ]))->save();
+    }
+
+    public function submit_sidequest(String $link)
+    {
+        $this->user_tile->media_link = $link;
+        $this->user_tile->save();
+    }
+
+    public function mark_solved()
+    {
+        $this->user_tile->solved = true;
+        $this->user_tile->save();
+    }
 }

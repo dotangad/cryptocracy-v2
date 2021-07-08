@@ -22,6 +22,25 @@ class Tile extends Model
 
     public function setTypeAttribute($value)
     {
-        $this->attributes['type'] = array_flip($this->tile_types)[$value];
+        return $this->attributes['type'] = array_flip($this->tile_types)[$value];
+    }
+
+    public function visited()
+    {
+        return $this->belongsToMany(User::class, 'user_tiles');
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function attempts()
+    {
+        if ($this->type === 'LEVEL') {
+            return $this->hasMany(UserAttempt::class);
+        }
+
+        return collect();
     }
 }

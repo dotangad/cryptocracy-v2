@@ -54,9 +54,7 @@ class PlayController extends Controller
             'link' => ['required', 'url']
         ]);
 
-        $ut = $req->user()->user_tile;
-        $ut->media_link = $req->all()['link'];
-        $ut->save();
+        $req->user()->submit_sidequest($req->all()['link']);
     }
 
     private function attempt_level(Request $req)
@@ -69,11 +67,7 @@ class PlayController extends Controller
             ]
         ]);
 
-        $ut = $req->user()->user_tile;
-        $ut->solved = true;
-        $ut->save();
-
-        // TODO: User attempt model
+        $req->user()->mark_solved();
     }
 
     public function try(Request $req)
