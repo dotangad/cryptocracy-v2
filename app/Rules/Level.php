@@ -26,6 +26,7 @@ class Level implements Rule
     public function passes($attribute, $value)
     {
         $answer = request()->user()->tile->solution;
+        request()->user()->record_attempt($value);
 
         return $answer === $value;
     }
