@@ -22,9 +22,29 @@ class TileFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'content' => $this->faker->sentences(3, true),
-            'type' => 'STORY',
-        ];
+        $r = rand(0, 2);
+
+        switch ($r) {
+            case 0:
+                return [
+                    'content' => $this->faker->sentences(5, true),
+                    'type' => 'STORY',
+                ];
+                break;
+            case 1:
+                return [
+                    'content' => $this->faker->sentences(1, true),
+                    'type' => 'SIDEQUEST',
+                ];
+                break;
+            case 2:
+                return [
+                    'content' => $this->faker->sentences(2, true),
+                    'type' => 'LEVEL',
+                    'points' => 300,
+                    'solution' => 'verylonganswer'
+                ];
+                break;
+        }
     }
 }
