@@ -78,14 +78,8 @@ interface IProps {
 
 const Login: React.FC<IProps> = ({ failure }: IProps) => {
   const { data, setData, post, processing, reset, errors } = useForm({
-    Name: "",
     Email: "",
-    Username: "",
-    Country: "",
-    Phone: "",
-    Institution: "",
-    Password: "",
-    "Password confirmation": ""
+    Password: ""
   });
 
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
