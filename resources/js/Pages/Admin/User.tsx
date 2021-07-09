@@ -95,42 +95,22 @@ const User: React.FC<IUserPageProps> = ({
 }: IUserPageProps) => {
   const { post, processing } = useForm({});
 
-  console.log(pointsHistory);
-
   return (
     <AdminLayout title={`User ${user.email}`} backTo="/admin/users">
       <>
         <ButtonContainer>
-          {!user.admin ? (
-            <SingleButtonForm
-              url={`/admin/users/${user.id}/promote`}
-              buttonLabel="Promote to Admin"
-              post={post}
-              processing={processing}
-            />
-          ) : (
-            <SingleButtonForm
-              url={`/admin/users/${user.id}/demote`}
-              buttonLabel="Demote to User"
-              post={post}
-              processing={processing}
-            />
-          )}
-          {!user.disqualified ? (
-            <SingleButtonForm
-              url={`/admin/users/${user.id}/dq`}
-              buttonLabel="Disqualify"
-              post={post}
-              processing={processing}
-            />
-          ) : (
-            <SingleButtonForm
-              url={`/admin/users/${user.id}/rq`}
-              buttonLabel="Requalify"
-              post={post}
-              processing={processing}
-            />
-          )}
+          <SingleButtonForm
+            url={`/admin/users/${user.id}/admin`}
+            buttonLabel={user.admin ? "Demote to User" : "Promote to Admin"}
+            post={post}
+            processing={processing}
+          />
+          <SingleButtonForm
+            url={`/admin/users/${user.id}/dq`}
+            buttonLabel={user.disqualified ? "Requalify" : "Disqualify"}
+            post={post}
+            processing={processing}
+          />
         </ButtonContainer>
         <div style={{ maxWidth: "1000px", paddingBottom: "100px" }}>
           <div

@@ -62,17 +62,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function promote(User $user)
+    public function admin(User $user)
     {
-        $user->admin = 1;
-        $user->save();
-
-        return Redirect::route('users.show', $user);
-    }
-
-    public function demote(User $user)
-    {
-        $user->admin = 0;
+        $user->admin = !$user->admin;
         $user->save();
 
         return Redirect::route('users.show', $user);
@@ -80,15 +72,7 @@ class UserController extends Controller
 
     public function disqualify(User $user)
     {
-        $user->disqualified = 1;
-        $user->save();
-
-        return Redirect::route('users.show', $user);
-    }
-
-    public function requalify(User $user)
-    {
-        $user->disqualified = 0;
+        $user->disqualified = !$user->disqualified;
         $user->save();
 
         return Redirect::route('users.show', $user);

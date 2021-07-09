@@ -82,21 +82,13 @@ Route::get('/admin/users/{user}', [UserController::class, 'show'])
     ->middleware(['auth', 'admin'])
     ->name('users.show');
 
-Route::post('/admin/users/{user}/promote', [UserController::class, 'promote'])
+Route::post('/admin/users/{user}/admin', [UserController::class, 'admin'])
     ->middleware(['auth', 'admin'])
-    ->name('users.promote');
-
-Route::post('/admin/users/{user}/demote', [UserController::class, 'demote'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.demote');
+    ->name('users.admin');
 
 Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
     ->middleware(['auth', 'admin'])
     ->name('users.disqualify');
-
-Route::post('/admin/users/{user}/rq', [UserController::class, 'requalify'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.requalify');
 
 Route::get('/admin/users/{user}/tile/{tile}', [UserController::class, 'user_tile'])
     ->middleware(['auth', 'admin'])
