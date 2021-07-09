@@ -90,6 +90,10 @@ Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
     ->middleware(['auth', 'admin'])
     ->name('users.disqualify');
 
+Route::post('/admin/users/{user}/recal', [UserController::class, 'recalibrate_points'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.recalibrate_points');
+
 Route::get('/admin/users/{user}/tile/{tile}', [UserController::class, 'user_tile'])
     ->middleware(['auth', 'admin'])
     ->name('users.user_tile');

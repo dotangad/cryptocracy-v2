@@ -110,4 +110,11 @@ class UserController extends Controller
             'tile' => $tile,
         ]);
     }
+
+    public function recalibrate_points(User $user)
+    {
+        $user->recalibrate_points();
+
+        return Redirect::route('users.show', $user);
+    }
 }

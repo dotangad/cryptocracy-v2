@@ -161,6 +161,14 @@ const User: React.FC<IUserPageProps> = ({
               </tr>
             </tbody>
           </Table>
+          <ButtonContainer style={{ marginTop: "20px", justifyContent: "flex-end" }}>
+            <SingleButtonForm
+              url={`/admin/users/${user.id}/recal`}
+              buttonLabel="Recalibrate Points"
+              post={post}
+              processing={processing}
+            />
+          </ButtonContainer>
         </div>
       </>
     </AdminLayout>

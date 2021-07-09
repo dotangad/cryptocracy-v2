@@ -197,4 +197,16 @@ class User extends Authenticatable
             })
             ->toArray());
     }
+
+    public function recalibrate_points()
+    {
+        $calc_points = collect($this->points_history())->reduce(function ($carry, $p) {
+            return $carry + $p['points'];
+        }, 0);
+
+        if ($calc_points != $this->points) {
+            $this->points = $calc_points;
+            $this->save();
+        }
+    }
 }
