@@ -24,14 +24,26 @@ export const LevelTile: React.FC<ITileProps> = ({
         <div className="content">
           <div>
             <h1>Level {tile.id}</h1>
-            <div className="points">{tile.points}</div>
+            <div className="points" style={{ color: solved ? "green" : "#999" }}>
+              {tile.points}
+            </div>
           </div>
           <p>{tile.content}</p>
         </div>
 
         <div className="answer">
           {solved ? (
-            <></>
+            <div
+              style={{
+                marginBottom: "20px",
+                color: "green",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center"
+              }}
+            >
+              Level Solved
+            </div>
           ) : (
             <form
               onSubmit={(e: any) => {
@@ -78,7 +90,6 @@ export const LevelTile: React.FC<ITileProps> = ({
           )}
 
           <PrevNext {...{ tile, canBack, canNext }}>
-            {solved ? <p>Level solved</p> : <></>}
             {errors.answer ? <p style={{ color: "#ff0000" }}>{errors.answer}</p> : <></>}
           </PrevNext>
         </div>

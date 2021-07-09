@@ -23,19 +23,20 @@ export const SidequestTile: React.FC<ITileProps> = ({
         <div className="content">
           <div>
             <h1>Sidequest {tile.id}</h1>
-            {userTile.sidequest_points === 0 ? (
-              <div
-                className="points"
-                style={{
-                  fontSize: "0.9rem",
-                  textTransform: "uppercase"
-                }}
-              >
-                no points
-              </div>
-            ) : (
-              <div style={{ color: "green" }}>{userTile.sidequest_points}</div>
-            )}
+            {userTile.media_link &&
+              (userTile.sidequest_points === 0 ? (
+                <div
+                  className="points"
+                  style={{
+                    fontSize: "0.9rem",
+                    textTransform: "uppercase"
+                  }}
+                >
+                  no points
+                </div>
+              ) : (
+                <div style={{ color: "green" }}>{userTile.sidequest_points}</div>
+              ))}
           </div>
           <p>{tile.content}</p>
         </div>
