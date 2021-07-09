@@ -98,10 +98,12 @@ class UserController extends Controller
             abort(400);
         }
 
+        $ut = $user->user_tiles()->where('tile_id', $tile->id)->first();
+
+        $user->points -= $ut->sidequest_points;
         $user->points += $body['points'];
         $user->save();
 
-        $ut = $user->user_tiles()->where('tile_id', $tile->id)->first();
         $ut->sidequest_points = $body['points'];
         $ut->save();
 
