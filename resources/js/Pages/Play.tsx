@@ -92,6 +92,7 @@ export interface IUserTile {
   user_id: number;
   tile_id: number;
   media_link: string | null;
+  sidequest_points: number;
 }
 
 interface IPlayProps {

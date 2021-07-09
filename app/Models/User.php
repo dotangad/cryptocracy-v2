@@ -173,4 +173,28 @@ class User extends Authenticatable
         $this->points += $this->tile->points;
         $this->save();
     }
+
+    public function points_history()
+    {
+        return array_values($this
+            ->user_tiles()
+            ->with('Tile')
+            ->whereHas('Tile', function ($q) {
+                // 0 -> LEVEL
+                // 2 -> SIDEQUEST
+                $q->where('type', 0)->orWhere('type', 2);
+            })
+            ->get()
+            ->filter(function ($ut) {
+                return $ut->sidequest_points != 0 || $ut->solved;
+            })
+            ->map(function ($ut) {
+                $tid = $ut->tile->id;
+                return [
+                    'points' => $ut->tile->type == 'LEVEL' ? $ut->tile->points : $ut->sidequest_points,
+                    'label' => $ut->tile->type . " $tid"
+                ];
+            })
+            ->toArray());
+    }
 }

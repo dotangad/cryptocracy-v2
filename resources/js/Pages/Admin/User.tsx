@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AdminLayout from "../../Components/Layout/Admin";
 import { PrimaryButton } from "../../Components/Button";
 import { IUser } from "./Users";
+import UserTiles, { ITilesF } from "../../Components/Admin/UserTiles";
 
 const Table = styled.table`
   width: 100%;
@@ -44,6 +45,9 @@ const ButtonContainer = styled.div`
 
 interface IUserPageProps {
   user: IUser;
+  tiles: ITilesF[];
+  tile: ITilesF;
+  pointsHistory: { points: number; label: string }[];
 }
 
 interface IFormProps {
@@ -83,8 +87,15 @@ const SingleButtonForm: React.FC<IFormProps> = ({
   );
 };
 
-const User: React.FC<IUserPageProps> = ({ user }: IUserPageProps) => {
+const User: React.FC<IUserPageProps> = ({
+  user,
+  tiles,
+  tile,
+  pointsHistory
+}: IUserPageProps) => {
   const { post, processing } = useForm({});
+
+  console.log(pointsHistory);
 
   return (
     <AdminLayout title={`User ${user.email}`} backTo="/admin/users">
@@ -122,6 +133,17 @@ const User: React.FC<IUserPageProps> = ({ user }: IUserPageProps) => {
           )}
         </ButtonContainer>
         <div style={{ maxWidth: "1000px", paddingBottom: "100px" }}>
+          <div
+            style={{
+              height: "700px",
+              width: "700px",
+              margin: "0 auto",
+              marginBottom: "50px"
+            }}
+          >
+            <UserTiles userId={user.id} tiles={tiles} tile={tile} />
+          </div>
+
           <Table>
             <thead>
               <tr>
@@ -136,6 +158,27 @@ const User: React.FC<IUserPageProps> = ({ user }: IUserPageProps) => {
                   <td>{value}</td>
                 </tr>
               ))}
+            </tbody>
+          </Table>
+
+          <Table style={{ marginTop: "50px" }}>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pointsHistory.map(({ label, points }, i) => (
+                <tr key={i}>
+                  <td>{label}</td>
+                  <td>{points}</td>
+                </tr>
+              ))}
+              <tr>
+                <th>Total</th>
+                <th>{pointsHistory.map((x) => x.points).reduce((s, p) => s + p, 0)}</th>
+              </tr>
             </tbody>
           </Table>
         </div>

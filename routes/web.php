@@ -98,6 +98,14 @@ Route::post('/admin/users/{user}/rq', [UserController::class, 'requalify'])
     ->middleware(['auth', 'admin'])
     ->name('users.requalify');
 
+Route::get('/admin/users/{user}/tile/{tile}', [UserController::class, 'user_tile'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.user_tile');
+
+Route::post('/admin/users/{user}/tile/{tile}/sq', [UserController::class, 'sidequest_points'])
+    ->middleware(['auth', 'admin'])
+    ->name('users.sidequest_points');
+
 Route::get('/admin/tiles', [TileController::class, 'index'])
     ->middleware(['auth', 'admin'])
     ->name('tiles.index');

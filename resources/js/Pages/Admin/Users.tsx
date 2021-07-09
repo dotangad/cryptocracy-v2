@@ -41,6 +41,8 @@ export interface IUser {
   discord_email: string;
   admin: boolean;
   disqualified: boolean;
+  tile_id: number;
+  points: number;
 }
 
 interface IUsersProps {

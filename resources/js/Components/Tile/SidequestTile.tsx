@@ -21,12 +21,37 @@ export const SidequestTile: React.FC<ITileProps> = ({
     <TileContainer>
       <SidequestContainer>
         <div className="content">
-          <h1>Sidequest {tile.id}</h1>
+          <div>
+            <h1>Sidequest {tile.id}</h1>
+            {userTile.sidequest_points === 0 ? (
+              <div
+                className="points"
+                style={{
+                  fontSize: "0.9rem",
+                  textTransform: "uppercase"
+                }}
+              >
+                no points
+              </div>
+            ) : (
+              <div style={{ color: "green" }}>{userTile.sidequest_points}</div>
+            )}
+          </div>
           <p>{tile.content}</p>
         </div>
         <div className="answer">
           {userTile.media_link ? (
-            <></>
+            <div
+              style={{
+                marginBottom: "20px",
+                color: "green",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center"
+              }}
+            >
+              Submitted
+            </div>
           ) : (
             <form
               onSubmit={(e: any) => {
@@ -56,7 +81,6 @@ export const SidequestTile: React.FC<ITileProps> = ({
             </form>
           )}
           <PrevNext {...{ tile, canBack, canNext }}>
-            {userTile.media_link ? <p>Submitted</p> : <></>}
             {errors.link ? <p style={{ color: "#ff0000" }}>{errors.link}</p> : <></>}
           </PrevNext>
         </div>

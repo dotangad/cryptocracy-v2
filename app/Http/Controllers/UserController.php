@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Tile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -40,17 +41,6 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -59,42 +49,17 @@ class UserController extends Controller
     public function show(User $user)
     {
         return Inertia::render('Admin/User', [
-            'user' => $user
+            'user' => $user,
+            'tiles' => $user
+                ->tiles()
+                ->get()
+                ->makeHidden(['solution', 'created_at', 'updated_at', 'pivot']),
+            'tile' => $user
+                ->tile()
+                ->first()
+                ->makeHidden(['solution', 'created_at', 'updated_at']),
+            'pointsHistory' => $user->points_history()
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function promote(User $user)
@@ -127,5 +92,38 @@ class UserController extends Controller
         $user->save();
 
         return Redirect::route('users.show', $user);
+    }
+
+    public function user_tile(User $user, Tile $tile)
+    {
+        return Inertia::render('Admin/UserTile', [
+            'user' => $user,
+            'tile' => $tile,
+            'userTile' => $user->user_tiles()->where('tile_id', $tile->id)->first(),
+            'attempts' => $user->attempts()->where('tile_id', $tile->id)->get()
+        ]);
+    }
+
+    public function sidequest_points(User $user, Tile $tile)
+    {
+        $body = request()->validate([
+            'points' => 'required|numeric'
+        ]);
+
+        if ($tile->type != 'SIDEQUEST') {
+            abort(400);
+        }
+
+        $user->points += $body['points'];
+        $user->save();
+
+        $ut = $user->user_tiles()->where('tile_id', $tile->id)->first();
+        $ut->sidequest_points = $body['points'];
+        $ut->save();
+
+        return Redirect::route('users.user_tile', [
+            'user' => $user,
+            'tile' => $tile,
+        ]);
     }
 }
