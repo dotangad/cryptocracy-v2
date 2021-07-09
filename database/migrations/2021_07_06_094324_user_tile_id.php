@@ -16,6 +16,7 @@ class UserTileId extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table
                 ->foreignId('tile_id')
+                ->default(1)
                 ->nullable()
                 ->references('id')
                 ->on('tiles')
