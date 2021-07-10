@@ -7,7 +7,15 @@
     <link rel="icon" href="/img/footer-logo-white-bg.png" type="image/png" />
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('/fonts/style.css') }}" rel="stylesheet" />
-    @routes()
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168595780-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-168595780-1');
+    </script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <title>Cryptocracy 2021</title>
   </head>
