@@ -200,7 +200,7 @@ const UserCard: React.FC = () => {
 const NumberCard = styled.div`
   width: 100%;
   background: #292929;
-  margin: 30px 0;
+  margin: 10px 0;
   padding: 20px;
   font-weight: bold;
   color: #888;
