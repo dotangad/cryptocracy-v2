@@ -13,11 +13,12 @@ class LeaderboardController extends Controller
             ->where('admin', false)
             ->where('disqualified', false)
             ->orderBy('points', 'DESC')
-            ->get('username')
+            ->get()
             ->map(function ($user, $key) {
                 return [
                     'rank' => $key + 1,
-                    'username' => $user->username
+                    'username' => $user->username,
+                    'points' => $user->points
                 ];
             });
 

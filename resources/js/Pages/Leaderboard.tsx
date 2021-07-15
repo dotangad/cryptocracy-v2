@@ -13,20 +13,32 @@ const LeaderboardTable = styled.table`
   border-collapse: collapse;
   overflow: hidden;
 
-  thead {
-    border-bottom: 3px solid white;
-  }
-
   tr {
     width: 100%;
     overflow: hidden;
   }
 
+  /*
+  tbody tr:nth-child(1) {
+    color: #ffd700;
+  }
+  tbody tr:nth-child(2) {
+    color: #c0c0c0;
+  }
+  tbody tr:nth-child(3) {
+    color: #cd7f32;
+  }
+
+  tbody tr:nth-child(-n + 15) {
+    font-weight: bold;
+  }
+  */
+
   th,
   td {
     padding: 15px 30px;
     font-size: 1.1rem;
-    text-align: left;
+    text-align: center;
   }
 
   th {
@@ -55,8 +67,9 @@ const SearchInput = styled.input`
 `;
 
 interface ILeaderboardUser {
+  rank: number;
   username: string;
-  rank?: number;
+  points: number;
 }
 
 interface IProps {
@@ -76,6 +89,7 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
     );
   };
 
+  console.log({ users });
   return (
     <>
       <Global />
@@ -88,13 +102,15 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
               <tr>
                 <th>Rank</th>
                 <th>Username</th>
+                <th>Points</th>
               </tr>
             </thead>
             <tbody>
-              {displayUsers.map(({ username, rank }, i) => (
+              {displayUsers.map(({ username, rank, points }) => (
                 <tr>
                   <td>{rank}</td>
                   <td>{username}</td>
+                  <td>{points}</td>
                 </tr>
               ))}
             </tbody>
