@@ -81,6 +81,7 @@ const Notifications: React.FC<INotificationsProps> = ({
 const SplitContainer = styled.div`
   width: 100%;
   min-height: 0;
+  height: calc((100vh - 150px) * 3 / 4);
   overflow: auto;
   display: flex;
   justify-content: space-between;
