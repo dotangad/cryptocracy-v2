@@ -17,7 +17,7 @@ class AdminController extends Controller
             'discord_accounts' => User::whereNotNull('discord_id')->count(),
             'attempts' => UserAttempt::count(),
             'levels_solved' => UserTile::where('solved', true)->count(),
-            'tiles_opened' => UserTile::count(),
+            'tiles_opened' => UserTile::where('tile_id', '!=', 1)->count(),
             'sidequests_submitted' => UserTile::whereNotNull('media_link')->count()
         ]);
     }
