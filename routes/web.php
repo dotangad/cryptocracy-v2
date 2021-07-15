@@ -8,7 +8,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PlayController;
-use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -55,11 +54,6 @@ Route::post('/login', [LoginController::class, 'create'])
 Route::get('/logout', [LoginController::class, 'destroy'])
     ->middleware(['auth'])
     ->name('logout');
-
-Route::get('/sponsor', [SponsorController::class, 'show'])
-    ->name('sponsor');
-Route::post('/sponsor', [SponsorController::class, 'create'])
-    ->name('sponsor_create');
 
 Route::get('/discord', [DiscordController::class, 'redirect'])
     ->middleware(['auth']);

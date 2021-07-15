@@ -82,7 +82,6 @@ export default () => {
   const links: ILink[] = [
     { href: "/", label: "Home" },
     { href: "/leaderboard", label: "Leaderboard" },
-    { href: "/sponsor", label: "Sponsor Us" },
     { href: "/about", label: "About" }
   ]
     .concat(
