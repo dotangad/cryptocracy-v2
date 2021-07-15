@@ -14,6 +14,8 @@ const Global = createGlobalStyle`
 
   .layer.grid > .Content {
     padding: 0 !important;
+    display: flex;
+    align-items: flex-end;
   }
 `;
 
@@ -82,7 +84,6 @@ const SplitContainer = styled.div`
   overflow: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   flex-wrap: wrap;
 
   & > div {
@@ -90,6 +91,9 @@ const SplitContainer = styled.div`
     width: 50%;
     min-width: 300px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   @media screen and (max-width: 900px) {
@@ -109,7 +113,8 @@ const BigContainer = styled.div`
   min-height: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  overflow: auto;
 
   @media screen and (max-width: 900px) {
     height: 100%;
@@ -246,7 +251,6 @@ const PlayBtn = styled(InertiaLink)`
 
 const InfoContainer = styled(UserCardContainer)`
   min-height: 0;
-  height: 100%;
   background: none;
   border: 3px solid #292929;
 `;
@@ -285,16 +289,20 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
             <div>
               {started ? (
                 <>
-                  <div style={{ marginBottom: "30px" }}>
-                    <Countdown large={true} />
-                  </div>
+                  {!ended && (
+                    <>
+                      <div style={{ marginBottom: "30px" }}>
+                        <Countdown large={true} />
+                      </div>
+                      <NumberCard>
+                        <span>{user.tile_id}</span>
+                        <div>tile</div>
+                      </NumberCard>
+                    </>
+                  )}
                   <NumberCard>
                     <span>{user.points}</span>
                     <div>points</div>
-                  </NumberCard>
-                  <NumberCard>
-                    <span>{user.tile_id}</span>
-                    <div>tile</div>
                   </NumberCard>
                   {ended ? (
                     <InfoContainer>Cryptocracy 2021 has ended.</InfoContainer>
@@ -305,13 +313,15 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
                     </PlayBtn>
                   )}
                 </>
-              ) : (
+              ) : !ended ? (
                 <>
                   <div style={{ marginBottom: "30px" }}>
                     <Countdown large={true} />
                   </div>
                   <InfoContainer>Cryptocracy 2021 has not started yet.</InfoContainer>
                 </>
+              ) : (
+                <></>
               )}
             </div>
           </SplitContainer>

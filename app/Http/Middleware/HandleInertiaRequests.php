@@ -46,9 +46,7 @@ class HandleInertiaRequests extends Middleware
             ],
 
             'started' => \Carbon\Carbon::parse(env('START_TIME'))
-                ->lt(\Carbon\Carbon::now('Asia/Kolkata')) &&
-                \Carbon\Carbon::now('Asia/Kolkata')
-                ->lt(\Carbon\Carbon::parse(env('END_TIME'))),
+                ->lt(\Carbon\Carbon::now('Asia/Kolkata')),
             'ended' => \Carbon\Carbon::parse(env('END_TIME'))
                 ->lt(\Carbon\Carbon::now('Asia/Kolkata')),
 
