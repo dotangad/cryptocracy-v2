@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -23,7 +24,8 @@ class User extends Authenticatable
         'username',
         'country',
         'phone',
-        'company'
+        'company',
+        'last_solved'
     ];
 
     /**
@@ -167,11 +169,14 @@ class User extends Authenticatable
 
     public function mark_solved()
     {
-        $this->user_tile->solved = true;
-        $this->user_tile->save();
+        if (!$this->user_tile->solved) {
+            $this->user_tile->solved = true;
+            $this->user_tile->save();
 
-        $this->points += $this->tile->points;
-        $this->save();
+            $this->points += $this->tile->points;
+            $this->last_solved = Carbon::now();
+            $this->save();
+        }
     }
 
     public function points_history()

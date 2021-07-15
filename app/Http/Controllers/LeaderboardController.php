@@ -13,6 +13,7 @@ class LeaderboardController extends Controller
             ->where('admin', false)
             ->where('disqualified', false)
             ->orderBy('points', 'DESC')
+            ->orderBy('last_solved', 'ASC')
             ->get()
             ->map(function ($user, $key) {
                 return [
