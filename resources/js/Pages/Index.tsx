@@ -49,6 +49,13 @@ const IndexButtonContainer = styled(ButtonContainer)`
   }
 `;
 
+const CountdownContainer = styled.div`
+  > div {
+    justify-content: flex-start;
+    padding: 0;
+  }
+`;
+
 const Index: React.FC = () => {
   return (
     <>
@@ -68,9 +75,9 @@ const Index: React.FC = () => {
             <strong>We're back. 30-31st July.</strong>
           </p>
 
-          <div>
+          <CountdownContainer>
             <Countdown large={true} />
-          </div>
+          </CountdownContainer>
 
           <p>
             Cryptocracy is an international 48-hour cryptic hunt, coming soon to a
