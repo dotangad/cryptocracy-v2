@@ -3,6 +3,7 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Layout from "../Components/Layout";
 import { MobileOnly, SidebarTop } from "../Components/Layout/helpers";
+import Prizes from "../Components/Prizes";
 
 const Global = createGlobalStyle`
   .Sidebar {
@@ -200,9 +201,7 @@ const About: React.FC = () => {
 
           <Spacing>
             <h1>Prizes</h1>
-            <p>
-              This year’s prizes are TBA. Last year, we boasted ₹120,000 worth of prizes.
-            </p>
+            <Prizes />
           </Spacing>
 
           <Spacing>

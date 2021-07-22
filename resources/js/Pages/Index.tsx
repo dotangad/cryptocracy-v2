@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import { InertiaLink } from "@inertiajs/inertia-react";
 import Layout from "../Components/Layout";
 import Countdown from "../Components/Layout/Countdown";
 import PriestChat, { PriestChatHeader } from "../Components/PriestChat";
@@ -80,8 +81,7 @@ const Index: React.FC = () => {
           </CountdownContainer>
 
           <p>
-            Cryptocracy is an international 48-hour cryptic hunt, coming soon to a
-            computer near you.
+            Cryptocracy is an international 48-hour cryptic hunt, <InertiaLink href="/about">with prizes worth over &#8377;5,00,000</InertiaLink>.
           </p>
 
           {/* <p> */}
