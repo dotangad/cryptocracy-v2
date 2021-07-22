@@ -57,6 +57,18 @@ const CountdownContainer = styled.div`
   }
 `;
 
+const PoweredBy = styled.div`
+  > div {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    height: 70px;
+    width: auto;
+  }
+`
+
 const Index: React.FC = () => {
   return (
     <>
@@ -66,12 +78,17 @@ const Index: React.FC = () => {
         SidebarHeader={<PriestChatHeader />}
         Sidebar={<PriestChat />}
         gridStyles={{
-          gridTemplateRows: "75px calc(45vh - 75px) calc(55vh - 75px) 75px",
+          gridTemplateRows: "75px calc(35vh - 75px) calc(65vh - 75px) 75px",
           gridTemplateColumns: "75px 20vw 1.8fr 1fr"
         }}
         imgStyles={{ height: "50vh" }}
       >
         <div>
+          <PoweredBy>
+            <div>Powered By</div>
+            <img src="/img/athena.png" alt="Athena" />
+          </PoweredBy>
+
           <p>
             <strong>We're back. 30-31st July.</strong>
           </p>
@@ -84,16 +101,7 @@ const Index: React.FC = () => {
             Cryptocracy is an international 48-hour cryptic hunt, <InertiaLink href="/about">with prizes worth over &#8377;5,00,000</InertiaLink>.
           </p>
 
-          {/* <p> */}
-          {/*   <InertiaLink href="/leaderboard/20">Click here</InertiaLink> to see the result */}
-          {/*   of Cryptocracy I, 2020. */}
-          {/* </p> */}
-
           <IndexButtonContainer>
-            {/* <PrimaryButton href="/register"> */}
-            {/*   <span>Register</span> */}
-            {/*   <ChevronRight className="right animate" /> */}
-            {/* </PrimaryButton> */}
             <PrimaryButton href="/about">
               <span>Learn More</span>
               <ChevronRight className="right animate" />
