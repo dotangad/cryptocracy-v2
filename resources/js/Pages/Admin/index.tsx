@@ -142,6 +142,16 @@ const Admin: React.FC<IAdminProps> = ({
             <ChevronRight />
           </div>
         </InertiaLink>
+
+        <InertiaLink href="/admin/shortlinks">
+          <div className="meta">
+            <h2 className="title">Links</h2>
+            <div className="desc">List, edit, delete</div>
+          </div>
+          <div className="chevron">
+            <ChevronRight />
+          </div>
+        </InertiaLink>
       </AdminTiles>
     </AdminLayout>
   );
