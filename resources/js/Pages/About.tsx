@@ -132,11 +132,19 @@ const About: React.FC = () => {
 
   const sponsors = [
     {
+      link: "https://www.athenaeducation.co.in/",
+      img: "/img/athena.png",
+      alt: "Athena Education",
+      css: {
+        height: "80px"
+      }
+    },
+    {
       link: "https://slingshotahead.com/",
       img: "/img/slingshot-white.png",
       alt: "Slingshot",
       css: {
-        height: "80px"
+        height: "60px"
       }
     },
     {
@@ -144,7 +152,7 @@ const About: React.FC = () => {
       img: "/img/interviewcake.svg",
       alt: "InterviewCake",
       css: {
-        height: "40px"
+        height: "30px"
       }
     },
     {
@@ -152,7 +160,8 @@ const About: React.FC = () => {
       img: "/img/taskade-logo.png",
       alt: "Taskade",
       css: {
-        filter: "invert(1)"
+        filter: "invert(1)",
+        height: "30px"
       }
     },
     {
@@ -160,7 +169,7 @@ const About: React.FC = () => {
       img: "/img/xyz-logo-white.png",
       alt: "gen.xyz",
       css: {
-        height: "80px"
+        height: "40px"
       }
     }
   ];
@@ -182,17 +191,6 @@ const About: React.FC = () => {
       >
         <div>
           <Spacing style={{ marginTop: "0" }}>
-            <h2>Sponsors</h2>
-            <Sponsors>
-              {sponsors.map(({ link, img, alt, css }) => (
-                <a href={link} target="_blank">
-                  <img src={img} alt={alt} style={css} />
-                </a>
-              ))}
-            </Sponsors>
-          </Spacing>
-
-          <Spacing>
             <p>
               Cryptocracy is an online 48-hour multiplayer cryptic hunt, where thousands
               of people compete for amazing prizes.
@@ -202,6 +200,17 @@ const About: React.FC = () => {
           <Spacing>
             <h1>Prizes</h1>
             <Prizes />
+          </Spacing>
+
+          <Spacing>
+            <h2>Sponsors</h2>
+            <Sponsors>
+              {sponsors.map(({ link, img, alt, css }) => (
+                <a href={link} target="_blank">
+                  <img src={img} alt={alt} style={css} />
+                </a>
+              ))}
+            </Sponsors>
           </Spacing>
 
           <Spacing>
