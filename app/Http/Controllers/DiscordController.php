@@ -25,7 +25,7 @@ class DiscordController extends Controller
             "&client_id=" . urlencode(Config::get('auth.discord_oauth_client_id')) .
             "&scope=" . urlencode("email identify") .
             "&state=" . Hash::make(Auth::user()->email) .
-            "&redirect_uri=" . urlencode(URL::to('/discord/callback')) .
+            "&redirect_uri=" . urlencode(URL::to('/connectdiscord/callback')) .
             "&prompt=consent";
 
         return redirect($discord_url);
@@ -38,6 +38,10 @@ class DiscordController extends Controller
     {
         $code = $request->query('code');
         $state = $request->query('state');
+
+        if ($code != 200) {
+            return redirect('/');
+        }
 
         if (!Hash::check(Auth::user()->email, $state)) {
             abort(500);
@@ -71,7 +75,7 @@ class DiscordController extends Controller
                 'client_secret' => urlencode(Config::get('auth.discord_oauth_client_secret')),
                 'grant_type' => 'authorization_code',
                 'code' => urlencode($code),
-                'redirect_uri' => URL::to('/discord/callback'),
+                'redirect_uri' => URL::to('/connectdiscord/callback'),
             ]
         );
 

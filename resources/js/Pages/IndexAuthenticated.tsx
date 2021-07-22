@@ -188,7 +188,7 @@ const UserCard: React.FC = () => {
       ))}
       {!auth.user.discord_username && !auth.user.discord_discriminator && (
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-          <PrimaryButton style={{ padding: "10px 20px" }} href="/discord">
+          <PrimaryButton style={{ padding: "10px 20px" }} href="/connectdiscord">
             Connect Discord
           </PrimaryButton>
         </div>

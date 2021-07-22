@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PlayController;
+use App\Http\Controllers\ShortlinkController;
 use App\Http\Controllers\TileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -55,9 +56,9 @@ Route::get('/logout', [LoginController::class, 'destroy'])
     ->middleware(['auth'])
     ->name('logout');
 
-Route::get('/discord', [DiscordController::class, 'redirect'])
+Route::get('/connectdiscord', [DiscordController::class, 'redirect'])
     ->middleware(['auth']);
-Route::get('/discord/callback', [DiscordController::class, 'callback'])
+Route::get('/connectdiscord/callback', [DiscordController::class, 'callback'])
     ->middleware(['auth']);
 
 Route::get('/admin', [AdminController::class, 'show'])
@@ -67,6 +68,10 @@ Route::get('/admin', [AdminController::class, 'show'])
 Route::resource('/admin/notifications', NotificationController::class)
     ->only(['index', 'store', 'show', 'update', 'destroy'])
     ->middleware(['auth', 'admin']);
+
+Route::resource('/admin/shortlinks', ShortlinkController::class)
+    ->only(['index', 'store', 'destroy'])
+    ->middleware(['web', 'auth', 'admin']);
 
 Route::get('/admin/users', [UserController::class, 'index'])
     ->middleware(['auth', 'admin'])
@@ -123,6 +128,8 @@ Route::post('/play/next', [PlayController::class, 'next'])
 Route::post('/play/try', [PlayController::class, 'try'])
     ->middleware(['auth', 'dq', 'inprogress'])
     ->name('play.try');
+
+Route::get('/{shortlink:shortlink}', [ShortlinkController::class, 'redirect'])->where('shortlink', '.*');
 
 if (App::environment('local')) {
     Route::get('/authn', function () {
