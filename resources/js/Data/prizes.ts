@@ -12,10 +12,10 @@ const prizes: IPrizeEntry[] = [
     highlight:
       "&#8377;30,000 or &#36;400 cash",
     content: [
-      "Direct acceptance into the Slingshot internship program",
-      "Free .xyz domain to flaunt your website",
-      "Taskade lifetime membership",
-      "Interview Cake membership for 30 days"
+      `Direct acceptance into the <img src="/img/slingshot-white.png" alt="Slingshot" /> internship program`,
+      `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> lifetime membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
   {
@@ -24,10 +24,10 @@ const prizes: IPrizeEntry[] = [
     highlight:
       "&#8377;20,000 or &#36;250 cash",
     content: [
-      "Direct acceptance into the Slingshot internship program",
-      "Free .xyz domain to flaunt your website",
-      "Taskade lifetime membership",
-      "Interview Cake membership for 30 days"
+      `Direct acceptance into the <img src="/img/slingshot-white.png" alt="Slingshot" /> internship program`,
+      `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> lifetime membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
   {
@@ -36,10 +36,10 @@ const prizes: IPrizeEntry[] = [
     highlight:
       "&#8377;15,000 or &#36;200 cash",
     content: [
-      "Direct acceptance into the Slingshot internship program",
-      "Free .xyz domain to flaunt your website",
-      "Taskade lifetime membership",
-      "Interview Cake membership for 30 days"
+      `Direct acceptance into the <img src="/img/slingshot-white.png" alt="Slingshot" /> internship program`,
+      `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> 1-year membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
   {
@@ -48,18 +48,18 @@ const prizes: IPrizeEntry[] = [
     highlight:
       "&#8377;1,000 or &#36;15 cash",
     content: [
-      "Free .xyz domain to flaunt your website",
-      "Taskade lifetime membership",
-      "Interview Cake membership for 30 days"
+      `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> 1-year membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
   {
     tier: "Top 150",
     color: "#aaaaaa",
     content: [
-      "Free .xyz domain for one year",
-      "Taskade 1-year membership",
-      "Interview Cake membership for 30 days"
+      `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> 1-year membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
   {
@@ -67,9 +67,9 @@ const prizes: IPrizeEntry[] = [
     color: "#888888",
     content: [
       "Certificate of Particpation with rank and username",
-      "Taskade 1-year membership",
-      "Interview Cake membership for 30 days",
-      "Exciting internship opportunities with Slingshot"
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> 1-year membership`,
+      `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`,
+      `Exciting internship opportunities with <img src="/img/slingshot-white.png" alt="Slingshot" />`,
     ]
   },
 ];

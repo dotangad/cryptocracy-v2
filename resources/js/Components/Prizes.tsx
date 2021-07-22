@@ -30,6 +30,16 @@ const PrizesContainer = styled.div`
     font-size: 1.3rem;
   }
 
+  li {
+    line-height: 2.5rem;
+  }
+
+  img {
+    height: 2rem;
+    width: auto;
+    margin-bottom: -5px;
+  }
+
   @media screen and (max-width: 600px) {
     flex-direction: column;
     & > div:first-child {
