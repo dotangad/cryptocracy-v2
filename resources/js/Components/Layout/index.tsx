@@ -2,6 +2,7 @@ import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 import React from "react";
 import Countdown from "./Countdown";
 import {
+  SidebarTop,
   GridArea,
   Title,
   FooterLogo,
@@ -105,7 +106,22 @@ const Layout: React.FC<ILayoutProps> = ({
             <Navbar />
           </GridArea>
           <Title>{title}</Title>
-          <GridArea area="SidebarTop">{SidebarHeader}</GridArea>
+          <GridArea area="SidebarTop">{SidebarHeader || (
+            <SidebarTop style={{ alignItems: 'center', justifyContent: 'center', padding: '0' }}>
+              <a
+                href="https://www.athenaeducation.co.in"
+                target="_blank"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  height: '100%'
+                }}>
+                <img src="/img/athena.png" alt="Athena" style={{ height: '55%', width: 'auto', marginLeft: "-15%" }} />
+              </a>
+            </SidebarTop>
+          )}</GridArea>
           <GridArea area="r3c1" />
           <GridArea area="Content">{children}</GridArea>
           <GridArea area="Sidebar">{Sidebar}</GridArea>

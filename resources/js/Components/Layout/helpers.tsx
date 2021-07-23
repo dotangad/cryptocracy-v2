@@ -69,15 +69,36 @@ const CopyrightContainer = styled.div`
   width: 100%;
 
   @media screen and (max-width: 1300px) {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     font-size: 0.9rem !important;
     padding: 40px 0;
   }
 `;
 
+const AthenaLogoContainer = styled.div`
+  display: none;
+  margin-top: 20px;
+
+  img {
+    height: 80px;
+    width: auto;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    display: block;
+  }
+`
+
 export const FooterCopyright: React.FC<any> = ({ style }: any) => {
-  return <CopyrightContainer style={style}>&copy; 2021 Cryptocracy</CopyrightContainer>;
+  return <CopyrightContainer style={style}>
+    <div>&copy; 2021 Cryptocracy</div>
+    <AthenaLogoContainer>
+      <div>Powered By</div>
+      <img src="/img/athena.png" alt="Athena" />
+    </AthenaLogoContainer>
+  </CopyrightContainer>;
 };
 
 const FooterLogoDiv = styled.div`
@@ -122,6 +143,29 @@ export const AuthData = styled(GridArea)`
   align-items: center;
   padding: 0 15px;
 `;
+
+const PoweredBy = styled.div`
+  > div {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    height: 70px;
+    width: auto;
+  }
+`
+
+export const PoweredByAthena = () => (
+  <PoweredBy>
+    <div>Powered By</div>
+    <a
+      href="https://www.athenaeducation.co.in"
+      target="_blank">
+      <img src="/img/athena.png" alt="Athena" />
+    </a>
+  </PoweredBy>
+);
 
 export interface IPageProps extends Page<PageProps> {
   props: {

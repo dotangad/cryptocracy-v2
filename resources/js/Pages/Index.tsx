@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { InertiaLink } from "@inertiajs/inertia-react";
-import Layout from "../Components/Layout";
+import Layout, { PoweredByAthena } from "../Components/Layout";
 import Countdown from "../Components/Layout/Countdown";
 import PriestChat, { PriestChatHeader } from "../Components/PriestChat";
 import { PrimaryButton, SecondaryButton, ButtonContainer } from "../Components/Button";
@@ -57,17 +57,6 @@ const CountdownContainer = styled.div`
   }
 `;
 
-const PoweredBy = styled.div`
-  > div {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-  }
-  
-  img {
-    height: 70px;
-    width: auto;
-  }
-`
 
 const Index: React.FC = () => {
   return (
@@ -84,10 +73,7 @@ const Index: React.FC = () => {
         imgStyles={{ height: "50vh" }}
       >
         <div>
-          <PoweredBy>
-            <div>Powered By</div>
-            <img src="/img/athena.png" alt="Athena" />
-          </PoweredBy>
+          <PoweredByAthena />
 
           <p>
             <strong>We're back. 30-31st July.</strong>
