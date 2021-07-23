@@ -38,7 +38,7 @@ const prizes: IPrizeEntry[] = [
     content: [
       `Direct acceptance into the <img src="/img/slingshot-white.png" alt="Slingshot" /> internship program`,
       `Free <img src="/img/xyz-logo-white.png" style="height: 1.3rem;" alt=".xyz" /> domain to flaunt your website`,
-      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> 1-year membership`,
+      `<img src="/img/taskade-logo.png" alt="Taskade" style="filter: invert(1); height: 1.5rem; margin-right: -2px;" /> lifetime membership`,
       `<img src="/img/interviewcake.svg" alt="Interview Cake" style="height: 1.5rem; margin-right: -3px;" /> membership for 30 days`
     ]
   },
