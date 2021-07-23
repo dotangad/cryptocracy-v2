@@ -22,11 +22,18 @@ const PrizesContainer = styled.div`
       &.selected {}
     }
   }
+
+  > div > p {
+    margin: 0 15px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
   
   ul {
     margin-left: 30px;
     padding: 25px 15px;
     padding-left: 10px;
+    padding-top: 0;
     font-size: 1.3rem;
   }
 
@@ -76,8 +83,11 @@ function Prizes() {
       </div>
       <div>
         {prizes[selected].highlight &&
-          <Highlight dangerouslySetInnerHTML={{ __html: prizes[selected].highlight || "" }} />}
-        <ul className={prizes[selected].highlight ? "plus" : ""}>
+          <>
+            <Highlight dangerouslySetInnerHTML={{ __html: prizes[selected].highlight || "" }} />
+            <p>In addition to</p>
+          </>}
+        <ul style={{ paddingTop: !prizes[selected].highlight ? "15px" : "" }}>
           {prizes[selected].content.map((item, i) => (
             <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
           ))}
