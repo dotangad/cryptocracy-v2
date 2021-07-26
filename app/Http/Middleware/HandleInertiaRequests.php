@@ -64,7 +64,8 @@ class HandleInertiaRequests extends Middleware
                     'admin',
                     'disqualify',
                     'points',
-                    'tile_id'
+                    'tile_id',
+                    'referral_code'
                 )
                 : null,
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PlayController;
+use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\ShortlinkController;
 use App\Http\Controllers\TileController;
 use App\Http\Controllers\UserController;
@@ -128,6 +129,10 @@ Route::post('/play/next', [PlayController::class, 'next'])
 Route::post('/play/try', [PlayController::class, 'try'])
     ->middleware(['auth', 'dq', 'inprogress'])
     ->name('play.try');
+
+Route::post('/referral/set', [ReferralController::class, 'set_referral_code'])
+    ->middleware(['auth', 'dq', 'inprogress'])
+    ->name('referral.set');
 
 Route::get('/{shortlink:shortlink}', [ShortlinkController::class, 'redirect'])->where('shortlink', '.*');
 

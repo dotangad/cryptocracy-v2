@@ -185,6 +185,7 @@ export interface IPageProps extends Page<PageProps> {
         phone: string;
         country: string;
         created: string;
+        referral_code?: string;
         discord_username?: string;
         discord_discriminator?: string;
         admin: boolean;

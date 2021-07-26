@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -14,6 +15,7 @@ class IndexController extends Controller
     {
         if (Auth::check()) {
             return Inertia::render('IndexAuthenticated', [
+                'referred_users' => User::where('referred_by', auth()->id())->count(),
                 'notifications' => NotificationController::format_notifications()
             ]);
         }

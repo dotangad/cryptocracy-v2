@@ -6,6 +6,7 @@ import { PrimaryButton } from "../Components/Button";
 import { ChevronRight } from "../Components/Icons";
 import Countdown from "../Components/Layout/Countdown";
 import countries from "../Data/countries";
+import { ReferralCodeForm } from "../Components/ReferralCodeForm";
 
 const Global = createGlobalStyle`
   .Content > div {
@@ -129,6 +130,23 @@ const UserCardContainer = styled.div`
   padding: 30px;
   background: #292929;
   margin: 10px 0;
+
+  .buttons {
+    display: flex;
+    justify-content: "space-between";
+    width: "100%";
+  }
+
+  @media screen and (max-width: 600px) {
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+      a {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  }
 `;
 
 const UserCreatedAt = styled.div`
@@ -151,7 +169,7 @@ const UserAttribute = styled.div`
   }
 `;
 
-const UserCard: React.FC = () => {
+const UserCard: React.FC<any> = ({ referred_users }: any) => {
   const { auth } = usePage<IPageProps>().props;
 
   const country = Object.entries(countries).find(([iso]) => iso === auth.user.country);
@@ -165,16 +183,30 @@ const UserCard: React.FC = () => {
       // @ts-ignore
       data: country ? country[1] : "Unknown"
     }
-  ].concat(
-    auth.user.discord_discriminator && auth.user.discord_username
-      ? [
-          {
-            label: "Discord",
-            data: "@" + auth.user.discord_username + "#" + auth.user.discord_discriminator
-          }
-        ]
-      : []
-  );
+  ]
+    .concat(
+      auth.user.discord_discriminator && auth.user.discord_username
+        ? [
+            {
+              label: "Discord",
+              data:
+                "@" + auth.user.discord_username + "#" + auth.user.discord_discriminator
+            }
+          ]
+        : []
+    )
+    .concat(
+      auth.user.referral_code
+        ? [
+            {
+              label: "Referral Code",
+              data: `${auth.user.referral_code} (Referred ${referred_users} user${
+                referred_users === 1 ? "" : "s"
+              })`
+            }
+          ]
+        : []
+    );
 
   return (
     <UserCardContainer>
@@ -187,7 +219,10 @@ const UserCard: React.FC = () => {
         </UserAttribute>
       ))}
       {!auth.user.discord_username && !auth.user.discord_discriminator && (
-        <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+        <div
+          style={{ display: "flex", justifyContent: "space-between", width: "100%" }}
+          className="buttons"
+        >
           <PrimaryButton style={{ padding: "10px 20px" }} href="/connectdiscord">
             Connect Discord
           </PrimaryButton>
@@ -258,9 +293,10 @@ const InfoContainer = styled(UserCardContainer)`
 
 interface IIndexProps {
   notifications: { content: string; created_at: string }[];
+  referred_users: number;
 }
 
-const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
+const Index: React.FC<IIndexProps> = ({ notifications, referred_users }: IIndexProps) => {
   const {
     started,
     ended,
@@ -285,16 +321,17 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
         <BigContainer>
           <SplitContainer>
             <div>
-              <UserCard />
+              <UserCard referred_users={referred_users} />
             </div>
             <div>
               {started ? (
                 <>
                   {!ended && (
                     <>
-                      <div style={{ marginBottom: "30px" }}>
+                      <div>
                         <Countdown large={true} />
                       </div>
+                      {!user.referral_code && <ReferralCodeForm />}
                       <NumberCard>
                         <span>{user.tile_id}</span>
                         <div>tile</div>
@@ -316,9 +353,10 @@ const Index: React.FC<IIndexProps> = ({ notifications }: IIndexProps) => {
                 </>
               ) : !ended ? (
                 <>
-                  <div style={{ marginBottom: "30px" }}>
+                  <div>
                     <Countdown large={true} />
                   </div>
+                  {!user.referral_code && <ReferralCodeForm />}
                   <InfoContainer>Cryptocracy 2021 has not started yet.</InfoContainer>
                 </>
               ) : (

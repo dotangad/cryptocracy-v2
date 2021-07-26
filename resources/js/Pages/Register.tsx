@@ -86,7 +86,8 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
     Phone: "",
     Institution: "",
     Password: "",
-    "Password confirmation": ""
+    "Password confirmation": "",
+    referral_code: ""
   });
 
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
@@ -227,6 +228,24 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                   onChange={handleChange}
                 />
                 {errors.Phone && <div className="error">{errors.Phone}</div>}
+              </div>
+            </InputGroupGroup>
+
+            <InputGroupGroup>
+              <div className="input-group">
+                <label htmlFor="referral_code">Referral Code (optional)</label>
+                <input
+                  type="text"
+                  autoComplete="off"
+                  name="referral_code"
+                  disabled={processing}
+                  placeholder="CANIHAZPRIZE"
+                  value={data.referral_code}
+                  onChange={handleChange}
+                />
+                {errors.referral_code && (
+                  <div className="error">{errors.referral_code}</div>
+                )}
               </div>
             </InputGroupGroup>
 

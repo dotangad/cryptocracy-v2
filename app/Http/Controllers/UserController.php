@@ -48,8 +48,12 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $referred_by = User::where('id', $user->referred_by)->first();
+
         return Inertia::render('Admin/User', [
             'user' => $user,
+            'users_referred' => User::where('referred_by', $user->id)->count(),
+            'referred_by' => $referred_by ? $referred_by->email : '-',
             'tiles' => $user
                 ->tiles()
                 ->get()

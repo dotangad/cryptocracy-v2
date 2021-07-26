@@ -45,6 +45,8 @@ const ButtonContainer = styled.div`
 
 interface IUserPageProps {
   user: IUser;
+  users_referred: number;
+  referred_by: number;
   tiles: ITilesF[];
   tile: ITilesF;
   pointsHistory: { points: number; label: string }[];
@@ -91,7 +93,9 @@ const User: React.FC<IUserPageProps> = ({
   user,
   tiles,
   tile,
-  pointsHistory
+  pointsHistory,
+  users_referred,
+  referred_by
 }: IUserPageProps) => {
   const { post, processing } = useForm({});
 
@@ -132,12 +136,14 @@ const User: React.FC<IUserPageProps> = ({
               </tr>
             </thead>
             <tbody>
-              {Object.entries(user).map(([key, value], i) => (
-                <tr key={i}>
-                  <td>{key}</td>
-                  <td>{value}</td>
-                </tr>
-              ))}
+              {Object.entries({ ...user, users_referred, referred_by }).map(
+                ([key, value], i) => (
+                  <tr key={i}>
+                    <td>{key}</td>
+                    <td>{value}</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </Table>
 

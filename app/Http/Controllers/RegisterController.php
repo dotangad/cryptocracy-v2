@@ -33,6 +33,7 @@ class RegisterController extends Controller
             'Password confirmation' => ['same:Password'],
             'Country' => ['required', Rule::in(array_keys($countries))],
             'Phone' => ['required', 'regex:/^\+[\d\ ?\-?]+$/m'],
+            'referral_code' => 'nullable|regex:/^[A-Z0-9]+$/|exists:users,referral_code'
         ]);
 
         $body = $req->all();
@@ -46,6 +47,7 @@ class RegisterController extends Controller
         $user->phone = $body['Phone'];
         $user->company = $body['Institution'];
         $user->tile_id = 1;
+        $user->referred_by = User::where('referral_code', $body['referral_code'])->first()->id;
         $user->save();
 
         $user_tile = new UserTile();

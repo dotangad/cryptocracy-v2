@@ -71,7 +71,7 @@ interface IAdminProps {
   discord_accounts: number;
   attempts: number;
   levels_solved: number;
-  tiles_opened: number;
+  users_referred: number;
   sidequests_submitted: number;
 }
 
@@ -80,7 +80,7 @@ const Admin: React.FC<IAdminProps> = ({
   discord_accounts,
   attempts,
   levels_solved,
-  tiles_opened,
+  users_referred,
   sidequests_submitted
 }: IAdminProps) => {
   return (
@@ -104,8 +104,8 @@ const Admin: React.FC<IAdminProps> = ({
             <div>levels solved</div>
           </Number>
           <Number>
-            <div>{tiles_opened}</div>
-            <div>tiles opened</div>
+            <div>{users_referred}</div>
+            <div>users referred</div>
           </Number>
           <Number>
             <div>{sidequests_submitted}</div>
