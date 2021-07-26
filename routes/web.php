@@ -131,7 +131,7 @@ Route::post('/play/try', [PlayController::class, 'try'])
     ->name('play.try');
 
 Route::post('/referral/set', [ReferralController::class, 'set_referral_code'])
-    ->middleware(['auth', 'dq', 'inprogress'])
+    ->middleware(['auth', 'dq'])
     ->name('referral.set');
 
 Route::get('/{shortlink:shortlink}', [ShortlinkController::class, 'redirect'])->where('shortlink', '.*');
