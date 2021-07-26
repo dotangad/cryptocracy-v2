@@ -39,7 +39,7 @@ class DiscordController extends Controller
         $code = $request->query('code');
         $state = $request->query('state');
 
-        if ($code != 200) {
+        if ($request->query('error')) {
             return redirect('/');
         }
 
