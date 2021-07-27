@@ -42,6 +42,10 @@ export const ReferralCodeForm: React.FC = () => {
         });
       }}
     >
+      <div className="input-group header">
+        <div style={{fontSize: "1.3rem"}}><strong>Refer & Earn</strong></div>
+        Refer your friends and win exciting prizes!
+      </div>
       <div className="input-group input-group-sp">
         <input
           type="text"
