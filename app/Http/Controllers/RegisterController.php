@@ -42,7 +42,7 @@ class RegisterController extends Controller
         if ($body['referral_code']) {
             $ref_user = User::where('referral_code', $body['referral_code'])->get();
             if ($ref_user->count() > 0) {
-                $referred_by = $referred_by[0]->id;
+                $referred_by = $ref_user->first()->id;
             }
         }
 
