@@ -8,7 +8,6 @@ import { IPageProps } from "./Layout";
 export const UserCardContainer = styled.div`
   padding: 30px;
   background: #292929;
-  margin: 10px 0;
 
   .buttons {
     display: flex;
