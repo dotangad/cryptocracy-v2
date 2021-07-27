@@ -38,6 +38,14 @@ class RegisterController extends Controller
 
         $body = $req->all();
 
+        $referred_by = null;
+        if ($body['referral_code']) {
+            $ref_user = User::where('referral_code', $body['referral_code'])->get();
+            if ($ref_user->count() > 0) {
+                $referred_by = $referred_by[0]->id;
+            }
+        }
+
         $user = new User();
         $user->name = $body['Name'];
         $user->email = $body['Email'];
@@ -47,7 +55,7 @@ class RegisterController extends Controller
         $user->phone = $body['Phone'];
         $user->company = $body['Institution'];
         $user->tile_id = 1;
-        $user->referred_by = User::where('referral_code', $body['referral_code'])->first()->id;
+        $user->referred_by = $referred_by;
         $user->save();
 
         $user_tile = new UserTile();
