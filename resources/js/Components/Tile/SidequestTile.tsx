@@ -38,7 +38,7 @@ export const SidequestTile: React.FC<ITileProps> = ({
                 <div style={{ color: "green" }}>{userTile.sidequest_points}</div>
               ))}
           </div>
-          <p>{tile.content}</p>
+          <p dangerouslySetInnerHTML={{ __html: tile.content }}></p>
         </div>
         <div className="answer">
           {userTile.media_link ? (

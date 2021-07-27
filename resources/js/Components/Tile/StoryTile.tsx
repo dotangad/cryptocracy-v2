@@ -17,7 +17,7 @@ export const StoryTile: React.FC<ITileProps> = ({
       <StoryContainer>
         <div className="content">
           <h1>Tile {tile.id}</h1>
-          <p>{tile.content}</p>
+          <p dangerouslySetInnerHTML={{ __html: tile.content }}></p>
         </div>
         <div className="answer">
           <PrevNext {...{ tile, canBack, canNext }}>

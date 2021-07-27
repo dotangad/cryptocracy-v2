@@ -28,7 +28,7 @@ export const LevelTile: React.FC<ITileProps> = ({
               {tile.points}
             </div>
           </div>
-          <p>{tile.content}</p>
+          <p dangerouslySetInnerHTML={{ __html: tile.content }} data-html={tile.content}></p>
         </div>
 
         <div className="answer">

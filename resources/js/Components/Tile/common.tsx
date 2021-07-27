@@ -16,6 +16,14 @@ export const TileContainer = styled.div`
   align-items: center;
   justify-content: center;
 
+  img {
+    display: block;
+    max-height: 150px;
+    width: auto;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
   & > div {
     min-height: 300px;
     height: auto;
