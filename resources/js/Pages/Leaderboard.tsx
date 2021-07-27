@@ -70,6 +70,7 @@ interface ILeaderboardUser {
   rank: number;
   username: string;
   points: number;
+  referred: number;
 }
 
 interface IProps {
@@ -77,19 +78,22 @@ interface IProps {
 }
 
 const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
-  const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(users);
+  const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(users
+    .sort((a, b) => Number(b.referred) - Number(a.referred))
+  );
   const searchRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setDisplayUsers(
-      users.filter(({ username }) =>
-        username.toLowerCase().includes(e.target.value.toLowerCase())
-      )
+      users
+        .filter(({ username }) =>
+          username.toLowerCase().includes(e.target.value.toLowerCase())
+        )
+        .sort((a, b) => Number(b.referred) - Number(a.referred))
     );
   };
 
-  console.log({ users });
   return (
     <>
       <Global />
@@ -100,17 +104,15 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
           <LeaderboardTable>
             <thead>
               <tr>
-                <th>Rank</th>
                 <th>Username</th>
-                <th>Points</th>
+                <th>Referrals</th>
               </tr>
             </thead>
             <tbody>
-              {displayUsers.map(({ username, rank, points }) => (
+              {displayUsers.map(({ username, rank, referred }) => (
                 <tr>
-                  <td>{rank}</td>
                   <td>{username}</td>
-                  <td>{points}</td>
+                  <td>{referred}</td>
                 </tr>
               ))}
             </tbody>

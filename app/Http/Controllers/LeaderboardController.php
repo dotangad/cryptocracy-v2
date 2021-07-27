@@ -18,8 +18,24 @@ class LeaderboardController extends Controller
             ->map(function ($user, $key) {
                 return [
                     'rank' => $key + 1,
+                    'id' => $user->id,
                     'username' => $user->username,
-                    'points' => $user->points
+                    'points' => $user->points,
+                    'referred_by' => $user->referred_by
+                ];
+            });
+
+        $users = $users
+            ->map(function ($user) use ($users) {
+                return [
+                    'rank' => $user['rank'],
+                    'username' => $user['username'],
+                    'points' => $user['points'],
+                    'referred' => $users
+                        ->filter(function ($u) use ($user) {
+                            return $u['referred_by'] == $user['id'];
+                        })
+                        ->count()
                 ];
             });
 
