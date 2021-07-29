@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserTile;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -33,7 +34,8 @@ class RegisterController extends Controller
             'Password confirmation' => ['same:Password'],
             'Country' => ['required', Rule::in(array_keys($countries))],
             'Phone' => ['required', 'regex:/^\+[\d\ ?\-?]+$/m'],
-            'referral_code' => 'nullable|regex:/^[A-Z0-9]+$/|exists:users,referral_code'
+            'referral_code' => 'nullable|regex:/^[A-Z0-9]+$/|exists:users,referral_code',
+            'recaptcha' => ['required', new Recaptcha(request()->ip())]
         ]);
 
         $body = $req->all();

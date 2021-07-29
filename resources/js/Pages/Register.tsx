@@ -1,4 +1,5 @@
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import styled, { createGlobalStyle } from "styled-components";
 import { useForm } from "@inertiajs/inertia-react";
 import { PrimaryButton } from "../Components/Button";
@@ -87,7 +88,8 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
     Institution: "",
     Password: "",
     "Password confirmation": "",
-    referral_code: ""
+    referral_code: "",
+    recaptcha: ""
   });
 
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
@@ -254,6 +256,17 @@ const Register: React.FC<IProps> = ({ countries, failure }: IProps) => {
                 <div className="annotate error">Could not register, please try again</div>
               </div>
             )}
+
+            <div className="input-group">
+              <ReCAPTCHA
+                sitekey="6LeYOskbAAAAANlHSl8JtcCgv49-rglm9EjZFrPn"
+                onChange={(token: string | null) => setData('recaptcha', token || "")}
+                theme="dark"
+              />
+              {errors.recaptcha && (
+                <div className="error">{errors.recaptcha}</div>
+              )}
+            </div>
 
             <div className="input-group">
               <PrimaryButton
