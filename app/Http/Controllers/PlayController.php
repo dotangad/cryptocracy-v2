@@ -62,7 +62,7 @@ class PlayController extends Controller
         $req->validate([
             'answer' => [
                 'required',
-                'regex:/^[a-z0-9-_]+$/',
+                'regex:/^[a-z0-9-_{}]+$/',
                 new Level
             ]
         ]);

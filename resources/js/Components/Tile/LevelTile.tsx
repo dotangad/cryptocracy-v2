@@ -76,7 +76,7 @@ export const LevelTile: React.FC<ITileProps> = ({
                       "answer",
                       e.target.value
                         .split("")
-                        .filter((x: any) => /^[a-z0-9-_]$/.test(x))
+                        .filter((x: any) => /^[a-z0-9-_{}]$/.test(x))
                         .join("")
                     )
                   }
