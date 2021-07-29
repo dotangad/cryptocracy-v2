@@ -83,6 +83,16 @@ const UserCard: React.FC<any> = ({ referred_users }: any): JSX.Element => {
           }
         ]
         : []
+    )
+    .concat(
+      auth.user.team
+        ? [
+          {
+            label: "Team",
+            data: auth.user.team
+          }
+        ]
+        : []
     );
 
   return (

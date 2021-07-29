@@ -180,6 +180,7 @@ export interface IPageProps extends Page<PageProps> {
     auth: {
       authenticated: boolean;
       user: {
+        team: string;
         username: string;
         name: string;
         email: string;

@@ -10,6 +10,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\ShortlinkController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -133,6 +134,14 @@ Route::post('/play/next', [PlayController::class, 'next'])
 Route::post('/play/try', [PlayController::class, 'try'])
     ->middleware(['auth', 'dq', 'inprogress'])
     ->name('play.try');
+
+Route::post('/team/queen', [TeamController::class, 'queen'])
+    ->middleware(['auth', 'dq', 'inprogress'])
+    ->name('team.queen');
+
+Route::post('/team/ace', [TeamController::class, 'ace'])
+    ->middleware(['auth', 'dq', 'inprogress'])
+    ->name('team.ace');
 
 Route::post('/referral/set', [ReferralController::class, 'set_referral_code'])
     ->middleware(['auth', 'dq'])

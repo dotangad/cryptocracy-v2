@@ -17,6 +17,7 @@ class HandleInertiaRequests extends Middleware
      */
     protected $rootView = 'app';
 
+
     /**
      * Determines the current asset version.
      *
@@ -65,7 +66,8 @@ class HandleInertiaRequests extends Middleware
                     'disqualify',
                     'points',
                     'tile_id',
-                    'referral_code'
+                    'referral_code',
+                    'team'
                 )
                 : null,
 

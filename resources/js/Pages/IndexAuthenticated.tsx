@@ -5,6 +5,7 @@ import Layout, { SidebarTop, IPageProps } from "../Components/Layout";
 import { ChevronRight } from "../Components/Icons";
 import Countdown from "../Components/Layout/Countdown";
 import { ReferralCodeForm } from "../Components/ReferralCodeForm";
+import { CharacterChoice } from "../Components/CharacterChoice";
 import Notifications from "../Components/Notifications";
 import UserCard, { UserCardContainer } from "../Components/IndexUserCard";
 
@@ -175,6 +176,7 @@ const Index: React.FC<IIndexProps> = ({ notifications, referred_users }: IIndexP
                           <Countdown large={true} />
                         </div>
                         {!user.referral_code && <ReferralCodeForm />}
+                        {!user.team && <CharacterChoice />}
                         <NumberCard>
                           <span>{user.tile_id - 1}</span>
                           <div>tile</div>
