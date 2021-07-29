@@ -12,7 +12,6 @@ class LeaderboardController extends Controller
         $users = User::orderBy('created_at', 'ASC')
             ->where('admin', false)
             ->where('disqualified', false)
-            ->orderBy('last_solved', 'DESC')
             ->orderBy('points', 'DESC')
             ->get()
             ->map(function ($user, $key) {
