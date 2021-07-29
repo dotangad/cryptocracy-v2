@@ -71,13 +71,27 @@ const Back = styled.div`
   }
 `;
 
-const CountdownContainer = styled.div`
+const AthenaContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
-  padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+
+  & a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & img {
+    height: 70%;
+    width: auto;
+  }
 `;
+
+
 
 export interface ITile {
   id: number;
@@ -133,9 +147,11 @@ const Play: React.FC<IPlayProps> = ({
             <Title>Play</Title>
           </GridArea>
           <GridArea area="r2c3">
-            <CountdownContainer>
-              <Countdown style={{ transform: "scale(1.5)", height: "auto" }} />
-            </CountdownContainer>
+            <AthenaContainer>
+              <a href="https://athenaeducation.co.in" target="_blank">
+                <img src="/img/athena.png" alt="Athena Education" />
+              </a>
+            </AthenaContainer>
           </GridArea>
           <GridArea area="r2c4"></GridArea>
           <GridArea area="r3c1"></GridArea>

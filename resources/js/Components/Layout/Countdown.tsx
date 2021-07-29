@@ -25,7 +25,7 @@ const CountdownContainer = styled.div`
 
     > span:first-child {
       background: ${({ started }: ICountdownContainerProps) =>
-        started ? "#ff000060" : "#ffffff30"};
+    started ? "#ff000060" : "#ffffff30"};
       padding: 5px;
       font-size: 1.1rem;
       border: none;
@@ -62,7 +62,7 @@ const CountdownContainerLg = styled(CountdownContainer)`
       border-radius: 5px;
       margin-bottom: 5px;
       background: ${({ started }: ICountdownContainerProps) =>
-        started ? "#6f0000" : "#292929"};
+    started ? "#6f0000" : "#292929"};
     }
 
     > span:last-child {
