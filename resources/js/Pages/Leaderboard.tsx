@@ -77,19 +77,15 @@ interface IProps {
 }
 
 const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
-  const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(
-    users.sort((a, b) => Number(b.points) - Number(a.points))
-  );
+  const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(users);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setDisplayUsers(
-      users
-        .filter(({ username }) =>
-          username.toLowerCase().includes(e.target.value.toLowerCase())
-        )
-        .sort((a, b) => Number(b.points) - Number(a.points))
+      users.filter(({ username }) =>
+        username.toLowerCase().includes(e.target.value.toLowerCase())
+      )
     );
   };
 
