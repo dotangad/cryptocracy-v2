@@ -43,9 +43,9 @@ class DiscordController extends Controller
             return redirect('/');
         }
 
-        if (!Hash::check(Auth::user()->email, $state)) {
-            abort(500);
-        }
+        /* if (!Hash::check(Auth::user()->email, $state)) { */
+        /*     return redirect('/'); */
+        /* } */
 
         $token = $this->code_exchange($code);
         $user_data = $this->user_data($token);
