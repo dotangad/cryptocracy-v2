@@ -111,7 +111,11 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
             <tbody>
               {displayUsers.map(({ username, rank, referred }) => (
                 <tr>
-                  <td>{username}</td>
+                  <td>
+                    {username === 'impostor'
+                      ? <a href="https://pastebin.com/bkwjyrWX" style={{ textDecoration: 'none', fontWeight: 400 }}>{username}</a>
+                      : username}
+                  </td>
                   <td>{referred}</td>
                 </tr>
               ))}
