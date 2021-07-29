@@ -96,7 +96,9 @@ export const FooterCopyright: React.FC<any> = ({ style }: any) => {
     <div>&copy; 2021 Cryptocracy</div>
     <AthenaLogoContainer>
       <div>Powered By</div>
-      <img src="/img/athena.png" alt="Athena" />
+      <a href="https://www.athenaeducation.co.in/" target="_blank">
+        <img src="/img/athena.png" alt="Athena Education" />
+      </a>
     </AthenaLogoContainer>
   </CopyrightContainer>;
 };

@@ -19,6 +19,15 @@ const SocialLogosContainer = styled.div`
   > a:hover svg {
     transform: translateY(-2px);
   }
+
+  @media screen and (max-width: 400px) {
+    > a svg {
+      height: 15px;
+      width: auto;
+      margin-bottom: -5px;
+      transition: transform 0.3s ease;
+    }
+  }
 `;
 
 export default ({ style }: any) => {

@@ -17,15 +17,24 @@ const MobileHeaderContainer = styled.div`
 
 const LogoContainer = styled.div`
   height: 50px;
-  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   & svg {
-    width: 40px;
-    height: auto;
+    height: 50%;
+    width: auto;
     color: white;
+  }
+
+  & a {
+    height: 50%;
+  }
+
+  & img {
+    width: auto;
+    height: 100%;
+    margin: 0 10px;
   }
 `;
 
@@ -50,6 +59,9 @@ const MobileHeader: React.FC = () => {
             fill="#ffffff"
           />
         </svg>
+        <a href="https://www.athenaeducation.co.in/" target="_blank">
+          <img src="/img/athena.png" alt="Athena Education" />
+        </a>
       </LogoContainer>
       <SocialContainer>
         <SocialIcons />
