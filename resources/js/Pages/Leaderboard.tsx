@@ -70,7 +70,6 @@ interface ILeaderboardUser {
   rank: number;
   username: string;
   points: number;
-  referred: number;
 }
 
 interface IProps {
@@ -79,7 +78,7 @@ interface IProps {
 
 const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
   const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(
-    users.sort((a, b) => Number(b.referred) - Number(a.referred))
+    users.sort((a, b) => Number(b.points) - Number(a.points))
   );
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -90,7 +89,7 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
         .filter(({ username }) =>
           username.toLowerCase().includes(e.target.value.toLowerCase())
         )
-        .sort((a, b) => Number(b.referred) - Number(a.referred))
+        .sort((a, b) => Number(b.points) - Number(a.points))
     );
   };
 
@@ -109,7 +108,7 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
               </tr>
             </thead>
             <tbody>
-              {displayUsers.map(({ username, rank, points }) => (
+              {displayUsers.map(({ username, points }) => (
                 <tr>
                   <td>
                     {username === "impostor" ? (
