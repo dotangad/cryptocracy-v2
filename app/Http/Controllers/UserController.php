@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Tile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -120,6 +121,18 @@ class UserController extends Controller
     public function recalibrate_points(User $user)
     {
         $user->recalibrate_points();
+
+        return Redirect::route('users.show', $user);
+    }
+
+    public function change_pwd(User $user)
+    {
+        $body = request()->validate([
+            'password' => ['required'],
+        ]);
+
+        $user->password = Hash::make($body['password']);
+        $user->save();
 
         return Redirect::route('users.show', $user);
     }

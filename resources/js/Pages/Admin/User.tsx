@@ -5,6 +5,7 @@ import AdminLayout from "../../Components/Layout/Admin";
 import { PrimaryButton } from "../../Components/Button";
 import { IUser } from "./Users";
 import UserTiles, { ITilesF } from "../../Components/Admin/UserTiles";
+import { ChangePasswordForm } from "../../Components/Admin/ChangePwd";
 
 const Table = styled.table`
   width: 100%;
@@ -116,6 +117,9 @@ const User: React.FC<IUserPageProps> = ({
             processing={processing}
           />
         </ButtonContainer>
+
+        <ChangePasswordForm id={user.id} />
+
         <div style={{ maxWidth: "1000px", paddingBottom: "100px" }}>
           <div
             style={{
