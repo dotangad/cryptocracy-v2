@@ -61,7 +61,7 @@ const Tiles: React.FC<IAdminTilesProps> = ({ tiles }: IAdminTilesProps) => {
       {tiles.map((tile) => (
         <div key={tile.id} style={{ gridArea: `x${String(tile.id).padStart(2, "0")}` }}>
           <InertiaLink href={`/admin/tiles/${tile.id}`}>
-            <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>{tile.id}</div>
+            <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>{tile.id - 1}</div>
             <div>{tile.type}</div>
           </InertiaLink>
         </div>

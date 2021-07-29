@@ -23,7 +23,7 @@ export const LevelTile: React.FC<ITileProps> = ({
       <LevelContainer>
         <div className="content">
           <div>
-            <h1>Level {tile.id}</h1>
+            <h1>Level {tile.id - 1}</h1>
             <div className="points" style={{ color: solved ? "green" : "#999" }}>
               {tile.points}
             </div>

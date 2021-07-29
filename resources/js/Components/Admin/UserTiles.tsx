@@ -117,11 +117,11 @@ const UserTiles: React.FC<ITilesProps> = ({ tiles, tile, userId }: ITilesProps) 
       i < tiles.length
         ? { ...tiles[i], visited: true }
         : {
-            id: i + 1,
-            visited: false,
-            content: "",
-            type: TileType.STORY
-          }
+          id: i + 1,
+          visited: false,
+          content: "",
+          type: TileType.STORY
+        }
     );
 
   return (
@@ -137,7 +137,7 @@ const UserTiles: React.FC<ITilesProps> = ({ tiles, tile, userId }: ITilesProps) 
             }
             style={{ gridArea: `x${String(tile_.id).padStart(2, "0")}` }}
           >
-            <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>{tile_.id}</div>
+            <div style={{ fontSize: "1.2rem", fontWeight: 600 }}>{tile_.id - 1}</div>
             <div style={{ display: "block", visibility: "visible" }}>
               {tile_.type as string}
             </div>
@@ -145,7 +145,7 @@ const UserTiles: React.FC<ITilesProps> = ({ tiles, tile, userId }: ITilesProps) 
         ) : (
           <a key={i}>
             <div style={{ fontSize: "2.2rem", fontWeight: 700, color: "#555" }}>
-              {tile_.id}
+              {tile_.id - 1}
             </div>
             <div style={{ display: "none", visibility: "hidden" }}></div>
           </a>

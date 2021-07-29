@@ -176,7 +176,7 @@ const Index: React.FC<IIndexProps> = ({ notifications, referred_users }: IIndexP
                         </div>
                         {!user.referral_code && <ReferralCodeForm />}
                         <NumberCard>
-                          <span>{user.tile_id}</span>
+                          <span>{user.tile_id - 1}</span>
                           <div>tile</div>
                         </NumberCard>
                       </>

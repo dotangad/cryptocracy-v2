@@ -82,9 +82,8 @@ const User: React.FC<IUserTilePageProps> = ({
 
   return (
     <AdminLayout
-      title={`User ${user.email} - Tile ${tile.id}${
-        user.tile_id === tile.id ? " [current]" : ""
-      }`}
+      title={`User ${user.email} - Tile ${tile.id - 1}${user.tile_id === tile.id ? " [current]" : ""
+        }`}
       backTo={`/admin/users/${user.id}`}
     >
       <div style={{ maxWidth: "1000px", paddingBottom: "100px" }}>

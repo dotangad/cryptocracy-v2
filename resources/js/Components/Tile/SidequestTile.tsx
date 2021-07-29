@@ -22,7 +22,7 @@ export const SidequestTile: React.FC<ITileProps> = ({
       <SidequestContainer>
         <div className="content">
           <div>
-            <h1>Sidequest {tile.id}</h1>
+            <h1>Sidequest {tile.id - 1}</h1>
             {userTile.media_link &&
               (userTile.sidequest_points === 0 ? (
                 <div

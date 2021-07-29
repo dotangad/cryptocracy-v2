@@ -11,12 +11,11 @@ export const StoryTile: React.FC<ITileProps> = ({
   canBack,
   canNext
 }: ITileProps) => {
-  const { post, processing } = useForm({});
   return (
     <TileContainer>
       <StoryContainer>
         <div className="content">
-          <h1>Tile {tile.id}</h1>
+          <h1>Tile {tile.id - 1}</h1>
           <p dangerouslySetInnerHTML={{ __html: tile.content }}></p>
         </div>
         <div className="answer">
