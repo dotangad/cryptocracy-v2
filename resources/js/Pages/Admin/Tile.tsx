@@ -36,7 +36,7 @@ const TilePage: React.FC<ITilePageProps> = ({ tile, failure }: ITilePageProps) =
   const handleChange = (e: any) => setData(e.target.name, e.target.value);
 
   return (
-    <AdminLayout title={`Tile ${tile.id}`} backTo="/admin/tiles">
+    <AdminLayout title={`Tile ${tile.id - 1}`} backTo="/admin/tiles">
       <div style={{ paddingBottom: "100px" }}>
         <form
           onSubmit={(e: any) => {
