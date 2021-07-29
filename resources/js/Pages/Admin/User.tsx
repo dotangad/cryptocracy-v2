@@ -51,6 +51,7 @@ interface IUserPageProps {
   tiles: ITilesF[];
   tile: ITilesF;
   pointsHistory: { points: number; label: string }[];
+  referrals: IUser[];
 }
 
 interface IFormProps {
@@ -96,7 +97,8 @@ const User: React.FC<IUserPageProps> = ({
   tile,
   pointsHistory,
   users_referred,
-  referred_by
+  referred_by,
+  referrals
 }: IUserPageProps) => {
   const { post, processing } = useForm({});
 
@@ -179,6 +181,25 @@ const User: React.FC<IUserPageProps> = ({
               processing={processing}
             />
           </ButtonContainer>
+
+          <Table style={{ marginTop: "50px" }}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {referrals.map(({ id, name, email }, i) => (
+                <tr key={i}>
+                  <td>{name}</td>
+                  <td>{email}</td>
+                  <td><a href={`/admin/users/${id}`}>User</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </div>
       </>
     </AdminLayout>

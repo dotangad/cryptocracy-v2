@@ -63,7 +63,8 @@ class UserController extends Controller
                 ->tile()
                 ->first()
                 ->makeHidden(['solution', 'created_at', 'updated_at']),
-            'pointsHistory' => $user->points_history()
+            'pointsHistory' => $user->points_history(),
+            'referrals' => User::where('referred_by', $user->id)->get(),
         ]);
     }
 
