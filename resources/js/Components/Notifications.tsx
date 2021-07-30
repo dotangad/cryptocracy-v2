@@ -50,7 +50,7 @@ const Notifications: React.FC<INotificationsProps> = ({
         ) : (
           notifications.map(({ content, created_at }, i) => (
             <div key={i}>
-              <span>{content}</span>
+              <span dangerouslySetInnerHTML={{ __html: content }} />
               <span className="timestamp">{created_at}</span>
             </div>
           ))
