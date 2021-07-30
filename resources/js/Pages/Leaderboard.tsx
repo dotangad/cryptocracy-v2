@@ -18,7 +18,6 @@ const LeaderboardTable = styled.table`
     overflow: hidden;
   }
 
-  /*
   tbody tr:nth-child(1) {
     color: #ffd700;
   }
@@ -32,7 +31,11 @@ const LeaderboardTable = styled.table`
   tbody tr:nth-child(-n + 15) {
     font-weight: bold;
   }
-  */
+
+  tbody tr.dq {
+    font-weight: bold;
+    color: #555;
+  }
 
   th,
   td {
@@ -68,22 +71,36 @@ const SearchInput = styled.input`
 
 interface ILeaderboardUser {
   rank: number;
+  team: string;
   username: string;
+  points: number;
+}
+
+interface IDQUser {
+  username: string;
+  team: string;
   points: number;
 }
 
 interface IProps {
   users: ILeaderboardUser[];
+  dq: IDQUser[];
 }
 
-const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
+const Leaderboard: React.FC<IProps> = ({ users, dq }: IProps) => {
   const [displayUsers, setDisplayUsers] = useState<ILeaderboardUser[]>(users);
+  const [displayDQUsers, setDisplayDQUsers] = useState<IDQUser[]>(dq);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setDisplayUsers(
       users.filter(({ username }) =>
+        username.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
+    setDisplayDQUsers(
+      dq.filter(({ username }) =>
         username.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
@@ -99,13 +116,15 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
           <LeaderboardTable>
             <thead>
               <tr>
+                <th>Rank</th>
                 <th>Username</th>
                 <th>Points</th>
               </tr>
             </thead>
             <tbody>
-              {displayUsers.map(({ username, points }) => (
+              {displayUsers.map(({ rank, team, username, points }) => (
                 <tr>
+                  <td>{rank}</td>
                   <td>
                     {username === "impostor" ? (
                       <a
@@ -116,9 +135,18 @@ const Leaderboard: React.FC<IProps> = ({ users }: IProps) => {
                       </a>
                     ) : (
                       username
-                    )}
+                    )} {team ? `(${team})` : ""}
                   </td>
                   <td>{points}</td>
+                </tr>
+              ))}
+              {dq.map(({ username, team, points }) => (
+                <tr className="dq">
+                  <td>DQ</td>
+                  <td>
+                    {username} {team ? `(${team})` : ""}
+                  </td>
+                  <td>-{points}</td>
                 </tr>
               ))}
             </tbody>
