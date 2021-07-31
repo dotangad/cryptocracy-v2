@@ -18,17 +18,20 @@ const LeaderboardTable = styled.table`
     overflow: hidden;
   }
 
-  tbody tr:nth-child(1) {
+  tbody tr.first {
     color: #ffd700;
+    font-weight: bold;
   }
-  tbody tr:nth-child(2) {
+  tbody tr.second {
     color: #c0c0c0;
+    font-weight: bold;
   }
-  tbody tr:nth-child(3) {
+  tbody tr.third {
     color: #cd7f32;
+    font-weight: bold;
   }
 
-  tbody tr:nth-child(-n + 15) {
+  tbody tr.top15 {
     font-weight: bold;
   }
 
@@ -106,6 +109,17 @@ const Leaderboard: React.FC<IProps> = ({ users, dq }: IProps) => {
     );
   };
 
+  const rowClassname = (rank: number) =>
+    rank === 1
+      ? "first"
+      : rank === 2
+        ? "second"
+        : rank === 3
+          ? "third"
+          : rank <= 15
+            ? "top15"
+            : "";
+
   return (
     <>
       <Global />
@@ -123,7 +137,7 @@ const Leaderboard: React.FC<IProps> = ({ users, dq }: IProps) => {
             </thead>
             <tbody>
               {displayUsers.map(({ rank, team, username, points }) => (
-                <tr>
+                <tr className={rowClassname(rank)}>
                   <td>{rank}</td>
                   <td>
                     {username === "impostor" ? (
@@ -140,7 +154,7 @@ const Leaderboard: React.FC<IProps> = ({ users, dq }: IProps) => {
                   <td>{points}</td>
                 </tr>
               ))}
-              {dq.map(({ username, team, points }) => (
+              {displayDQUsers.map(({ username, team, points }) => (
                 <tr className="dq">
                   <td>DQ</td>
                   <td>
