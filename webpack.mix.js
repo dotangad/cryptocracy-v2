@@ -17,7 +17,8 @@ mix
     ziggy: path.resolve("vendor/tightenco/ziggy/dist") // or 'vendor/tightenco/ziggy/dist/vue' if you're using the Vue plugin
   })
   .ts("resources/js/app.js", "public/js")
-  .postCss("resources/css/app.css", "public/css", [require("tailwindcss")]);
+  .postCss("resources/css/app.css", "public/css", [require("tailwindcss")])
+  .postCss("resources/css/leaderboard.css", "public/css", [require("tailwindcss")]);
 
 mix.disableNotifications();
 

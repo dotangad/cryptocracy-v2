@@ -41,6 +41,9 @@ Route::get('/dq', [IndexController::class, 'dq'])
 Route::get('/leaderboard', [LeaderboardController::class, 'show'])
     ->name('leaderboard');
 
+Route::get('/leaderboard/static', [LeaderboardController::class, 'static'])
+    ->name('leaderboard.static');
+
 Route::get('/register', [RegisterController::class, 'show'])
     ->middleware(['guest'])
     ->name('register');
