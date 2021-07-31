@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\HandleInertiaRequests::class,
+        \App\Http\Middleware\StaticLeaderboard::class,
     ];
 
     /**
