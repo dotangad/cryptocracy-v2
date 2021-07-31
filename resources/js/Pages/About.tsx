@@ -140,7 +140,7 @@ const About: React.FC = () => {
       }
     },
     {
-      link: "https://slingshotahead.com/",
+      link: "https://slingshotahead.com/?utm_campaign=partnership&utm_medium=web&utm_source=cryptocracy",
       img: "/img/slingshot-white.png",
       alt: "Slingshot",
       css: {
