@@ -36,7 +36,7 @@ class LeaderboardController extends Controller
     public function static()
     {
         return view('leaderboard', [
-            'users' => User::select('team', 'username', 'points')
+            'users' => User::select('name')
                 ->where('admin', false)
                 ->where('disqualified', false)
                 ->orderBy('points', 'DESC')
@@ -45,9 +45,7 @@ class LeaderboardController extends Controller
                 ->map(function ($user, $key) {
                     return [
                         'rank' => $key + 1,
-                        'team' => $user->team,
-                        'username' => $user->username,
-                        'points' => $user->points
+                        'username' => $user->name,
                     ];
                 }),
             'dq' => User::select('username', 'team', 'points')

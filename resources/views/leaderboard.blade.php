@@ -102,7 +102,6 @@ function class_from_rank($rank)
                             <tr>
                                 <th>Rank</th>
                                 <th>Username</th>
-                                <th>Points</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,14 +109,12 @@ function class_from_rank($rank)
                             <tr class={{class_from_rank($user['rank'])}}>
                                 <td>{{$user['rank']}}</td>
                                 <td>{{$user['username']}}</td>
-                                <td>{{$user['points']}}</td>
                             </tr>
                             @endforeach
                             @foreach ($dq as $user)
                             <tr class="dq">
                                 <td>DQ</td>
                                 <td>{{$user['username']}}</td>
-                                <td>-{{$user['points']}}</td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -158,7 +158,7 @@ td:nth-child(1) {
 }
 
 td:nth-child(2) {
-  width: 80%;
+  width: 90%;
 }
 
 td:nth-child(3) {
@@ -212,17 +212,17 @@ thead tr {
   .title {
     font-size: 2rem;
   }
-  
+
   .subtitle {
     margin-top: 10px;
     font-size: 1.2rem;
   }
-  
+
   .signoff {
-    font-size: 1.0rem;
+    font-size: 1rem;
   }
 
-.layer.leaderboard > .container {
-  padding: 40px 20px;
-}
+  .layer.leaderboard > .container {
+    padding: 40px 20px;
+  }
 }
