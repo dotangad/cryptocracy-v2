@@ -101,7 +101,7 @@ function class_from_rank($rank)
                         <thead>
                             <tr>
                                 <th>Rank</th>
-                                <th>Username</th>
+                                <th>Name</th>
                             </tr>
                         </thead>
                         <tbody>
