@@ -18,7 +18,8 @@ class AdminController extends Controller
             'attempts' => UserAttempt::count(),
             'levels_solved' => UserTile::where('solved', true)->count(),
             'users_referred' => User::whereNotNull('referred_by')->count(),
-            'sidequests_submitted' => UserTile::whereNotNull('media_link')->count()
+            'sidequests_submitted' => UserTile::whereNotNull('media_link')->count(),
+            'tiles_opened' => UserTile::count(),
         ]);
     }
 }
