@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'Angad Singh';
-        $user->email = 'mail@angad.dev';
-        $user->username = 'angad';
+        $user->name = 'Admin';
+        $user->email = 'admin@crytichunt.com';
+        $user->username = 'admin';
         $user->password = Hash::make('password');
-        $user->country = 'UG';
+        $user->country = 'IN';
         $user->phone = '+123';
-        $user->company = 'cryptocracy 123';
+        $user->company = 'Cryptocracy';
         $user->tile_id = 1;
         $user->admin = true;
         $user->save();
