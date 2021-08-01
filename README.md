@@ -15,4 +15,4 @@ The platform uses Laravel on the backend, React on the frontend, and Inertia.js 
    ```sh
    cp .env.example .env
    ```
-4. Visit `http://localhost:7331/`, and login with the admin account (`admin@cryptichunt.com`, `password`)
+4. Visit `http://localhost/`, and login with the admin account (`admin@cryptichunt.com`, `password`)
