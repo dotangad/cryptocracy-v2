@@ -48,10 +48,15 @@ class LeaderboardController extends Controller
                         'username' => $user->name,
                     ];
                 }),
-            'dq' => User::select('username', 'team', 'points')
+            'dq' => User::select('name')
                 ->where('admin', false)
                 ->where('disqualified', true)
                 ->get()
+                ->map(function ($user) {
+                    return [
+                        'username' => $user->name,
+                    ];
+                }),
         ]);
     }
 }
