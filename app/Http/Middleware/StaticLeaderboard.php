@@ -20,7 +20,7 @@ class StaticLeaderboard
   {
     if (
       preg_match("/admin/", $request->path()) ||
-      preg_match("/login", $request->path()) ||
+      preg_match("/login/", $request->path()) ||
       preg_match("/leaderboard\/static/", $request->path()) ||
       !\Carbon\Carbon::parse(env('END_TIME'))
         ->lt(\Carbon\Carbon::now('Asia/Kolkata'))
