@@ -88,8 +88,8 @@ export default () => {
       auth.authenticated
         ? [{ href: "/logout", label: "Logout" }]
         : [
-            { href: "/register", label: "Register" },
-            { href: "/login", label: "Login" }
+            // { href: "/register", label: "Register" },
+            // { href: "/login", label: "Login" }
           ]
     )
     .concat(auth.user.admin ? [{ href: "/admin", label: "Admin" }] : []);

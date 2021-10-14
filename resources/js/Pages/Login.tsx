@@ -74,9 +74,10 @@ const InputGroupGroup = styled.div`
 
 interface IProps {
   failure?: string;
+  naughty?: boolean;
 }
 
-const Login: React.FC<IProps> = ({ failure }: IProps) => {
+const Login: React.FC<IProps> = ({ failure, naughty }: IProps) => {
   const { data, setData, post, processing, reset, errors } = useForm({
     Email: "",
     Password: ""
@@ -127,6 +128,12 @@ const Login: React.FC<IProps> = ({ failure }: IProps) => {
                 {errors.Password && <div className="error">{errors.Password}</div>}
               </div>
             </InputGroupGroup>
+
+            {naughty && (
+              <div style={{ display: "none" }}>
+                <audio controls autoPlay loop src="https://cdn.discordapp.com/attachments/716062274577498142/898120858873262080/naughty-naughty.mp3"></audio>
+             </div>
+            )}
 
             {failure && (
               <div className="input-group">

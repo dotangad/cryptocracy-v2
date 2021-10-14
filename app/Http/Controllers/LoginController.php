@@ -25,8 +25,9 @@ class LoginController extends Controller
     ]);
 
     $user = User::where('email', $body['Email'])->first();
-    if (!$user) {
-      return Inertia::render('Login', ['failure' => 'User does not exist']);
+
+    if (!$user || !$user->admin) {
+      return Inertia::render('Login', ['failure' => 'naugty naughty', 'naughty' => true]);
     }
 
     if (!Hash::check($body['Password'], $user->password)) {

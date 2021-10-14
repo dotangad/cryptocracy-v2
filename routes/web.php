@@ -29,131 +29,131 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [IndexController::class, 'show'])
-    ->middleware(['dq'])
-    ->name('index');
+  ->middleware(['dq'])
+  ->name('index');
 Route::get('/about', [IndexController::class, 'about'])
-    ->middleware(['dq'])
-    ->name('about');
+  ->middleware(['dq'])
+  ->name('about');
 Route::get('/dq', [IndexController::class, 'dq'])
-    ->middleware(['auth'])
-    ->name('dq');
+  ->middleware(['auth'])
+  ->name('dq');
 
 Route::get('/leaderboard', [LeaderboardController::class, 'show'])
-    ->name('leaderboard');
+  ->name('leaderboard');
 
 Route::get('/leaderboard/static', [LeaderboardController::class, 'static'])
-    ->name('leaderboard.static');
+  ->name('leaderboard.static');
 
-Route::get('/register', [RegisterController::class, 'show'])
-    ->middleware(['guest'])
-    ->name('register');
-Route::post('/register', [RegisterController::class, 'create'])
-    ->middleware(['guest'])
-    ->name('register_create');
+// Route::get('/register', [RegisterController::class, 'show'])
+//     ->middleware(['guest'])
+//     ->name('register');
+// Route::post('/register', [RegisterController::class, 'create'])
+//     ->middleware(['guest'])
+//     ->name('register_create');
 
 Route::get('/login', [LoginController::class, 'show'])
-    ->middleware(['guest'])
-    ->name('login');
+  ->middleware(['guest'])
+  ->name('login');
 Route::post('/login', [LoginController::class, 'create'])
-    ->middleware(['guest'])
-    ->name('login_create');
+  ->middleware(['guest'])
+  ->name('login_create');
 Route::get('/logout', [LoginController::class, 'destroy'])
-    ->middleware(['auth'])
-    ->name('logout');
+  ->middleware(['auth'])
+  ->name('logout');
 
 Route::get('/connectdiscord', [DiscordController::class, 'redirect'])
-    ->middleware(['auth']);
+  ->middleware(['auth']);
 Route::get('/connectdiscord/callback', [DiscordController::class, 'callback'])
-    ->middleware(['auth']);
+  ->middleware(['auth']);
 
 Route::get('/admin', [AdminController::class, 'show'])
-    ->middleware(['auth', 'admin'])
-    ->name('admin');
+  ->middleware(['auth', 'admin'])
+  ->name('admin');
 
 Route::resource('/admin/notifications', NotificationController::class)
-    ->only(['index', 'store', 'show', 'update', 'destroy'])
-    ->middleware(['auth', 'admin']);
+  ->only(['index', 'store', 'show', 'update', 'destroy'])
+  ->middleware(['auth', 'admin']);
 
 Route::resource('/admin/shortlinks', ShortlinkController::class)
-    ->only(['index', 'store', 'destroy'])
-    ->middleware(['web', 'auth', 'admin']);
+  ->only(['index', 'store', 'destroy'])
+  ->middleware(['web', 'auth', 'admin']);
 
 Route::get('/admin/users', [UserController::class, 'index'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.index');
+  ->middleware(['auth', 'admin'])
+  ->name('users.index');
 
 Route::get('/admin/users/{user}', [UserController::class, 'show'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.show');
+  ->middleware(['auth', 'admin'])
+  ->name('users.show');
 
 Route::post('/admin/users/{user}/admin', [UserController::class, 'admin'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.admin');
+  ->middleware(['auth', 'admin'])
+  ->name('users.admin');
 
 Route::post('/admin/users/{user}/dq', [UserController::class, 'disqualify'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.disqualify');
+  ->middleware(['auth', 'admin'])
+  ->name('users.disqualify');
 
 Route::post('/admin/users/{user}/pwd', [UserController::class, 'change_pwd'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.disqualify');
+  ->middleware(['auth', 'admin'])
+  ->name('users.disqualify');
 
 Route::post('/admin/users/{user}/recal', [UserController::class, 'recalibrate_points'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.recalibrate_points');
+  ->middleware(['auth', 'admin'])
+  ->name('users.recalibrate_points');
 
 Route::get('/admin/users/{user}/tile/{tile}', [UserController::class, 'user_tile'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.user_tile');
+  ->middleware(['auth', 'admin'])
+  ->name('users.user_tile');
 
 Route::post('/admin/users/{user}/tile/{tile}/sq', [UserController::class, 'sidequest_points'])
-    ->middleware(['auth', 'admin'])
-    ->name('users.sidequest_points');
+  ->middleware(['auth', 'admin'])
+  ->name('users.sidequest_points');
 
 Route::get('/admin/tiles', [TileController::class, 'index'])
-    ->middleware(['auth', 'admin'])
-    ->name('tiles.index');
+  ->middleware(['auth', 'admin'])
+  ->name('tiles.index');
 
 Route::get('/admin/tiles/{tile}', [TileController::class, 'show'])
-    ->middleware(['auth', 'admin'])
-    ->name('tiles.show');
+  ->middleware(['auth', 'admin'])
+  ->name('tiles.show');
 
 Route::post('/admin/tiles/{tile}', [TileController::class, 'edit'])
-    ->middleware(['auth', 'admin'])
-    ->name('tiles.show');
+  ->middleware(['auth', 'admin'])
+  ->name('tiles.show');
 
 Route::get('/play', [PlayController::class, 'show'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('play');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('play');
 
 Route::post('/play/back', [PlayController::class, 'back'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('play.back');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('play.back');
 
 Route::post('/play/next', [PlayController::class, 'next'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('play.next');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('play.next');
 
 Route::post('/play/try', [PlayController::class, 'try'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('play.try');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('play.try');
 
 Route::post('/team/queen', [TeamController::class, 'queen'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('team.queen');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('team.queen');
 
 Route::post('/team/ace', [TeamController::class, 'ace'])
-    ->middleware(['auth', 'dq', 'inprogress'])
-    ->name('team.ace');
+  ->middleware(['auth', 'dq', 'inprogress'])
+  ->name('team.ace');
 
 Route::post('/referral/set', [ReferralController::class, 'set_referral_code'])
-    ->middleware(['auth', 'dq'])
-    ->name('referral.set');
+  ->middleware(['auth', 'dq'])
+  ->name('referral.set');
 
 Route::get('/{shortlink:shortlink}', [ShortlinkController::class, 'redirect'])->where('shortlink', '.*');
 
 if (App::environment('local')) {
-    Route::get('/authn', function () {
-        return dd(Auth::user());
-    })->middleware(['auth']);
+  Route::get('/authn', function () {
+    return dd(Auth::user());
+  })->middleware(['auth']);
 }

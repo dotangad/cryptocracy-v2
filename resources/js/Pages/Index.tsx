@@ -76,15 +76,7 @@ const Index: React.FC = () => {
           <PoweredByAthena />
 
           <p>
-            <strong>We're back. 30-31st July.</strong>
-          </p>
-
-          <CountdownContainer>
-            <Countdown large={true} />
-          </CountdownContainer>
-
-          <p>
-            Cryptocracy is an international 48-hour cryptic hunt, <InertiaLink href="/about">with prizes worth over &#8377;5,00,000</InertiaLink>.
+            Cryptocracy was an international 48-hour cryptic hunt held on 30st-31st July, <InertiaLink href="/about">with prizes worth over &#8377;5,00,000</InertiaLink>.
           </p>
 
           <IndexButtonContainer>
